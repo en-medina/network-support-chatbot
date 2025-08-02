@@ -1,0 +1,2834 @@
+{
+	"DataArray": [
+		{
+			"Question": "Why is my internet connection so slow today?",
+			"Answer": "I understand your frustration with the slow internet. This could be due to several factors such as network congestion, issues with your local device, or a problem with the internet service provider. Let's investigate this together to find the root cause.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What's the difference between a hub and a switch?",
+			"Answer": "That's a great question! A hub simply broadcasts data to all connected devices, which can create a lot of unnecessary traffic. A switch is smarter; it sends data only to the specific device that needs it, which makes the network faster and more efficient.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I can't connect to the office Wi-Fi. What should I do?",
+			"Answer": "Thanks for letting me know. Let's try a few things. First, please ensure your device's Wi-Fi is enabled. If it is, try restarting your device. It's also possible you might be out of range of the access point or there's a temporary issue with the network.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What does DNS stand for and what does it do?",
+			"Answer": "Excellent question! DNS stands for Domain Name System. Think of it as the internet's phonebook. It translates human-friendly domain names, like www.google.com, into IP addresses that computers use to identify each other on the network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why do we use IP addresses?",
+			"Answer": "IP addresses are fundamental to how networks function. They provide a unique logical address for every device on a network, which allows routers to direct traffic and ensure data gets to the correct destination, much like a postal address for mail.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a firewall and why do we need one?",
+			"Answer": "A firewall is a crucial security device that acts as a barrier between our internal network and the outside internet. It monitors incoming and outgoing traffic and blocks malicious data, like viruses and hackers, based on a set of security rules we define.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm trying to print a document, but it's not working. Is the printer down?",
+			"Answer": "I'm sorry you're having trouble printing. Let's check a few things. Could you confirm that the printer is on and doesn't have any error messages on its screen? Also, please make sure you're connected to the office network. We can troubleshoot from there.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What is the difference between TCP and UDP?",
+			"Answer": "That's a great technical question! Both are protocols for sending data, but they work differently. TCP (Transmission Control Protocol) is connection-oriented, meaning it establishes a reliable connection and ensures all data arrives in the correct order. UDP (User Datagram Protocol) is connectionless; it's faster but doesn't guarantee delivery, which is fine for things like video streaming where speed is more important than perfect accuracy.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer has an IP address of 169.254.x.x. What does that mean?",
+			"Answer": "Thanks for providing that detail. An IP address in the 169.254.x.x range usually indicates an APIPA (Automatic Private IP Addressing) address. This means your computer couldn't get an IP address from our DHCP server. This could be a temporary network issue or a problem with your device's connection. Let's try to renew your IP address.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a VPN and why would I use it?",
+			"Answer": "A VPN, or Virtual Private Network, creates a secure, encrypted connection over a public network like the internet. It's like having a private tunnel for your data. We use it so you can securely access our company's network resources when you're working from home or traveling.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm getting a 'Duplicate IP Address' error. What should I do?",
+			"Answer": "That error means another device on the network is using the same IP address as yours. This can happen for a few reasons. The easiest fix is often to restart your computer, which should prompt it to get a new, unique IP address from our server.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What's the purpose of a subnet mask?",
+			"Answer": "A subnet mask is a number that helps a computer understand which part of an IP address is the network portion and which part is the host portion. This allows devices to know whether they're communicating with a device on the same local network or if they need to send the data to a router to reach a different network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Can you explain what a MAC address is?",
+			"Answer": "Of course! A MAC (Media Access Control) address is a unique hardware identifier assigned to every network interface card (NIC). Unlike an IP address, which can change, the MAC address is permanent and is used for communication between devices on the same local network segment.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Our team's shared drive seems to be offline. Can you check on it?",
+			"Answer": "Thank you for the report. I will check the status of the file server immediately. It could be undergoing maintenance, or there might be an unexpected issue. I'll provide an update as soon as I have one.",
+			"intent": "triage"
+		},
+		{
+			"Question": "Why is the Wi-Fi signal weak in the conference room?",
+			"Answer": "That's a common issue. Wi-Fi signal strength can be affected by distance from the access point, physical obstructions like walls, or interference from other electronic devices. We can look into placing a wireless range extender or another access point to improve coverage in that area.",
+			"intent": "device"
+		},
+		{
+			"Question": "What does it mean to 'ping' a server?",
+			"Answer": "Pinging is a basic network utility used to test the reachability of a host on an IP network. It sends a small packet of data to the server and waits for a reply. It's a quick way to see if a server is online and how long it takes for data to travel between your computer and the server.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I received an email that looks suspicious. What should I do?",
+			"Answer": "Thank you for being cautious. Please do not click any links or download any attachments from that email. This could be a phishing attempt to steal your credentials or install malware. Please forward the email to our security team, and then delete it. It's always better to be safe!",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What's the difference between a LAN, a WAN, and a CAN?",
+			"Answer": "Great question! A LAN (Local Area Network) covers a small area like a single office. A WAN (Wide Area Network) connects multiple LANs over a large geographical area. A CAN (Campus Area Network) is in between, connecting several buildings in a limited area like a university campus or corporate park.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why can't I access certain websites from the office network?",
+			"Answer": "Our company has a content filtering policy in place for security and productivity reasons. The firewall may be blocking certain categories of websites. If you have a business reason to access a blocked site, you can submit a request to have it reviewed.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is DHCP?",
+			"Answer": "DHCP stands for Dynamic Host Configuration Protocol. It's a network service that automatically assigns IP addresses and other network configuration information to devices when they connect to the network. This saves us from having to manually configure every computer.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My laptop is connected via an Ethernet cable, but I have no internet. The light on the port is off. What's wrong?",
+			"Answer": "Thanks for that detail. If the network port's LED is off, it usually means there's no physical connection. Please check that the cable is securely plugged into both your laptop and the wall jack. It's also possible the cable itself is faulty, or the port on the wall is inactive. Let's try a different cable first if you have one available.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What is the OSI model?",
+			"Answer": "The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a telecommunication or computing system into seven abstract layers. It helps us understand how different network protocols and devices interact to transmit data from a sender to a receiver.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to share a large file with a colleague. What's the best way to do that?",
+			"Answer": "For large files, the best method is to use our company's shared drive or a sanctioned cloud storage service. Emailing large files can clog up the mail server and may be blocked. Using the shared drive is fast, secure, and doesn't have the same size limitations.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'crosstalk' in network cabling?",
+			"Answer": "Crosstalk is a form of interference where the signal from one wire interferes with the signal in an adjacent wire. This is why the wires inside Ethernet cables are twisted into pairs; the twisting helps to cancel out this interference and ensure a clean signal.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why do I have to change my password so often?",
+			"Answer": "Regularly changing your password is a critical security practice. It helps protect your account and our network from unauthorized access. If a password is stolen, having a policy to change it periodically limits the time an attacker has to use it. It's a key part of our defense against cyber threats.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between HTTP and HTTPS?",
+			"Answer": "That's an important distinction! Both are protocols for viewing websites, but HTTPS is secure. The 'S' stands for 'Secure,' and it means the connection between your browser and the website is encrypted. You should always look for 'HTTPS' in the address bar, especially when entering sensitive information like passwords or credit card numbers.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The wireless mouse for my desktop is not working.",
+			"Answer": "I can help with that. First, let's check the batteries in the mouse to make sure they have power. If the batteries are good, you might need to re-pair the mouse with its USB receiver.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Can I install my own software on my work computer?",
+			"Answer": "For security reasons, our company policy requires that all software installations are handled by the IT department. This ensures that the software is properly licensed and free from malware. Please submit a ticket with your software request, and we'll be happy to assist you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'default gateway'?",
+			"Answer": "The default gateway is the router on a local network that serves as the access point to other networks, including the internet. When your computer needs to send data to a device that isn't on the same local network, it sends it to the default gateway, which then forwards it toward its destination.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The office printer is out of paper. Who should I contact?",
+			"Answer": "Thank you for letting us know. You can report printer supply issues like paper or toner to the office administrator, and they will restock it for you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm working from home and can't connect to the VPN.",
+			"Answer": "I'm sorry you're having trouble. Let's troubleshoot this. Please ensure you have a stable internet connection at home. Then, double-check that you are entering your username and password correctly. If it still fails, there may be an issue with the VPN software itself, and a reinstall might be necessary. Let's start by restarting your computer and trying again.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What is a 'VLAN'?",
+			"Answer": "A VLAN, or Virtual LAN, allows us to logically segment a physical network into multiple, separate broadcast domains. For example, we can put the Accounting department on one VLAN and the Marketing department on another, even if they're connected to the same switch. This improves security and network efficiency.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why is it important to keep my computer's operating system updated?",
+			"Answer": "Keeping your OS updated is vital for security. Updates often include patches for security vulnerabilities that have been discovered. By not updating, you leave your computer, and potentially our network, exposed to attacks that exploit those vulnerabilities.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My monitor screen is blank. What should I do?",
+			"Answer": "Let's figure this out. First, please check if the monitor is powered on; there should be a small light on the front. Also, ensure the video cable is securely connected to both the monitor and the computer. Sometimes just wiggling the cable can solve the problem!",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'phishing'?",
+			"Answer": "Phishing is a type of social engineering attack where an attacker sends a fraudulent email that appears to be from a reputable source, like a bank or our own IT department. The goal is to trick you into revealing sensitive information like passwords or financial details. It's very important to be skeptical of unsolicited emails asking for personal data.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Can I connect my personal laptop to the office's wired network?",
+			"Answer": "For security reasons, only company-issued devices are permitted on the wired network. However, you are welcome to connect your personal devices to our guest Wi-Fi network. Let me know if you need the password for that.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'latency' in a network?",
+			"Answer": "Latency refers to the time it takes for a packet of data to travel from its source to its destination. It's essentially the delay in network communication. High latency can make applications feel slow and unresponsive, especially in things like video conferencing or online gaming.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I deleted a file by accident. Is there any way to recover it?",
+			"Answer": "It's possible! First, please check the Recycle Bin on your desktop. If you don't find it there, we may be able to restore it from our network backups. Please provide me with the file name and the location where it was saved, and I'll check the backup server for you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the difference between single-mode and multi-mode fiber optic cable?",
+			"Answer": "That's a great question about our network infrastructure. Single-mode fiber has a smaller core and is used for long-distance transmissions, like connecting different buildings. Multi-mode fiber has a larger core, is less expensive, and is used for shorter distances, such as within a single data center.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is PoE?",
+			"Answer": "PoE stands for Power over Ethernet. It's a technology that allows network cables to carry electrical power in addition to data. This is very useful for devices like IP phones or wireless access points because we don't need to run a separate power cord to them.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer is running very slowly and I'm seeing a lot of pop-up ads. What's wrong?",
+			"Answer": "Those symptoms often indicate a malware or adware infection. Please disconnect your computer from the network immediately to prevent it from spreading. I will come to your desk to run a full antivirus and anti-malware scan to clean the system.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'patch panel'?",
+			"Answer": "A patch panel is a hardware device with a number of ports that is used to connect and manage incoming and outgoing LAN cables in a wiring closet or data center. It keeps the cabling organized and makes it much easier to make changes to the network wiring.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why does my IP phone sometimes have poor audio quality?",
+			"Answer": "Poor audio quality on an IP phone is often caused by network issues like latency or jitter. Jitter is the variation in the arrival time of data packets. Since voice conversations are real-time, any delay or variation can result in choppy or garbled audio. We can investigate the network performance to see if we can improve it.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What is the function of a router?",
+			"Answer": "A router is a networking device that forwards data packets between computer networks. Routers perform the traffic directing functions on the Internet. A data packet is typically forwarded from one router to another through the networks that constitute an internetwork until it reaches its destination node.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The website I'm trying to access is giving a '404 Not Found' error. Is our network down?",
+			"Answer": "A '404 Not Found' error message is an HTTP status code indicating that the server could not find the requested webpage. This is a client-side error, which means either the page was removed or moved and the URL was not changed accordingly, or you typed the URL incorrectly. The network itself is likely working fine.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need access to a specific software for my project. How do I request it?",
+			"Answer": "You can request new software by submitting a ticket through our IT helpdesk portal. Please include the name of the software and a brief justification for why you need it. The request will then be reviewed for approval and licensing.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is an 'access point'?",
+			"Answer": "A wireless access point (AP) is a networking hardware device that allows other Wi-Fi devices to connect to a wired network. The AP usually connects to a router as a standalone device, but it can also be a component of the router itself.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My keyboard is not typing. What should I do?",
+			"Answer": "Let's check the connection. If it's a wired keyboard, please try unplugging it and plugging it back into the USB port. If it's wireless, the batteries might need replacing. A simple computer restart can also sometimes resolve this issue.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the 'cloud'?",
+			"Answer": "The 'cloud' refers to servers that are accessed over the Internet, and the software and databases that run on those servers. Cloud servers are located in data centers all over the world. By using cloud computing, users and companies don't have to manage physical servers themselves or run software applications on their own machines.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I can't log in to my email. It says my account is locked.",
+			"Answer": "For security, accounts are automatically locked after several incorrect password attempts. Please wait about 15 minutes for the account to automatically unlock, and then try again, being careful to enter the correct password.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'Denial of Service' attack?",
+			"Answer": "A Denial of Service (DoS) attack is a cyber-attack in which the perpetrator seeks to make a machine or network resource unavailable to its intended users by temporarily or indefinitely disrupting services of a host connected to the Internet. It's a serious threat that our security team actively works to prevent.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why is my monitor's color tinted blue?",
+			"Answer": "A blue tint on your monitor is often caused by a loose or damaged video cable. Please check that the cable connecting your monitor to your computer is securely fastened at both ends. If the problem persists, the cable or the monitor itself might be failing.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What does a 'site survey' for a wireless network involve?",
+			"Answer": "A wireless site survey is a process of planning and designing a wireless network. It involves analyzing the building layout, identifying sources of interference, and testing to determine the optimal placement and number of access points needed to provide full and reliable coverage.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer is making a loud whirring noise. Is that bad?",
+			"Answer": "A loud whirring noise is usually from the computer's internal fans. It could mean the computer is overheating and the fans are working overtime, or that a fan is failing. Please ensure the computer's vents are not blocked. If the noise continues, please power it down and I will come inspect it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What's the best way to back up my important files?",
+			"Answer": "The most reliable way to back up your work files is to save them to your designated network drive. These drives are backed up centrally by our IT department every night, which ensures your data is safe and can be restored if needed.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the difference between a straight-through and a crossover Ethernet cable?",
+			"Answer": "The difference is in how the wires are terminated. A straight-through cable is used to connect a device like a computer to a switch or hub. A crossover cable is used to connect two similar devices directly to each other, like two computers or two switches, without a hub in between.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I am receiving a 'Your connection is not private' error in my browser.",
+			"Answer": "This error usually indicates a problem with the website's SSL certificate. It could be expired or invalid. It's generally not safe to proceed to a site with this error, especially if it requires a login. It could also, in rare cases, indicate a more serious 'man-in-the-middle' attack on the network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Can you explain what 'IP routing' is?",
+			"Answer": "Certainly! IP routing is the process that routers use to forward packets from a source network to a destination network. Routers examine the destination IP address of a packet, consult their internal routing table, and choose the best path to send the packet on its way to the final destination.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My application keeps freezing. What should I do?",
+			"Answer": "If an application freezes, you can try to close it using the Task Manager. You can open Task Manager by pressing Ctrl+Alt+Delete. If that doesn't work, a full restart of your computer will usually solve the problem. If a specific application is freezing frequently, it might need to be reinstalled or updated.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'broadcast domain'?",
+			"Answer": "A broadcast domain is a logical division of a computer network in which all nodes can reach each other by broadcast at the data link layer. A broadcast domain is typically bounded by routers because routers do not forward broadcast frames.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to give a presentation and connect my laptop to the projector. How do I do that?",
+			"Answer": "Of course. The conference room projector has an HDMI cable. Simply plug that cable into the HDMI port on your laptop. Then, you may need to press a function key on your laptop (often F8 or F4) to switch the display output to the projector.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'social engineering' in the context of IT security?",
+			"Answer": "Social engineering is the art of manipulating people so they give up confidential information. Criminals use social engineering tactics because it is usually easier to exploit your natural inclination to trust than it is to discover ways to hack your software. Phishing is a common example.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer says 'Network Cable Unplugged' but it is plugged in.",
+			"Answer": "This message, even when the cable seems connected, usually indicates a physical layer problem. It could be a faulty network cable, a bad port on your computer, or an issue with the wall jack. The easiest first step is to try a different, known-good network cable to see if that resolves it.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What is a 'VLAN trunk'?",
+			"Answer": "A VLAN trunk is a network link that carries traffic for multiple VLANs. When we connect two switches that both have multiple VLANs configured, we use a trunk port to allow traffic from all those VLANs to pass between the switches efficiently.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm trying to use a web application, but some features are not working correctly. What might be the cause?",
+			"Answer": "When a web application isn't working correctly, it can often be a browser issue. Please try clearing your browser's cache and cookies first. Sometimes, outdated browser data can cause conflicts. It's also a good idea to ensure your web browser is updated to the latest version.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What is a 'collision domain'?",
+			"Answer": "A collision domain is a section of a network where data packets can collide with one another when being sent on a shared medium. In older networks using hubs, the entire network was one collision domain. Modern switches create a separate collision domain for each port, which eliminates collisions and improves performance.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I have to attend a video conference call, what do I need?",
+			"Answer": "For a video conference, you'll need a computer with a webcam, a microphone, and a stable internet connection. It's also best to use a headset with a microphone to ensure the best audio quality and reduce background noise for the other participants.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Can you explain 'Network Address Translation' (NAT)?",
+			"Answer": "Certainly. NAT is a method used by routers to allow multiple devices on a private network (using private IP addresses) to share a single public IP address to access the internet. It translates the private IP addresses into the public one as traffic leaves our network, and vice versa for incoming traffic.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My email inbox is full. How can I free up space?",
+			"Answer": "When your mailbox is full, you can free up space by deleting old emails you no longer need, especially those with large attachments. Don't forget to empty your 'Deleted Items' folder afterward. You can also archive older emails, which moves them out of your main mailbox but keeps them accessible.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'plenum' rated cable?",
+			"Answer": "Plenum-rated cable has a special fire-retardant jacket that produces less smoke and toxic fumes when it burns. It is required by fire codes to be used in 'plenum' spaces, which are the air-handling spaces in buildings, such as the area above a dropped ceiling or below a raised floor.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I received a notification that a new device has logged into my account. What does this mean?",
+			"Answer": "This is a security alert. If you do not recognize the device or location mentioned in the notification, it's possible your account has been compromised. You should immediately change your password and enable multi-factor authentication if you haven't already. Let me know if you need assistance with this.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'routing protocol'?",
+			"Answer": "A routing protocol is a set of rules that routers use to communicate with each other to share information about the networks they are connected to. This allows them to build and maintain routing tables so they can determine the best paths to forward data across an internetwork. Examples include OSPF and BGP.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The display on my laptop is very dim. How can I make it brighter?",
+			"Answer": "You can usually adjust the brightness of your laptop screen using function keys on the keyboard. Look for a key with a sun icon. There are typically two - one to increase brightness and one to decrease it. You may need to hold down the 'Fn' key while pressing them.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'malware'?",
+			"Answer": "Malware, short for 'malicious software,' is a broad term for any software intentionally designed to cause damage to a computer, server, client, or computer network. Viruses, worms, Trojan horses, ransomware, and spyware are all types of malware.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to work on a confidential document. How can I ensure it's secure?",
+			"Answer": "For confidential documents, it's best to work on them on your company-issued computer and save them to a secure network drive. Avoid using public Wi-Fi networks without a VPN, and do not transfer the file to personal devices or unauthorized cloud storage services.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between Cat5e and Cat6 Ethernet cable?",
+			"Answer": "Both are types of twisted-pair copper cabling, but Cat6 has more stringent specifications for crosstalk and system noise. While both can support Gigabit Ethernet speeds, Cat6 is rated for a higher frequency (250 MHz vs 100 MHz for Cat5e), which can allow for more reliable performance, especially in noisy environments.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer shut down unexpectedly and won't turn back on.",
+			"Answer": "I'm sorry to hear that. First, let's check the power source. Ensure the power cable is securely connected to both the computer and the wall outlet. If it's plugged into a power strip, make sure the strip is turned on. If it still won't power on, there may be an issue with the power supply unit, and I will need to inspect it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'Spanning Tree Protocol' (STP)?",
+			"Answer": "Spanning Tree Protocol is a network protocol that builds a logical loop-free topology for Ethernet networks. Its basic function is to prevent bridge loops and the broadcast radiation that results from them. It's a critical feature on our switches to ensure the network remains stable.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "How do I clear my browser's cache?",
+			"Answer": "The process varies slightly depending on your web browser. Generally, you can find the option in the 'Settings' or 'History' menu. Look for an option that says 'Clear Browse data' or similar. From there, you should be able to select 'Cached images and files' and clear it.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What does an 'Intrusion Detection System' (IDS) do?",
+			"Answer": "An IDS is a security device or software application that monitors a network or systems for malicious activity or policy violations. Any detected activity or violation is typically reported either to an administrator or collected centrally using a security information and event management (SIEM) system.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My laptop's battery seems to be draining very quickly.",
+			"Answer": "Rapid battery drain can be caused by several factors. Having many applications running, high screen brightness, and a constantly active Wi-Fi or Bluetooth connection can all consume a lot of power. It's also possible the battery itself is aging and losing its capacity to hold a charge.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'DMZ' in networking?",
+			"Answer": "A DMZ, or Demilitarized Zone, is a physical or logical subnetwork that contains and exposes an organization's external-facing services to an untrusted network, usually the Internet. The purpose of a DMZ is to add an additional layer of security to an organization's local area network (LAN); an external network node can access only what is exposed in the DMZ, while the rest of the organization's network is firewalled off.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm trying to log in, but my Caps Lock key seems to be stuck on.",
+			"Answer": "A stuck Caps Lock key can be frustrating. Please try pressing the key firmly a few times to see if it dislodges. If that doesn't work, there might be debris under the key. If you are comfortable, you can try to clean it with compressed air.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the purpose of a 'repeater' in a network?",
+			"Answer": "A repeater is a network device that retransmits a received signal with more power and to an extended geographical or topological network boundary than what would be capable with the original signal. They are used to extend the range of a network signal, whether it's wired or wireless.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The sound from my computer speakers is crackling.",
+			"Answer": "Crackling audio is often a sign of a bad connection or a driver issue. Please check that the speaker cable is securely plugged into the audio port on your computer. You can also try updating your computer's audio drivers through the Device Manager. If the problem persists, the speakers themselves may be faulty.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is '802.1X' authentication?",
+			"Answer": "802.1X is an IEEE standard for port-based Network Access Control (PNAC). It is part of the IEEE 802.1 group of networking protocols. It provides an authentication mechanism to devices wishing to attach to a LAN or WLAN. It is used to provide a higher level of security on our wired and wireless networks.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer's clock is showing the wrong time. How do I fix it?",
+			"Answer": "An incorrect system time can sometimes cause issues with secure websites and network logins. You can usually fix this by right-clicking on the clock in the bottom-right corner of your screen, selecting 'Adjust date/time', and ensuring the option to 'Set time automatically' is turned on. This will synchronize your clock with a time server.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'SAN'?",
+			"Answer": "A SAN, or Storage Area Network, is a specialized, high-speed network that provides block-level network access to consolidated, block-level data storage. SANs are typically composed of hosts, switches, storage elements, and storage devices that are interconnected using a variety of technologies, topologies, and protocols, often using fiber optic connections.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "When I start my computer, it beeps several times and doesn't load Windows.",
+			"Answer": "Beep codes during startup are a way for the computer's BIOS to report a hardware problem before the operating system loads. The pattern of beeps can indicate the specific problem, such as an issue with the memory or video card. Please let me know the pattern of beeps (e.g., three short beeps), and I can diagnose the issue.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Can you explain what 'Quality of Service' (QoS) is?",
+			"Answer": "QoS refers to a network's ability to achieve maximum bandwidth and deal with other network performance elements like latency, error rate and uptime. We can use QoS policies to prioritize certain types of traffic, like our IP phone calls, over less time-sensitive traffic, like email, to ensure a better user experience for critical applications.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My mouse cursor is moving erratically. What could be the cause?",
+			"Answer": "If you're using an optical mouse, an erratic cursor is often caused by the surface it's on. Try using it on a different surface or a mouse pad. If it's a wireless mouse, it could also be a sign of a low battery or interference. Let's try those simple fixes first.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'proxy server'?",
+			"Answer": "A proxy server acts as an intermediary for requests from clients seeking resources from other servers. A client connects to the proxy server, requesting some service, such as a file, connection, web page, or other resource available from a different server and the proxy server evaluates the request as a way to simplify and control its complexity. We can use them for content filtering, caching, and security.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'link aggregation' and why would we use it?",
+			"Answer": "Link aggregation, also known as port bonding, is a technique where we combine multiple network connections into one logical link. We do this to increase the bandwidth beyond what a single connection can offer and to provide redundancy in case one of the links fails.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm looking at a network diagram and see 'STP'. What does that mean?",
+			"Answer": "STP stands for Spanning Tree Protocol. It's a crucial protocol used on our network switches to prevent network loops, which can cause major disruptions. It ensures there's only one active path between any two points on the network, keeping everything stable.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why does my new IP phone have two network ports on the back?",
+			"Answer": "That's a great observation! Most IP phones have a built-in mini-switch. One port is for the connection from the wall jack, and the other is a pass-through port you can use to connect your computer. It saves us from needing two separate network drops at your desk.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the 'recovery time objective' (RTO)?",
+			"Answer": "The Recovery Time Objective, or RTO, is a business metric that defines the maximum acceptable amount of time a system or application can be down after a failure or disaster. It's a key part of our disaster recovery planning to ensure we get critical systems back online quickly.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My web browser says the site's security certificate is expired. Is it safe to proceed?",
+			"Answer": "Thank you for asking. An expired security certificate means the secure connection (HTTPS) to the website can't be verified. It is not recommended to proceed, especially if you need to enter any sensitive information. It's best to contact the website's administrator to let them know.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the difference between an 'ad-hoc' and an 'infrastructure' wireless network?",
+			"Answer": "An infrastructure wireless network is the standard type we use here, where all devices connect to a central access point. An ad-hoc network is a direct peer-to-peer connection between devices without an access point, which is generally less common and less secure for a business environment.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I've heard the term 'honeypot' in security. What is it?",
+			"Answer": "A honeypot is a security mechanism we can use. It's a decoy computer system set up to attract and trap cyberattackers. By studying their methods on the honeypot, our security team can learn how to better protect our actual network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why do some network cables have a plastic piece on the connector and others don't?",
+			"Answer": "You're likely noticing the difference between a standard RJ45 connector and a snagless one. The plastic boot or hood on a snagless cable helps protect the locking tab on the connector from breaking off when you're pulling the cable through tight spaces.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What does the 'tracert' or 'traceroute' command do?",
+			"Answer": "'Traceroute' is a network diagnostic tool used to map the path that data packets take from your computer to a destination host on the internet. It shows each 'hop' or router it passes through along the way, which is very helpful for diagnosing where a connection problem might be occurring.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Can I use my work laptop on the public Wi-Fi at a coffee shop?",
+			"Answer": "While you can, it's very important that you connect to our company VPN first. Public Wi-Fi networks are not secure, and using the VPN creates an encrypted tunnel to protect all your data from anyone who might be trying to eavesdrop on the connection.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'port scan'?",
+			"Answer": "A port scan is a technique where an attacker sends requests to a range of server port addresses on a host, with the goal of finding an active port and exploiting a known vulnerability of that service. Our firewalls are configured to detect and block port scans.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to set up a new network printer. Can you assign it a static IP address?",
+			"Answer": "Absolutely. It's our standard practice to assign static (fixed) IP addresses to network devices like printers and servers. This ensures that computers can always find the printer at the same address, preventing connection issues that could arise if the address changed.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is 'UTP' cable?",
+			"Answer": "UTP stands for Unshielded Twisted Pair. It's the most common type of copper Ethernet cable used in our office for connecting computers and other devices to the network. The pairs of wires are twisted to help prevent signal interference.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer's fan is always running at high speed. What could cause that?",
+			"Answer": "A constantly running fan usually means the computer's processor is working very hard. This could be caused by a demanding application running, or sometimes by malware. I would recommend we check your Task Manager to see what processes are using the most CPU resources.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the 'Recovery Point Objective' (RPO)?",
+			"Answer": "The Recovery Point Objective, or RPO, is related to our disaster recovery plan. It defines the maximum acceptable age of the data that can be lost in the event of a disaster. For example, if our RPO is one hour, it means our backups must be recent enough that we would lose no more than one hour's worth of data.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Can you explain what 'multi-factor authentication' (MFA) is?",
+			"Answer": "Of course. MFA is a security system that requires more than one method of authentication to verify your identity. In addition to your password, it might require a code from your smartphone or a fingerprint scan. It adds a critical layer of security to your accounts.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I see both 2.4 GHz and 5 GHz Wi-Fi networks. What's the difference?",
+			"Answer": "Those are two different frequency bands for Wi-Fi. The 2.4 GHz band has a longer range but is more susceptible to interference and is generally slower. The 5 GHz band offers much faster speeds and has less interference but has a shorter range. For the best performance, you should connect to the 5 GHz network when you're close enough to the access point.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'loopback address' like 127.0.0.1?",
+			"Answer": "The loopback address is a special IP address that a computer uses to refer to itself. Pinging 127.0.0.1 is a fundamental diagnostic step. If it's successful, it confirms that the TCP/IP software stack on your computer is installed and working correctly, even if you're not connected to a network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm having trouble with a specific software. Should I try reinstalling it?",
+			"Answer": "Reinstalling software can often fix issues caused by corrupted files. Before you do that, please make sure you have saved all your work from that application. If you need assistance with the reinstallation process or if the problem continues, please let me know.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What's the purpose of a 'wiring closet'?",
+			"Answer": "A wiring closet, also known as an Intermediate Distribution Frame (IDF), is a room where the network cabling for a floor or section of the building comes together. It's where we house network switches, patch panels, and other equipment that connects all the users in that area to the main network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'zero-day' vulnerability?",
+			"Answer": "A zero-day vulnerability is a flaw in software or hardware that is discovered by attackers before the vendor has become aware of it. Because there is no patch available, these vulnerabilities are particularly dangerous. This is why we have multiple layers of security to defend against unknown threats.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "How can I tell if an email is a phishing attempt?",
+			"Answer": "There are several red flags. Look for a sense of urgency, generic greetings, spelling and grammar mistakes, and requests for personal information. Also, hover your mouse over any links to see the actual destination URL before you click. If you're ever in doubt, please forward it to the IT security team.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'IPv6'?",
+			"Answer": "IPv6 is the most recent version of the Internet Protocol. It was developed because the world was running out of the older IPv4 addresses. IPv6 uses a much longer address format, which provides an almost limitless number of unique IP addresses to support the growing number of devices connecting to the internet.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My laptop's camera isn't working for my video call. What should I check?",
+			"Answer": "Let's check a few things. First, some laptops have a physical privacy shutter that might be covering the camera lens. Also, please check the settings within the video conferencing application to ensure the correct camera is selected. A simple restart can also sometimes resolve driver issues.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'DHCP snooping'?",
+			"Answer": "DHCP snooping is a security feature on our network switches. It acts as a firewall between untrusted hosts and trusted DHCP servers. It helps prevent rogue DHCP servers from being added to the network, which could be used by an attacker to intercept traffic.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why is physical security important for the network?",
+			"Answer": "Physical security is a fundamental part of network security. If an unauthorized person can gain physical access to a server, switch, or wiring closet, they could bypass all our other digital security measures. That's why these areas are always kept locked and access is restricted.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'stateful' firewall?",
+			"Answer": "A stateful firewall tracks the state of active network connections. It knows which traffic is part of an established legitimate conversation. This allows it to block unsolicited traffic that isn't part of a recognized connection, providing much better security than a simple stateless firewall that just looks at individual packets.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to connect to a server using its name, but it's not working. Pinging its IP address works fine. What's the problem?",
+			"Answer": "That's a classic symptom of a DNS issue. Since you can reach the server by its IP address, we know the network connection is good. The problem is with resolving the server's name to that IP address. We should check your computer's DNS settings or see if there's an issue with our internal DNS server.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What does a 'UPS' do for our network equipment?",
+			"Answer": "A UPS, or Uninterruptible Power Supply, is essentially a large battery. It provides emergency power to our critical network equipment, like routers and switches, in the event of a power outage. This keeps the network running for a short period, allowing for a graceful shutdown or for a backup generator to start.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'channel bonding' in Wi-Fi?",
+			"Answer": "Channel bonding is a technique used in modern Wi-Fi standards to increase bandwidth. It combines two adjacent 20 MHz channels into a single 40 MHz channel, effectively doubling the data rate. It's one of the ways Wi-Fi can achieve such high speeds.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer is displaying a 'Blue Screen of Death'. What does that mean?",
+			"Answer": "A 'Blue Screen of Death' (BSOD) is a stop error that indicates a critical system failure. It can be caused by either a hardware problem or a low-level software or driver issue. Please note down any error code you see on the screen, and then restart the computer. If it happens again, we'll need to investigate the error code to find the cause.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'MAC address filter' on a wireless network?",
+			"Answer": "MAC address filtering is a security measure where we configure an access point to only allow devices with specific, pre-approved MAC addresses to connect. While it can add a layer of security, it's not foolproof, as MAC addresses can be spoofed. We use it in conjunction with strong encryption.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the 'principle of least privilege'?",
+			"Answer": "The principle of least privilege is a security concept where we ensure that users and applications are only given the minimum levels of access – or permissions – needed to perform their job functions. This helps limit the damage that could be caused by an accident or a compromised account.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I see both 'private' and 'public' IP addresses. What is the difference?",
+			"Answer": "Private IP addresses (like 192.168.x.x or 10.x.x.x) are used within our internal local network and are not routable on the public internet. Public IP addresses are assigned by our Internet Service Provider and are unique across the entire internet. Our router uses NAT to translate between our private addresses and our single public address.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "How do I map a network drive?",
+			"Answer": "You can map a network drive from the 'File Explorer' in Windows. Right-click on 'This PC' and select 'Map network drive'. Then, you can choose a drive letter and enter the path to the network share, like '\\\\servername\\sharename'. This makes it easy to access the drive like it's a local drive on your computer.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'jitter' and why does it affect my video calls?",
+			"Answer": "Jitter is the variation in the delay of received packets. In a video or voice call, the data packets need to arrive in a steady, continuous stream. When there's high jitter, packets arrive at irregular intervals, which can cause the audio and video to become choppy or distorted.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why can't I use a USB hub to connect multiple devices to my docking station?",
+			"Answer": "While you can use a USB hub, it's important to consider power and bandwidth. A docking station is designed to provide specific power and data speeds. If you connect too many high-power or high-bandwidth devices (like multiple monitors or external hard drives) to a single unpowered hub, you may experience performance issues or connection drops.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'bandwidth'?",
+			"Answer": "Bandwidth describes the maximum data transfer rate of a network or internet connection. It measures how much data can be sent over a specific connection in a given amount of time. It's often measured in bits per second (bps).",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I got an email with a Word document that asks me to 'Enable Content' or 'Enable Macros'. Should I do it?",
+			"Answer": "No, you should be very cautious. Malicious actors often embed harmful macros in Office documents. Unless you are absolutely certain the file is from a trusted source and you are expecting it, you should not enable macros or content. This is a common way that ransomware is spread.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the difference between a 'virus' and a 'worm'?",
+			"Answer": "That's a good security question. A virus is a piece of malicious code that requires human interaction to spread, like opening an infected file. A worm is a type of malware that can replicate itself and spread to other computers on its own, without any human help, often by exploiting a vulnerability in the network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'coaxial' cable used for in networking?",
+			"Answer": "While less common for local office networks today, coaxial cable is still widely used by cable companies to provide internet service to homes and businesses. It has a single copper conductor in the center and is well-shielded, making it good for carrying signals over longer distances.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm trying to save a file, but it says 'Access Denied'. What does that mean?",
+			"Answer": "An 'Access Denied' message typically means you do not have the necessary permissions to write to that specific folder or location. This could be a network share with restricted access or a system folder on your computer. Please check that you are trying to save to the correct location, like your personal documents folder or a team share you have access to.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the 'nslookup' command?",
+			"Answer": "'nslookup' is a command-line tool used for querying the Domain Name System (DNS) to obtain domain name or IP address mapping information. It's a great tool for troubleshooting DNS resolution issues from your computer.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why does IT sometimes schedule maintenance for nights or weekends?",
+			"Answer": "We schedule network maintenance, like software updates or hardware replacements, during off-peak hours to minimize disruption to business operations. Performing these tasks when fewer people are working helps ensure that critical systems are not impacted and that we have time to resolve any unexpected issues.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'bastion host'?",
+			"Answer": "A bastion host is a special-purpose computer on a network specifically designed and configured to withstand attacks. The computer generally hosts a single application, for example, a proxy server, and all other services are removed or limited to reduce the threat to the computer.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My wireless keyboard is lagging and sometimes misses keystrokes.",
+			"Answer": "Lag on a wireless keyboard is often caused by two things: low batteries or radio interference. I would suggest replacing the batteries first. If that doesn't help, try moving the small USB receiver to a different USB port, preferably one on the front of the computer, to get a clearer signal.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the purpose of 'syslog'?",
+			"Answer": "Syslog is a standard protocol used to send system log or event messages to a specific server, called a syslog server. It allows us to collect logs from all our different network devices (like routers, switches, and firewalls) in a single, centralized location, which is invaluable for monitoring and troubleshooting.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Can I charge my phone using the USB port on my computer?",
+			"Answer": "Yes, you can use your computer's USB port to charge your phone. However, keep in mind that a standard USB port on a computer provides less power than a dedicated wall charger, so your phone will charge more slowly.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'shielded twisted pair' (STP) cable and why would we use it over UTP?",
+			"Answer": "Shielded Twisted Pair (STP) cable has a foil or braided shield around the twisted pairs, which provides extra protection against electromagnetic interference (EMI). We would use more expensive STP cable in environments with a lot of electrical noise, such as on a factory floor or near large motors, to ensure a clean network signal.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'man-in-the-middle' (MITM) attack?",
+			"Answer": "A man-in-the-middle attack is a form of eavesdropping where an attacker secretly relays and possibly alters the communication between two parties who believe they are directly communicating with each other. Using a VPN on an untrusted network is a key defense against this type of attack.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I am trying to run a program and it says a '.dll' file is missing.",
+			"Answer": "A .dll (Dynamic Link Library) file is a type of file containing code and data that can be used by multiple programs at the same time. A 'missing .dll' error usually means the program was not installed correctly, or the file was accidentally deleted. A repair installation or a full reinstallation of the program will typically fix this.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What does 'TIA/EIA' mean in relation to network cabling?",
+			"Answer": "TIA/EIA refers to the Telecommunications Industry Association and the Electronic Industries Alliance. They are standards bodies that create the specifications for network cabling, such as the T568A and T568B wiring standards for terminating Ethernet cables. Following these standards ensures interoperability and performance.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer is not detecting my second monitor.",
+			"Answer": "Let's figure this out. Please ensure the second monitor is powered on and the video cable is securely connected to both the monitor and your computer. Then, you can go to your display settings in Windows to have it try to detect the monitor. Sometimes, simply restarting the computer with the monitor plugged in will do the trick.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is an 'acceptable use policy' (AUP)?",
+			"Answer": "The Acceptable Use Policy is a document that outlines the rules and practices that employees must agree to for access to our corporate network or the internet. It defines what is considered acceptable use of our technology resources and helps protect the company from legal issues and security threats.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why do I need to physically secure my laptop when I step away from my desk?",
+			"Answer": "Locking your computer screen (by pressing Windows Key + L) when you step away prevents unauthorized access to your data. It's a simple but very effective security habit to ensure that no one can use your computer or access company information while you're gone.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'tone generator and probe' used for?",
+			"Answer": "A tone generator and probe is a pair of tools used by network technicians to trace a specific cable. The tone generator is attached to one end of a cable and sends a signal down the wire. The technician can then use the probe at the other end, for example in a wiring closet with hundreds of cables, to find the exact cable that the tone is on.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm working from home and my VPN connection keeps dropping.",
+			"Answer": "Frequent VPN drops are often related to the stability of your home internet connection. The VPN requires a constant, stable connection to maintain its secure tunnel. I would suggest restarting your home router. If the problem persists, running a speed and stability test on your home internet could help identify any issues with your ISP.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What is the 'ipconfig /release' and 'ipconfig /renew' command sequence for?",
+			"Answer": "This is a useful command sequence for troubleshooting certain network connection issues. 'ipconfig /release' tells your computer to give up its current IP address lease. 'ipconfig /renew' then asks the DHCP server for a new lease. This can often resolve problems where the IP address configuration has become corrupted.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why does the Wi-Fi seem to get slower when more people are in the office?",
+			"Answer": "That's a result of the Wi-Fi being a shared medium. The total available bandwidth from a single access point is shared among all the users connected to it. When more people are in the office, more devices are actively using the network, which means there's less bandwidth available for each individual user, making it feel slower.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'demarcation point' or 'demarc'?",
+			"Answer": "The demarcation point is the physical point at which the public network of a telecommunications company (like our ISP) ends and our private network begins. It's the dividing line of responsibility. The ISP is responsible for the connection up to the demarc, and we are responsible for all the cabling and equipment after it.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer's date and time keeps resetting every time I turn it off.",
+			"Answer": "That's a classic symptom of a failing CMOS battery. The CMOS battery is a small, coin-cell battery on the motherboard that provides power to the system's BIOS to keep track of settings like the date and time when the computer is turned off.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'war driving'?",
+			"Answer": "War driving is the act of searching for Wi-Fi wireless networks by a person in a moving vehicle, using a laptop or smartphone. It can be used by security professionals to assess wireless security, or by attackers looking for open and insecure networks to exploit.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Can I use any network cable to connect my computer, or does it have to be a specific color?",
+			"Answer": "The color of the cable jacket doesn't affect its performance; it's mostly used for organizational purposes. For example, we might use blue cables for user computers and yellow cables for IP phones. As long as it's an Ethernet cable with an RJ45 connector, it should work, but it's helpful to use the standard colors if possible.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is an 'evil twin' attack?",
+			"Answer": "An evil twin is a fraudulent Wi-Fi access point that appears to be a legitimate one, but is set up by an attacker to eavesdrop on wireless communications. It might have a name very similar to our official guest Wi-Fi, for example. This is why it's crucial to only connect to known, trusted networks.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between a 'workgroup' and a 'domain'?",
+			"Answer": "A workgroup is a peer-to-peer network where security and permissions are managed on each individual computer. A domain, which is what we use here, is a client/server network where all user accounts, permissions, and security policies are centrally managed by a domain controller. This provides much greater control and security.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to give a presentation, but my laptop doesn't have the same video port as the projector.",
+			"Answer": "No problem. We have a variety of video adapters and dongles available for that situation. Let me know what type of port your laptop has (like USB-C or Mini DisplayPort) and what port the projector cable uses (usually HDMI or VGA), and I'll find the right adapter for you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'punch-down tool' used for?",
+			"Answer": "A punch-down tool is a small hand tool used by network technicians to insert individual wires into the insulation-displacement connectors on patch panels, keystone jacks, and telephone distribution blocks. It's essential for properly terminating structured cabling.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My email client keeps asking me for my password, even though I'm typing it correctly.",
+			"Answer": "When an email client repeatedly asks for your password, it can sometimes mean your stored password credential has become corrupt. I would suggest going into your computer's Credential Manager and removing the saved password for your email account. The next time you open the email client, it will ask for the password one more time and should then save it correctly.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'port forwarding' rule on a router?",
+			"Answer": "Port forwarding is a technique where a router takes requests from the internet for a specific port number and directs them to a specific device on the internal, private network. It's used to make a service on an internal device, like a web server, accessible from the outside world.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The touchpad on my laptop is not working.",
+			"Answer": "That can be frustrating. Many laptops have a function key (often F7 or F9) or a small dedicated button to disable the touchpad. Please check to see if you might have accidentally pressed it. If that's not the case, a driver reinstallation or a simple restart might solve the issue.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'Unified Threat Management' (UTM) appliance?",
+			"Answer": "A UTM appliance is an all-in-one security device that combines multiple security features into a single piece of hardware. This can include a firewall, intrusion detection/prevention, antivirus, content filtering, and VPN services. It simplifies network security by managing everything from one place.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why is it a bad idea to write my password on a sticky note?",
+			"Answer": "Writing down your password and leaving it near your computer completely defeats the purpose of having a password. Anyone who can see the note can gain access to your account and all the sensitive company data you have access to. It's a major security risk.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What does a 'DHCP reservation' do?",
+			"Answer": "A DHCP reservation is a feature on our DHCP server that allows us to assign a permanent IP address to a specific device based on its MAC address. It's a way to make sure a device, like a printer, always gets the same IP address without having to configure a static IP on the device itself.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer is making a clicking sound. What does that mean?",
+			"Answer": "A rhythmic clicking or grinding sound from a computer is often a very serious sign of a failing mechanical hard drive. Please save any open work immediately and shut down the computer to prevent further damage. I will need to inspect the drive and we must prepare to replace it and restore your data from a backup.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'CSMA/CD' and 'CSMA/CA'?",
+			"Answer": "Those are methods for handling media access. CSMA/CD (Carrier Sense Multiple Access with Collision Detection) is used in wired Ethernet networks. Devices listen to see if the line is clear before sending, and if a collision occurs, they back off and try again. CSMA/CA (Collision Avoidance) is used in Wi-Fi, where devices try to avoid collisions altogether, as detecting them in a wireless environment is more difficult.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm trying to share a folder from my computer, but my colleague can't access it.",
+			"Answer": "For folder sharing to work correctly, you need to configure two sets of permissions. First are the 'Sharing' permissions, which control access over the network. Second are the 'NTFS' or 'Security' permissions, which control access to the files and folders locally. Both sets of permissions must allow your colleague to have access.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'multimeter' used for in networking?",
+			"Answer": "A multimeter is a versatile electronic testing device that can measure voltage, current, and resistance. In networking, we can use it to check for physical layer problems, such as verifying the continuity of a cable to see if there's a break in the wire, or checking the voltage from a Power over Ethernet port.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I've been told to 'flush my DNS'. What does that do?",
+			"Answer": "Flushing your DNS clears out the local DNS cache on your computer. This cache stores recent name-to-IP-address resolutions. Sometimes, this cache can become corrupt or contain outdated information. The command 'ipconfig /flushdns' forces your computer to clear the cache and get fresh information from the DNS server, which can resolve certain connectivity issues.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'tailgating' and why is it a security risk?",
+			"Answer": "Tailgating, also known as piggybacking, is a physical security breach where an unauthorized person follows an authorized person into a restricted area, like our office building. It's important to always be aware of who is behind you and ensure they have swiped their own access card to prevent such breaches.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between a 'virus scan' and an 'anti-malware scan'?",
+			"Answer": "While the terms are often used interchangeably, 'virus' is a specific type of 'malware'. An antivirus program is designed to detect and remove viruses, while a broader anti-malware tool looks for a wider range of threats, including spyware, adware, ransomware, and more. Our endpoint security software combines both functions.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "How do I take a screenshot?",
+			"Answer": "The easiest way to take a screenshot in Windows is to use the Snipping Tool or the Snip & Sketch app. You can also press the 'PrtScn' (Print Screen) key to copy an image of your entire screen to the clipboard, which you can then paste into an email or document.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'rack unit' or 'U'?",
+			"Answer": "A rack unit, or 'U', is a standard unit of measure for the height of equipment designed to be mounted in a 19-inch or 23-inch equipment rack. One 'U' is 1.75 inches. Our network switches and servers are measured in these units, for example, a '1U' switch or a '2U' server.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I downloaded a file and now my web browser's homepage and search engine have changed.",
+			"Answer": "That's a common sign that you've unintentionally installed a Potentially Unwanted Program (PUP) or adware. These are often bundled with free software. I would recommend running a full anti-malware scan and checking your browser's settings and extensions to remove anything you don't recognize.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is an 'RJ11' connector?",
+			"Answer": "An RJ11 connector is the standard connector used for telephone lines. It looks similar to the larger RJ45 Ethernet connector but is smaller and has only four or six conductors. You would use it to connect a modem to a phone jack.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm on a video call and the other participants say my audio is echoing.",
+			"Answer": "An echo is usually caused when your microphone is picking up the sound coming from your speakers. The best way to prevent this is to use a headset. If you don't have one, try turning down your speaker volume or moving the microphone further away from the speakers.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What is a 'data center'?",
+			"Answer": "A data center is a dedicated facility that houses an organization's most critical IT infrastructure, including servers, storage systems, and networking equipment. They are designed with redundant power, cooling, and network connections to ensure high availability and security for our core systems.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What does 'SLAAC' mean in IPv6?",
+			"Answer": "SLAAC stands for Stateless Address Autoconfiguration. It's a method that allows a device to automatically configure its own IPv6 address without the need for a DHCP server. The device uses information from a local router to create a unique address.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm out of storage space on my computer. What should I do?",
+			"Answer": "When you're low on space, you can start by running the Disk Cleanup utility in Windows to remove temporary files and other unnecessary data. You should also check for and uninstall any applications you no longer use. Remember to move all your work-related files to your network drive to free up local space and ensure they are backed up.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the difference between 'authentication' and 'authorization'?",
+			"Answer": "That's a key security concept. Authentication is the process of verifying who you are, typically with a username and password. Authorization is the process of determining what you are allowed to do after you've been authenticated. For example, you might be authenticated to log into the network, but only authorized to access certain files.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why do I need to be careful about what I post on social media?",
+			"Answer": "Information that you post on social media, even seemingly harmless details about your job or colleagues, can be gathered by attackers and used to craft highly convincing social engineering or spear phishing attacks against you or the company. It's important to be mindful of our company's social media policy.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'clean desk' policy?",
+			"Answer": "A clean desk policy is an organizational rule that requires employees to clear their desks of all sensitive information when they leave. This includes locking away documents, notebooks, and storage devices. It's a physical security measure to prevent information theft by casual passersby or cleaning staff.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I have two monitors, but my mouse only moves on one screen.",
+			"Answer": "This usually happens when your display settings are set to 'Duplicate' these displays instead of 'Extend' these displays. 'Duplicate' shows the same thing on both monitors, while 'Extend' creates one large desktop across both screens. You can change this in your computer's display settings.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'botnet'?",
+			"Answer": "A botnet is a network of private computers infected with malicious software and controlled as a group without the owners' knowledge, e.g., to send spam or launch denial-of-service attacks. Keeping your antivirus software up to date is a key defense against your computer becoming part of a botnet.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'iSCSI' and how is it used?",
+			"Answer": "Great question! iSCSI stands for Internet Small Computer System Interface. It's a protocol that allows us to send storage commands over standard TCP/IP networks. We use it to connect servers to our Storage Area Network (SAN) using regular Ethernet hardware, which is very cost-effective.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm looking at a cable and it says 'Plenum Rated'. What does that mean?",
+			"Answer": "That's an important safety rating. 'Plenum rated' means the cable's outer jacket is made of a fire-retardant material that produces minimal smoke and toxic fumes when exposed to fire. It is required by building codes for any cabling run through plenum spaces, like the area above a drop ceiling used for air circulation.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the difference between an 'intrusion detection system' (IDS) and an 'intrusion prevention system' (IPS)?",
+			"Answer": "That's a key distinction in network security. An IDS is a passive system that monitors traffic and sends an alert if it detects suspicious activity. An IPS is an active system that not only detects suspicious activity but can also take immediate action to block it, like dropping the malicious packets.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I've been told to 'clear my ARP cache'. What does that do?",
+			"Answer": "Your computer keeps an ARP (Address Resolution Protocol) cache to map the IP addresses of local devices to their physical MAC addresses. Clearing the ARP cache forces your computer to rebuild these mappings. This can resolve connectivity issues if the cache has old or incorrect information, for instance, if a device's network card has been replaced.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the '66 block' and '110 block' used for?",
+			"Answer": "Those are types of punch-down blocks used for terminating telecommunications cabling. The 66 block is an older style, primarily used for telephone circuits. The 110 block is a more modern type that is widely used for terminating Ethernet cables (Cat5, Cat6) in wiring closets for connections to patch panels.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My VoIP phone call quality is choppy. What could be the cause?",
+			"Answer": "Choppy audio on a VoIP call is often caused by network packet loss or high jitter. This means some of the voice data packets are getting lost or arriving out of order. This can be due to network congestion or a poor connection. We can investigate the network path to see where the issue might be.",
+			"intent": "triage"
+		},
+		{
+			"Question": "What is a 'SFP' module on a switch?",
+			"Answer": "SFP stands for Small Form-factor Pluggable. It's a compact, hot-pluggable transceiver module used for data communications. Switches have SFP ports to allow for flexibility, so we can use different types of SFPs for either copper Ethernet connections or various types of fiber optic connections (e.g., short-range or long-range).",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'ransomware' attack?",
+			"Answer": "Ransomware is a particularly nasty type of malware. It encrypts the files on your computer, making them completely inaccessible. The attackers then demand a ransom payment in exchange for the decryption key. This is why regular backups and being cautious about email attachments are so critical.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm getting a 'The default gateway is not available' error.",
+			"Answer": "Thank you for that specific error message. It means your computer is unable to communicate with the router (the default gateway). This could be caused by a faulty network cable, a bad driver, or an issue with the router itself. A good first step is to restart both your computer and the router.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the purpose of network 'segmentation'?",
+			"Answer": "Network segmentation is the practice of splitting a larger network into smaller subnetworks or segments. We do this for two main reasons: to improve performance by reducing local traffic and to enhance security. If a security breach occurs on one segment, it's much harder for it to spread to other parts of the network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why are some network cables thicker than others, even with the same connector?",
+			"Answer": "You're likely noticing the difference between cable categories, like Cat5e, Cat6, and Cat6a. Higher category cables, like Cat6a, are thicker because they have more insulation, tighter wire twists, and sometimes a spline separating the pairs. This is all to reduce crosstalk and allow for higher speeds over longer distances.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'virtual switch' or 'vSwitch'?",
+			"Answer": "A vSwitch is a software program that functions like a physical network switch but operates within a virtualized server environment. It allows virtual machines (VMs) running on the same physical host to communicate with each other and with the physical network, just as if they were connected to a hardware switch.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to open a support ticket. What information should I include?",
+			"Answer": "That's a great question! To help us resolve your issue quickly, please include your name, location, and the asset tag of your computer. Describe the problem in as much detail as possible, including any error messages you see, and what you were doing when the problem occurred. Screenshots are also very helpful!",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What does 'out-of-band management' mean?",
+			"Answer": "Out-of-band management refers to using a dedicated, separate network connection to manage our critical network devices like routers and switches. This is important because if the main production network goes down, we can still access the devices through this separate channel to diagnose and fix the problem.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'smurf attack'?",
+			"Answer": "A smurf attack is a type of Distributed Denial-of-Service (DDoS) attack. The attacker spoofs the target's IP address and sends out a large number of ICMP (ping) requests to a network's broadcast address. All the devices on that network then reply to the victim's spoofed IP, overwhelming it with traffic.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between IaaS, PaaS, and SaaS?",
+			"Answer": "Those are the three main models of cloud computing. IaaS (Infrastructure as a Service) provides the basic building blocks like virtual servers and storage. PaaS (Platform as a Service) provides the infrastructure plus a platform for developing and deploying applications. SaaS (Software as a Service) is a complete software application that you access over the internet, like our web-based email.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My laptop says 'limited connectivity'. What does that mean?",
+			"Answer": "'Limited connectivity' usually means your laptop has successfully connected to the Wi-Fi router, but it's not able to get an internet connection from it. This can be due to an incorrect IP address configuration or an issue further upstream with the internet service itself.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the purpose of a 'cable tester'?",
+			"Answer": "A network cable tester is a tool we use to verify the electrical connections in a cable. A simple tester can check for continuity and ensure the wires are in the correct order (wiremap). More advanced testers can measure performance characteristics like cable length, crosstalk, and attenuation to certify that a cable meets its category standard.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'spear phishing' attack?",
+			"Answer": "Spear phishing is a more targeted and sophisticated version of a regular phishing attack. Instead of sending a generic email to thousands of people, the attacker researches their target and crafts a personalized email that appears to be from a trusted source, like a colleague or a manager. This makes them much more difficult to detect.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why does my computer have both a Wi-Fi and an Ethernet connection?",
+			"Answer": "Having both gives you flexibility. The Ethernet connection provides a faster, more stable, and more secure wired connection, which is ideal when you're at your desk. Wi-Fi provides the convenience of mobility, allowing you to stay connected when you move around the office.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'NetFlow'?",
+			"Answer": "NetFlow is a network protocol developed by Cisco for collecting IP traffic information. Our routers and switches can use NetFlow to gather statistics about the traffic passing through them, such as source and destination IPs, ports, and the amount of data transferred. This is very useful for network monitoring and analysis.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I have a new phone. How do I get my work email on it?",
+			"Answer": "To set up work email on your new phone, you'll need to enroll it in our Mobile Device Management (MDM) system. This ensures a secure connection and protects company data.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What's the difference between a 'physical' and a 'logical' network diagram?",
+			"Answer": "A physical network diagram shows the actual physical layout of the network components, including how cables are run and where devices like routers, switches, and servers are located. A logical diagram is more abstract; it shows how data flows and how devices communicate with each other, including things like IP addressing and VLANs, without regard to the physical location.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'DHCP exhaustion'?",
+			"Answer": "DHCP exhaustion is an attack where a malicious client sends a flood of DHCP requests using spoofed MAC addresses. This uses up all the available IP addresses in the DHCP server's pool, preventing legitimate users from being able to get an IP address and connect to the network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'hypervisor'?",
+			"Answer": "A hypervisor is the software that creates and runs virtual machines (VMs). There are two main types. Type 1 hypervisors run directly on the host's hardware, like a bare-metal installation. Type 2 hypervisors run as an application on top of an existing operating system. We use Type 1 hypervisors for our server virtualization.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The network seems fine, but one specific internal website isn't loading.",
+			"Answer": "If general internet access is working but one internal site is not, the issue is likely with the specific web server hosting that site, or with the DNS record for that site. I will check the status of the server and verify its DNS entry. Thank you for reporting it.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is 'NIC Teaming'?",
+			"Answer": "NIC Teaming, also known as load balancing and failover (LBFO), is a feature that allows us to group multiple network interface cards (NICs) on a server into a team. This provides both load balancing, by spreading traffic across the multiple NICs, and failover, by automatically redirecting traffic to a working NIC if one fails.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'RADIUS' server?",
+			"Answer": "RADIUS (Remote Authentication Dial-In User Service) is a networking protocol that provides centralized Authentication, Authorization, and Accounting (AAA) management for users who connect and use a network service. We use it to authenticate users for our VPN and 802.1X wireless connections.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the 'three-way handshake' in TCP?",
+			"Answer": "The TCP three-way handshake is the process used to establish a reliable connection between two devices. It works like this: the client sends a SYN (synchronize) packet, the server responds with a SYN-ACK (synchronize-acknowledgment) packet, and finally, the client sends an ACK (acknowledgment) packet. Once this is complete, data transfer can begin.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My docking station isn't detecting my monitors. What should I do?",
+			"Answer": "Let's try to reset the connection. Please try power cycling the docking station by unplugging its power cord for about 30 seconds and then plugging it back in. Also, ensure the USB-C or Thunderbolt cable is securely connected to both the dock and your laptop. Sometimes, updating the docking station's firmware can also resolve these issues.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'zoning' in a Fibre Channel SAN?",
+			"Answer": "Zoning is a security mechanism we use in a Fibre Channel Storage Area Network (SAN). It's used to partition the SAN into logical groups of devices, so that a specific server (initiator) can only communicate with specific storage devices (targets). This prevents a server from accidentally accessing another server's storage.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'dumpster diving' from a security perspective?",
+			"Answer": "Dumpster diving is the practice of sifting through a company's trash to find discarded sensitive information. Attackers can find things like old documents, printouts, calendars, or notes with passwords. This is why our company has a strict shred-all policy for all paper documents.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between 'latency' and 'throughput'?",
+			"Answer": "That's a great question to clarify. Think of it like a highway. Throughput (or bandwidth) is how many lanes the highway has – how much data can be sent at once. Latency is the speed limit – how long it takes for a single piece of data to get from point A to point B. You can have high throughput but also high latency, which would feel like a very wide but very long road.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'captive portal'?",
+			"Answer": "A captive portal is a web page that a user has to view and interact with before being granted access to a network. You've probably seen them at hotels or airports where you have to agree to terms and conditions before you can use the Wi-Fi. We use one for our guest network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer is making a continuous, single long beep when I turn it on.",
+			"Answer": "A long, continuous beep code at startup usually indicates a problem with the system's memory (RAM). It could be that a memory module has become unseated. Please power down the computer, and I will come to your desk to inspect the memory modules.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'BGP'?",
+			"Answer": "BGP stands for Border Gateway Protocol. It's the routing protocol that is used to make the internet work. BGP is used by routers at different internet service providers (ISPs) to exchange routing information with each other, allowing them to determine the best paths for traffic to take across the vast network of networks that is the internet.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'brute-force attack'?",
+			"Answer": "A brute-force attack is a trial-and-error method used by attackers to guess a user's password. They use automated software to try many different combinations of characters until they find the correct one. This is why our account lockout policy, which temporarily locks an account after a few failed attempts, is so important.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between a 'virus' and a 'trojan'?",
+			"Answer": "A virus is a piece of malware that attaches itself to another program and replicates when that program is run. A Trojan, or Trojan horse, is a type of malware that disguises itself as a legitimate program. It doesn't self-replicate, but when you run the program, it executes its malicious payload.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'Virtual Private Cloud' (VPC)?",
+			"Answer": "A VPC is a secure, isolated private cloud hosted within a public cloud. It allows us to have our own logically isolated section of the cloud where we can launch resources in a virtual network that we define. It gives us the benefits of the cloud while maintaining control and security similar to our on-premise network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Can I use a 'USB killer' device on my work computer?",
+			"Answer": "Absolutely not. A 'USB killer' is a malicious device designed to look like a USB flash drive, but it rapidly charges and discharges capacitors into the USB port's data lines, physically destroying the port and often the motherboard. Using such a device would cause permanent damage and is strictly prohibited.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the 'MTU' setting?",
+			"Answer": "MTU stands for Maximum Transmission Unit. It's a setting that determines the largest size of a data packet that can be transmitted over a network. If a packet is larger than the MTU of a link, it has to be fragmented, which can slow down performance. An MTU mismatch between devices can sometimes cause connectivity problems.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why do some Ethernet ports have a yellow or orange light and others have a green one?",
+			"Answer": "The colors of the LED lights on a network port indicate the connection speed. While it can vary by manufacturer, typically a green light indicates a Gigabit (1000 Mbps) connection, while a yellow or orange light indicates a slower 10/100 Mbps connection. A blinking light usually indicates network activity.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'Security Information and Event Management' (SIEM) system?",
+			"Answer": "A SIEM is a sophisticated security tool that collects and aggregates log data from all our network devices, servers, and applications into a single centralized platform. It then uses advanced analytics and correlation to help our security team identify suspicious activity, threats, and potential security breaches in real time.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the purpose of a 'Faraday cage'?",
+			"Answer": "A Faraday cage is an enclosure used to block electromagnetic fields. In a security context, we could use a Faraday bag or a shielded room to block all wireless signals (like cellular, Wi-Fi, and Bluetooth) from reaching a device. This is used in forensic investigations to prevent a device from being remotely wiped or altered.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between 'half-duplex' and 'full-duplex'?",
+			"Answer": "Duplex refers to the direction of data transmission. In half-duplex mode, data can be sent in both directions, but not at the same time, like a walkie-talkie. In full-duplex mode, which is the standard for modern networks, data can be sent and received simultaneously, like a telephone conversation. Full-duplex provides much better performance.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm worried about 'shoulder surfing'. What is it?",
+			"Answer": "Shoulder surfing is a social engineering technique where an attacker observes you from a close distance as you type in your password or other sensitive information. It's important to be aware of your surroundings when working in public places or even in the office. Using a privacy screen on your laptop can also help prevent this.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What does a 'load balancer' do?",
+			"Answer": "A load balancer is a device that distributes network traffic across multiple servers. We use them to ensure that no single server becomes overwhelmed with requests, which improves the performance, availability, and reliability of our applications. If one server fails, the load balancer automatically redirects traffic to the remaining healthy servers.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'rootkit'?",
+			"Answer": "A rootkit is a particularly stealthy type of malware that is designed to gain administrative-level control over a computer system while actively hiding its presence. Rootkits can be very difficult to detect and remove because they can modify the core parts of the operating system.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why does a fiber optic cable have two strands?",
+			"Answer": "Fiber optic communication typically requires two separate strands of fiber. One strand is used for transmitting data, and the other is used for receiving data. This allows for a full-duplex connection, where data can be sent and received at the same time, which is much more efficient.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'change management'?",
+			"Answer": "Change management is a formal process we use in IT to manage any changes to our production systems. It involves planning, testing, getting approval, and documenting any modifications to the network or servers. It's a critical process to prevent unexpected outages and ensure the stability of our services.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'DNS amplification' attack?",
+			"Answer": "A DNS amplification attack is a type of DDoS attack. An attacker sends a DNS query to an open DNS server, but they spoof the source IP address to be that of their victim. They craft the query in such a way that the DNS server's response is much larger than the initial request. The amplified responses are then all sent to the victim, overwhelming their network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My wireless mouse is lagging. What can I do?",
+			"Answer": "Lag with a wireless mouse is most often caused by a low battery or radio frequency interference. Please try replacing the batteries first. If the problem persists, try moving the USB receiver for the mouse to a different port, preferably one on the front of the computer to get a better line of sight, and move any other wireless devices (like your phone) further away.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the 'Asset Tag' on my computer?",
+			"Answer": "The asset tag is a unique identification number that our IT department assigns to every piece of company-owned equipment. It helps us keep track of our inventory, manage warranties, and identify your specific device when you request support. Please provide it whenever you contact the help desk.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'disassociation attack' on a Wi-Fi network?",
+			"Answer": "A disassociation attack is a type of denial-of-service attack where an attacker sends spoofed 'disassociation' frames to a user's device, making it appear as if they came from the access point. This tricks the user's device into disconnecting from the Wi-Fi network, disrupting their connection.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'domain controller'?",
+			"Answer": "A domain controller is a server on our network that is responsible for handling security authentication requests within our Windows domain. It's where all the user accounts and passwords are stored. When you log in to your computer, it's the domain controller that verifies your credentials.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'EAP' in the context of wireless security?",
+			"Answer": "EAP stands for Extensible Authentication Protocol. It's not a specific authentication mechanism itself, but rather an authentication framework that is often used in more secure wireless networks (like WPA2-Enterprise). It allows us to use various authentication methods, such as username/password or digital certificates.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why can't I access my home computer from the office?",
+			"Answer": "For security reasons, our company firewall is configured to block most incoming connections from the internal network to the internet. This helps prevent malware from 'phoning home' and stops data exfiltration. You should use company-approved methods, like our sanctioned cloud storage, to transfer files between home and work.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'Layer 7 firewall'?",
+			"Answer": "A Layer 7 firewall, also known as an application-layer firewall or a next-generation firewall, is a much more advanced type of firewall. In addition to looking at IP addresses and ports, it can inspect the actual content of the data packets to understand which application is being used (e.g., Facebook vs. a specific business app). This allows for much more granular control and security.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'keystone jack'?",
+			"Answer": "A keystone jack is the female connector that is mounted in a wall plate or patch panel. The Ethernet cable coming from the wall is terminated on the back of the keystone jack, and you then plug your patch cable into the front of it to connect your computer.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between 'threat', 'vulnerability', and 'risk'?",
+			"Answer": "Those are key security terms. A 'vulnerability' is a weakness in a system. A 'threat' is something that could potentially harm that system by exploiting a vulnerability. 'Risk' is the likelihood that a threat will exploit a vulnerability and the impact that it would have. We work to reduce risk by patching vulnerabilities and defending against threats.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why shouldn't I use the same password for multiple websites?",
+			"Answer": "Using the same password everywhere is very risky. If one of those websites suffers a security breach and their user password list is stolen, attackers will then try that same email and password combination on many other sites, like your email or bank account. This is called 'credential stuffing'. Always use a unique, strong password for every service.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'CSU/DSU'?",
+			"Answer": "A CSU/DSU (Channel Service Unit/Data Service Unit) is a piece of hardware that's used to connect our internal network to a digital line from the telephone company, like a T1 line. The DSU part converts the data into a signal the T1 line can understand, and the CSU part terminates the line and provides diagnostics.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My screen is flickering. What should I do?",
+			"Answer": "A flickering screen is most often caused by a loose video cable or a bad driver. Please check that the cable is securely connected to both your monitor and your computer. If that doesn't help, I would suggest we try updating your computer's graphics driver.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the '5-4-3 rule' in Ethernet?",
+			"Answer": "The 5-4-3 rule is an old design rule for shared Ethernet networks that used hubs. It states that between any two nodes on the network, there can be a maximum of 5 segments, connected by 4 repeaters (hubs), and only 3 of those segments can have user devices connected. This rule is less relevant in modern switched networks but is a good piece of networking history!",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'AUP' and why do I have to sign it?",
+			"Answer": "AUP stands for Acceptable Use Policy. It's a document that outlines the rules you must follow when using company IT resources, like the network and internet connection. Signing it confirms that you understand and agree to use these resources responsibly and securely. It's a requirement for all employees.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'media converter'?",
+			"Answer": "A media converter is a simple networking device that is used to connect two different types of network media. For example, we would use a media converter to connect a copper Ethernet cable to a fiber optic cable, allowing us to extend the network over a longer distance than copper can support.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'hot site' in disaster recovery?",
+			"Answer": "A hot site is a fully equipped disaster recovery facility. It's a duplicate of our primary data center, with all the necessary hardware, software, and network connectivity already in place and ready to go. In the event of a major disaster at our main site, we can fail over to the hot site very quickly to resume operations.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why does my laptop get hot when I use it on my lap?",
+			"Answer": "Laptops pull in cool air through vents, which are often on the bottom of the device. When you place it on a soft surface like your lap or a blanket, you can block these vents. This restricts airflow, causing the components to get hot and the fans to run at high speed. It's always best to use your laptop on a hard, flat surface.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'OSPF'?",
+			"Answer": "OSPF stands for Open Shortest Path First. It is an 'interior gateway protocol' that we use inside our company network. It's a routing protocol that our routers use to exchange information about the network topology with each other, so they can calculate the most efficient, loop-free paths for data to travel.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What does it mean to 'quarantine' a computer?",
+			"Answer": "If our security software detects that a computer is infected with malware, it can automatically 'quarantine' it. This means it blocks the computer from accessing the network, preventing the infection from spreading to other machines. The computer remains isolated until an IT technician can clean it.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between 'intrusive' and 'non-intrusive' vulnerability scanning?",
+			"Answer": "A non-intrusive vulnerability scan analyzes a system for potential vulnerabilities without actually trying to exploit them; it's a safe way to check for issues. An intrusive scan goes a step further and actively tries to exploit a vulnerability to confirm its existence. Intrusive scans are more accurate but carry a risk of crashing the system, so they are done with great care.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'split horizon' routing loop prevention mechanism?",
+			"Answer": "Split horizon is a rule used by some routing protocols to prevent routing loops. It simply states that a router should not advertise a route back out of the same interface from which it learned the route. It's a fundamental concept for ensuring a stable routing environment.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "How do I securely erase the data from a USB drive?",
+			"Answer": "Simply deleting the files from a USB drive doesn't securely erase them; they can often be recovered. To securely erase the data, you should use a specialized software utility that overwrites the entire drive with random data, making the original files unrecoverable. Our IT department can provide you with an approved tool for this.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'honeynet'?",
+			"Answer": "A honeynet is an extension of the honeypot concept. Instead of just one decoy computer, it's an entire decoy network, complete with multiple servers, routers, and firewalls. It's designed to be an even more attractive and realistic target for attackers, allowing our security team to study their behavior in a controlled environment.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'warm site'?",
+			"Answer": "A warm site is a compromise between a hot site and a cold site for disaster recovery. It has the necessary office space, power, and network connectivity, but the servers and other hardware are not pre-installed. It takes longer to get a warm site up and running than a hot site, but it is less expensive to maintain.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why do you need to know the 'port number' when troubleshooting?",
+			"Answer": "Port numbers are used to identify specific applications or services running on a server. For example, web traffic uses port 80 (HTTP) or 443 (HTTPS). Knowing the port number helps us to narrow down a problem. If you can access a server on port 80 but not on port 22 (for secure shell), it tells us the issue is likely with that specific service, not the server or network as a whole.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'VDI'?",
+			"Answer": "VDI stands for Virtual Desktop Infrastructure. It's a technology that hosts desktop operating systems on a centralized server in our data center. You can then access your personal desktop environment from any device, including thin clients or your home computer, providing a consistent experience while keeping all the data secure in the data center.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'protocol analyzer' or 'packet sniffer'?",
+			"Answer": "A protocol analyzer, like Wireshark, is a powerful tool that can capture and display all the data packets traveling across a network. It allows us to see the raw data and decode the various protocols being used. It's an essential tool for advanced network troubleshooting and security analysis.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'WPA3'?",
+			"Answer": "WPA3 is the latest and most secure protocol for protecting wireless networks. It offers several improvements over its predecessor, WPA2, including stronger encryption and better protection against offline password-guessing attacks. We are in the process of upgrading all our access points to support WPA3.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I can't save a file because the name is 'too long'. What does that mean?",
+			"Answer": "Operating systems like Windows have a limit on the total length of a file path, which includes the drive letter, all the folder names, and the file name itself. If you have a file nested inside many deeply-named folders, you can exceed this limit. The solution is to save the file in a higher-level folder or shorten the file or folder names.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'IPsec'?",
+			"Answer": "IPsec (Internet Protocol Security) is a suite of protocols that is used to secure communications at the network layer. It can provide confidentiality by encrypting data, integrity by ensuring data isn't tampered with, and authentication. It's the underlying technology used in many modern VPNs.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'cold site' for disaster recovery?",
+			"Answer": "A cold site is the most basic type of disaster recovery site. It's essentially just an empty room or office space with power and cooling. In a disaster, we would have to bring in and install all the necessary computer hardware and network equipment, so it takes the longest time to become operational, but it is the cheapest option.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My laptop's keyboard backlight isn't working.",
+			"Answer": "Most laptops have a specific function key, often with a keyboard icon, that controls the keyboard backlight. You may need to press it a few times to cycle through the different brightness levels or turn it on. If that doesn't work, we can check the BIOS settings, as sometimes the backlight can be disabled there.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'SSID cloaking'?",
+			"Answer": "SSID cloaking is the practice of disabling the broadcast of the wireless network's name (SSID). The idea is that if you can't see the network, you can't attack it. However, it's considered a weak security measure because the SSID can still be easily discovered by an attacker with the right tools. We rely on strong encryption rather than hiding the network name.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'unified communications' (UC) solution?",
+			"Answer": "Unified Communications is the integration of various real-time communication services like instant messaging, voice (including IP telephony), video conferencing, and data sharing into a single, consolidated platform. Our current collaboration software is an example of a UC solution.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'jumper' on a motherboard or hard drive?",
+			"Answer": "A jumper is a small plastic plug with a metal bridge inside that is used to close an electrical circuit. On older hardware, jumpers were used to configure settings, like setting a hard drive to be a 'master' or 'slave' device on an IDE cable. They are much less common on modern hardware.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'DNS zone transfer'?",
+			"Answer": "A DNS zone transfer is the process of replicating the database of DNS records from a primary DNS server to a secondary DNS server. This is a normal and necessary process for redundancy. However, if a server is misconfigured, an attacker could perform an unauthorized zone transfer to get a list of all the hosts on our network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'demilitarized zone' (DMZ)?",
+			"Answer": "A DMZ is a perimeter network that protects an organization's internal local-area network (LAN) from untrusted traffic. We place any servers that need to be accessible from the public internet, like our company's public web server, into the DMZ. This adds an extra layer of security because even if a server in the DMZ is compromised, the attacker is still firewalled off from our internal network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My new headset isn't working. What should I do?",
+			"Answer": "Let's check the audio settings. Please make sure the headset is securely plugged in. Then, right-click on the speaker icon in your system tray, open the 'Sound settings', and make sure that both your output (playback) and input (recording) devices are set to your new headset. You may also need to set this within your specific communications software.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'port security' on a switch?",
+			"Answer": "Port security is a feature on our managed switches that allows us to restrict a port's access to only specific MAC addresses. For example, we can configure a port so that only the computer at that desk can connect. If someone tries to unplug that computer and plug in their own laptop, the port will automatically shut down, preventing unauthorized access.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'digital certificate'?",
+			"Answer": "A digital certificate is an electronic 'passport' that allows a person, computer or organization to exchange information securely over the Internet. A certificate is issued by a trusted third party, called a Certificate Authority (CA). When you connect to a secure website (HTTPS), your browser checks the site's certificate to verify its identity.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'Public Key Infrastructure' (PKI)?",
+			"Answer": "PKI is the entire framework of hardware, software, policies, and procedures needed to create, manage, distribute, use, store, and revoke digital certificates. It's the underlying technology that enables secure communication and authentication for many of our systems, including our VPN and secure websites.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'tailgating' and why is it a security concern?",
+			"Answer": "Tailgating is a physical security breach where an unauthorized person follows an authorized employee into a restricted area without providing their own credentials. For example, someone holding the door open for the person behind them. It's a security risk, and it's important to ensure that everyone entering a secure area uses their own access card.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm disposing of an old work phone. What should I do?",
+			"Answer": "Thank you for asking. Please do not dispose of it yourself. All company-owned devices, even old ones, must be returned to the IT department. We will ensure that all company data is securely wiped from the device according to our data disposal policy before it is recycled.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is an 'air gap' in security?",
+			"Answer": "An air gap is a security measure where a computer or network is physically isolated from all other networks, especially the internet. This is the ultimate form of network security, used for extremely sensitive systems, as it prevents any form of remote access or attack.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'cable crimper'?",
+			"Answer": "A cable crimper is a tool used to attach a connector, like an RJ45 connector, to the end of an Ethernet cable. It presses down on the small metal pins in the connector, causing them to pierce the insulation of the individual wires, creating a secure connection.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'Kerberos'?",
+			"Answer": "Kerberos is the default authentication protocol used by our Windows domain. It uses a system of 'tickets' to allow nodes communicating over a non-secure network to prove their identity to one another in a secure manner. When you log in, you are authenticated by a domain controller, which then grants you a ticket you can use to access other resources.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm seeing 'ghosting' or 'burn-in' on my monitor. Can this be fixed?",
+			"Answer": "Image persistence, or 'ghosting', happens when a static image is left on an LCD screen for a very long time. It can sometimes be fixed by turning off the monitor for an extended period or by displaying an all-white screen for a while. To prevent it, it's best to use a screen saver or have the monitor turn off after a period of inactivity.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'downtime' vs. 'uptime'?",
+			"Answer": "Uptime is the amount of time that a server or service is operational and available. Downtime is the period when it is unavailable. We measure the reliability of our systems by their uptime, often expressed as a percentage, like '99.999% uptime'.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the 'ifconfig' command?",
+			"Answer": "'ifconfig' (interface configuration) is a command-line utility for Unix-like operating systems that is used to view and configure network interfaces. It's the equivalent of the 'ipconfig' command in Windows. You can use it to see your IP address, MAC address, and other network settings.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'geofencing' policy?",
+			"Answer": "Geofencing is a policy we can enforce using our Mobile Device Management (MDM) system. It creates a virtual boundary using GPS. We can use it to create rules, such as restricting access to certain company data unless the device is physically located within our office building, adding another layer of security.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between a 'king-of-the-hill' and a 'capture-the-flag' exercise in cybersecurity?",
+			"Answer": "Both are cybersecurity training exercises. In 'capture-the-flag', teams compete to solve security challenges and find hidden 'flags'. In 'king-of-the-hill', teams try to take control of a central server and then defend it from attacks by the other teams. They are both great ways for our security team to practice their skills.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What does a 'network administrator' do?",
+			"Answer": "A network administrator is responsible for the day-to-day operation, maintenance, and management of our company's computer networks. This includes installing and configuring routers and switches, monitoring network performance, implementing security policies, and troubleshooting any network problems that arise.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'link-local' addressing in IPv6?",
+			"Answer": "A link-local address is a special type of IPv6 address that is automatically configured on every IPv6-enabled interface. It is only valid for communication on the local network segment and cannot be routed. Devices use their link-local addresses for things like neighbor discovery.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'thin client'?",
+			"Answer": "A thin client is a simple, low-power computer that is optimized for connecting to a remote server. It has no hard drive and runs a minimal operating system. All the applications and data are stored and processed on the central server, for example, in our VDI environment. This makes them secure, easy to manage, and less expensive than a traditional PC.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'zombie' computer?",
+			"Answer": "A zombie computer is a computer that has been compromised by malware and is now part of a 'botnet', under the control of an attacker. The owner is usually completely unaware that their computer is being used to send spam or participate in DDoS attacks. This is why keeping security software updated is so important.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the 'top-down' approach to network troubleshooting?",
+			"Answer": "The top-down approach starts troubleshooting at the Application Layer of the OSI model and works its way down. You would start by checking if a specific application or website is working, then check the operating system's network settings, and so on, down to the physical cables. It's one of several logical methods we use to diagnose problems.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'pass-the-hash' attack?",
+			"Answer": "A pass-the-hash attack is a technique used by attackers who have already compromised a system. Instead of cracking a user's password, they steal the 'hash' (the encrypted version) of the password from memory and use that hash to authenticate to other systems on the network as that user, without ever needing to know the actual plain-text password.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I can't reach our internal server 'fileshare01'. Is it online?",
+			"Answer": "I can certainly check that for you. I will attempt to ping 'fileshare01' to see if it's responding on the network.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the web server at 10.50.1.15 accepting connections on the standard HTTPS port?",
+			"Answer": "Good question. I will perform a port check on 10.50.1.15 for port 443 to see if it's open and listening.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the IP address for 'portal.ourcompany.com'?",
+			"Answer": "I can find that out. I will query our DNS server for the A record of 'portal.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm getting a 'host not found' error for 'intranet.ourcompany.local', even though I was able to access it yesterday.",
+			"Answer": "That sounds like a potential DNS issue. I'll query the DNS record for 'intranet.ourcompany.local' to verify it's resolving correctly.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The connection to the database server at 192.168.10.25 seems to have dropped. Can you check if it's still on the network?",
+			"Answer": "I understand the urgency. I will ping the server at 192.168.10.25 to check for a network response.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you verify if the firewall is allowing traffic on port 8080 to the test server 'dev-web-03'?",
+			"Answer": "I can check that. I'll run a port check on 'dev-web-03' for port 8080 to see if it's accessible.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Our application can't connect to the authentication server 'auth.ourcompany.com'. Is it down?",
+			"Answer": "Let's check its status. I will ping 'auth.ourcompany.com' to test for basic connectivity.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm trying to configure a new device. What does 'dns-primary.ourcompany.net' resolve to?",
+			"Answer": "I can get that information for you. I will perform a DNS lookup for 'dns-primary.ourcompany.net'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I can't get to 'reports.ourcompany.com'. Can you ping it for me?",
+			"Answer": "Of course. I am now pinging 'reports.ourcompany.com' and will let you know the result.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "We need to know if the secure file transfer port is open on 'ftp.ourcompany.com'. Can you check port 22?",
+			"Answer": "I'm on it. I will perform a port check for port 22 on 'ftp.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The hostname 'app-server-v2' isn't working, but its old IP 10.60.5.120 is. Can you check the DNS?",
+			"Answer": "That definitely points to a DNS problem. I will query the DNS for 'app-server-v2' to see what IP it's registered with.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check the network latency to the server 'tokyo-gw-01'?",
+			"Answer": "I can do that. Pinging 'tokyo-gw-01' will show the round-trip time, which indicates latency.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the SMTP server 'mail.ourcompany.com' listening on port 25?",
+			"Answer": "I will check that for you now by running a port check on 'mail.ourcompany.com' for port 25.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm setting up a new virtual machine. Can you confirm the IP for 'timeserver.ourcompany.net'?",
+			"Answer": "Certainly. I am querying our DNS for the IP address of 'timeserver.ourcompany.net'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I have an IP address, 172.16.31.5, but I don't know what device it is. Can DNS tell me?",
+			"Answer": "I can perform a reverse DNS lookup (PTR record) on 172.16.31.5 to see if it has a registered hostname.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you see if the remote desktop port (3389) is open on my workstation 'EMP-L-JSMITH'?",
+			"Answer": "Yes, I can check that connection. I will run a port check for 3389 on 'EMP-L-JSMITH'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Please ping the main router at 10.1.1.1 to make sure it's responsive.",
+			"Answer": "No problem. Pinging the default gateway at 10.1.1.1 now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Who is the mail exchange server for our domain, 'ourcompany.com'?",
+			"Answer": "I can find that by checking the DNS MX records for 'ourcompany.com'. One moment.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm experiencing packet loss to 'video-conf-server'. Can you run a continuous ping?",
+			"Answer": "While I can't run a continuous ping, I can send a standard set of pings to 'video-conf-server' to check for packet loss and latency.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I think there's a problem with our DNS. Does 'google.com' resolve to an IP address correctly?",
+			"Answer": "That's a good troubleshooting step. I will query an external address like 'google.com' to test DNS resolution.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you confirm our public web server 'www.ourcompany.com' is responding from the internet?",
+			"Answer": "I can test that. I will attempt to ping 'www.ourcompany.com' to ensure it's reachable.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the SQL server port 1433 open on 'db-prod-02'?",
+			"Answer": "I can check that for you. I am now running a port check on 'db-prod-02' for port 1433.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My application is trying to reach 'api.ourcompany.net'. What IP should it be going to?",
+			"Answer": "I can verify that. I'm querying DNS for the A record associated with 'api.ourcompany.net'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you ping the network printer 'PRINTER-ACCT-01' to see if it's connected?",
+			"Answer": "Certainly. I am now pinging 'PRINTER-ACCT-01' to check its network status.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What are the authoritative name servers for 'ourcompany.com'?",
+			"Answer": "I can retrieve that information by querying the NS records for the 'ourcompany.com' domain.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm getting a connection timed out error to 'backup-server'. Is it on the network?",
+			"Answer": "Let's find out. I will ping 'backup-server' to see if it responds.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Please check if the proxy server is listening on port 8080 at 10.100.1.80.",
+			"Answer": "I'm on it. Performing a port check on 10.100.1.80 for port 8080.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The CNAME for 'wiki' should point to 'confluence.ourcompany.net'. Can you verify this?",
+			"Answer": "I can check that DNS record. I will look up the CNAME record for 'wiki.ourcompany.com' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I need to know if the server at 192.168.5.19 is alive before I run my script.",
+			"Answer": "I can quickly check that for you. Pinging 192.168.5.19 now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the VoIP controller 'cucm-pub' reachable on the network?",
+			"Answer": "I'll check the connectivity to 'cucm-pub' right away by sending a ping.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you do a DNS lookup for the IP address of 'cisco-router-01'?",
+			"Answer": "Yes, I am querying our DNS server for the A record of 'cisco-router-01'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the LDAP server 'ldap.ourcompany.local' accepting connections on port 389?",
+			"Answer": "Let me check. I will run a port check on 'ldap.ourcompany.local' for port 389.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm having trouble resolving 'dev-db-clone'. Can you check its DNS entry?",
+			"Answer": "I'll look into that immediately. I'm querying DNS for 'dev-db-clone' to verify the record.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Please test the connection to our offsite DR server at 172.28.1.1.",
+			"Answer": "Understood. I'm sending a ping to the disaster recovery server at 172.28.1.1.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I need to make sure the monitoring agent port 10050 is open on 'linux-web-14'.",
+			"Answer": "No problem. I am performing a port check on 'linux-web-14' for port 10050.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the reverse lookup for 10.200.10.5? I need the hostname.",
+			"Answer": "I can find that for you. I'm querying for the PTR record of 10.200.10.5.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check if there's a network path to the wireless controller 'WLC-01'?",
+			"Answer": "I can test that by pinging 'WLC-01'. One moment.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The alias 'hr-portal' is not working. Can you check what it resolves to in DNS?",
+			"Answer": "I'll check the CNAME record for 'hr-portal.ourcompany.com' to see where it's pointing.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is our external DNS resolving 'beta.ourcompany.com' correctly?",
+			"Answer": "I can check that. I will perform a DNS lookup for 'beta.ourcompany.com' to verify its public IP.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I can't connect to my test VM at 192.168.23.129. Can you ping it?",
+			"Answer": "Let me check if it's responding on the network. Pinging 192.168.23.129 now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the management IP of switch 'SW-FLOOR-03-A' reachable?",
+			"Answer": "I will ping the management interface of 'SW-FLOOR-03-A' to check its status.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Please verify that the DNS Text record for domain key verification exists for our domain.",
+			"Answer": "I can do that. I will query the TXT records for 'ourcompany.com' to check for the verification key.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the secure LDAP port 636 open on 'dc01.ourcompany.local'?",
+			"Answer": "I will check that for you. I am running a port check for port 636 on 'dc01.ourcompany.local'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm getting 'destination host unreachable' for 'server-11b'. Can you confirm it's offline?",
+			"Answer": "That error indicates a routing or connectivity problem. I will ping 'server-11b' to verify if it's reachable from my location.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What IP is currently assigned to 'floating-ip-service' in DNS?",
+			"Answer": "I can check that. I'm performing a DNS lookup for 'floating-ip-service.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Ping the IP camera 'CAM-LOBBY-01' to see if it's connected to the network.",
+			"Answer": "Certainly. Pinging 'CAM-LOBBY-01' now to check for a response.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check if 'git.ourcompany.com' is listening on the standard SSH port?",
+			"Answer": "Understood. I am running a port check on 'git.ourcompany.com' for port 22.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The hostname 'legacy-app' is supposed to have IP 10.0.0.5. Can you verify this with DNS?",
+			"Answer": "I will check the A record for 'legacy-app.ourcompany.local' to confirm its registered IP address.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Before I reboot the core switch, can you ping it to confirm it's still up?",
+			"Answer": "Yes, it's wise to check first. I am sending a ping to 'core-switch-01' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check for open ports on the new web server 'staging-web-05'?",
+			"Answer": "I can check for specific ports. Which port numbers would you like me to check on 'staging-web-05'?",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the Start of Authority (SOA) record for our domain?",
+			"Answer": "I can retrieve that for you. I am now querying the SOA record for 'ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I can't reach the server 'siem-collector'. Can you try pinging it?",
+			"Answer": "I will test the connection to 'siem-collector' immediately. Pinging now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the Oracle database listener port 1521 open on 'oracle-db-1'?",
+			"Answer": "I can check that port. Running a port check for 1521 on 'oracle-db-1' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I have an IP 10.99.88.77. Can you do a reverse DNS lookup for me?",
+			"Answer": "Of course. I am querying for the PTR record associated with 10.99.88.77.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the access point 'AP-CONF-ROOM-A' alive on the network?",
+			"Answer": "Let me ping 'AP-CONF-ROOM-A' to check its network connectivity.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I need to verify the IP for 'software-repo.ourcompany.net' for a new server build.",
+			"Answer": "I can get that for you. Performing a DNS query for 'software-repo.ourcompany.net'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check if the router 'edge-router-02' is responding to pings?",
+			"Answer": "Yes, I can. I'm sending a ping to 'edge-router-02' to test its responsiveness.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is our company's blog 'blog.ourcompany.com' resolving correctly in DNS?",
+			"Answer": "I'll check that now. I'm performing a DNS lookup for 'blog.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check if the server 'vm-host-04' is listening on the vCenter port 902?",
+			"Answer": "I can check that for you. I'm running a port check for 902 on 'vm-host-04'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I am getting intermittent connectivity to 10.25.5.10. Can you ping it and check for packet loss?",
+			"Answer": "I will ping 10.25.5.10 and report back on the round-trip time and any packet loss detected.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The DNS alias 'helpdesk' should point to 'servicedesk.ourcompany.com'. Is that correct?",
+			"Answer": "I can verify that DNS CNAME record for you. One moment while I query 'helpdesk.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the backup interface of 'fileserver-02' at 192.168.102.2 responding?",
+			"Answer": "I'll check that specific IP. Pinging the backup interface at 192.168.102.2 now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Please check if the alternate HTTPS port 8443 is open on 'secure-app-01'.",
+			"Answer": "Understood. I am now performing a port check on 'secure-app-01' for port 8443.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm unable to resolve 'new-feature-branch.dev.ourcompany'. Can you check the DNS?",
+			"Answer": "It seems like that DNS record may be missing. I will query the name 'new-feature-branch.dev.ourcompany' to verify.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Ping the SAN controller at 192.168.30.5 to check for connectivity.",
+			"Answer": "I can do that. Sending a ping to the storage area network controller at 192.168.30.5.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you verify that 'ftp.ourcompany.com' is not open on the standard port 21?",
+			"Answer": "I can check that. I will run a port check on 'ftp.ourcompany.com' for port 21 to see if it's closed.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the DNS PTR record for 10.1.10.1?",
+			"Answer": "I can get the reverse lookup record for you. Querying the PTR record for 10.1.10.1.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The 'finance-app' server is not responding. Can you ping it?",
+			"Answer": "I'll test its connectivity right now. Pinging 'finance-app' for you.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the server 'k8s-master-01' listening on port 6443?",
+			"Answer": "I'll check the Kubernetes API server port. Running a port check on 'k8s-master-01' for port 6443.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you confirm the IP address for the domain controller 'dc02'?",
+			"Answer": "I can resolve that hostname for you. Querying DNS for 'dc02.ourcompany.local' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm experiencing high latency to 'gaming-server-01'. Can you ping it?",
+			"Answer": "I'll check the round-trip time for you. Pinging 'gaming-server-01' to measure latency.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the TFTP server at 10.10.2.1 reachable?",
+			"Answer": "Let me check that for you. I'm sending a ping to 10.10.2.1.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check the DNS mail records for 'partner-company.com'?",
+			"Answer": "Yes, I can look up the public MX records for 'partner-company.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the DNS server itself at 10.10.10.10 responding to pings?",
+			"Answer": "Good check. It's important that the DNS server is reachable. Pinging 10.10.10.10 now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Please check if 'test-environment-07' is listening on port 22 for SSH.",
+			"Answer": "I'm checking that now. Running a port check on 'test-environment-07' for port 22.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I can't resolve 'sap-prod'. Can you check its DNS A record?",
+			"Answer": "Of course. I am querying our DNS for the host 'sap-prod' to find its IP.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Ping our external gateway to test our internet connection.",
+			"Answer": "I will ping our primary internet gateway to verify its responsiveness.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check for an open web port on 172.17.0.10?",
+			"Answer": "I will check for standard web ports. Running a port check on 172.17.0.10 for ports 80 and 443.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the reverse DNS lookup for the IP 192.168.80.8?",
+			"Answer": "I can find the hostname for that IP. Querying for the PTR record of 192.168.80.8.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you ping the terminal server 'term-serv-01'?",
+			"Answer": "I'm on it. Sending a ping to 'term-serv-01' to check connectivity.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the Jenkins server 'ci-cd-master' listening on port 8080?",
+			"Answer": "I will check the port for the Jenkins web UI. Running a port check for 8080 on 'ci-cd-master'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The DNS name 'login.ourcompany.com' seems to be failing. Can you look it up?",
+			"Answer": "I'll investigate the DNS record. Querying DNS for 'login.ourcompany.com' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I need to know if the temperature sensor at 10.91.1.45 is on the network.",
+			"Answer": "I can check that. I'm pinging the sensor at 10.91.1.45 to see if it responds.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the building access control panel 'bldg-access-01' reachable via ping?",
+			"Answer": "Let me check the network status of that device. Pinging 'bldg-access-01' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you verify the DNS SRV record for our SIP service?",
+			"Answer": "Yes, I can query for the SRV record `_sip._tcp.ourcompany.com` to find the SIP server details.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the server 'archive-storage' responding on its IP 192.168.45.12?",
+			"Answer": "I will ping the server at 192.168.45.12 to confirm it is reachable.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Please check if the alternate web port 9000 is open on 'dev-container-host'.",
+			"Answer": "I can check that custom port. Running a port check on 'dev-container-host' for port 9000.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the IP address of 'ntp.ourcompany.com'?",
+			"Answer": "I can find that for you. I am querying DNS for the A record of 'ntp.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I can ping 'server-x' but I can't connect. Is port 443 open?",
+			"Answer": "That's a good next step. I will perform a port check on 'server-x' for port 443 to see if the service is listening.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Has the DNS for 'new-website.com' propagated yet? Can you look it up?",
+			"Answer": "I can check the public DNS records for 'new-website.com' to see its current IP address.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you ping the IP address of the marketing department's printer?",
+			"Answer": "I can ping it if you provide the IP address or the hostname, for example 'PRINTER-MKT-01'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the DNS CNAME record for 'm' pointing to 'mail.ourcompany.com'?",
+			"Answer": "I can verify that for you. Querying the CNAME record for 'm.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I need to confirm the server 'data-in-01' is online before a data import.",
+			"Answer": "I'll check its status for you. Pinging 'data-in-01' to confirm connectivity.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the Redis port 6379 accessible on 'cache-server-01'?",
+			"Answer": "I can check that for you. Performing a port check on 'cache-server-01' for port 6379.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My connection to the remote office seems slow. Can you ping their gateway 'gateway-london'?",
+			"Answer": "I will ping 'gateway-london' to check the latency and packet loss on the connection.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The IP 10.20.30.40 should be 'dns-secondary'. Can you verify with a reverse lookup?",
+			"Answer": "I can check that. I am querying the PTR record for 10.20.30.40 to see its registered hostname.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What does DNS say for 'vpn.ourcompany.com'?",
+			"Answer": "I'll get the IP address for you. Querying the A record for 'vpn.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Please check if 'app-staging' is listening on port 443.",
+			"Answer": "I'm checking now. Running a port check on 'app-staging' for the standard HTTPS port.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you ping the server with the IP address 192.168.100.10?",
+			"Answer": "Yes, I can. Sending a ping to 192.168.100.10 now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the DNS record for 'old-server.ourcompany.local' still active?",
+			"Answer": "I can check that. I'll perform a DNS lookup for 'old-server.ourcompany.local' to see if it resolves.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is our public IP 203.0.113.50 responding to pings?",
+			"Answer": "I can test that. Pinging our public IP 203.0.113.50 to check for a response. Note that some gateways are configured not to respond.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Check port 3306 on 'mysql-dev-db' to see if the database server is accepting connections.",
+			"Answer": "I'm on it. Performing a port check on 'mysql-dev-db' for port 3306.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the IP for 'huawei-switch-L3' according to our DNS?",
+			"Answer": "I can look that up for you. Querying DNS for the hostname 'huawei-switch-L3'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you confirm the firewall 'fw-main-a' at 10.0.0.1 is online?",
+			"Answer": "I will ping the firewall at 10.0.0.1 to confirm it is active on the network.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What does the DNS TXT record for '_dmarc.ourcompany.com' contain?",
+			"Answer": "I can retrieve that policy. I am querying the TXT record for '_dmarc.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I need to know if the server 'log-aggregator' is reachable before I deploy a change.",
+			"Answer": "Understood. Pinging 'log-aggregator' to verify its network status.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the Elasticsearch server 'es-cluster-node-1' listening on port 9200?",
+			"Answer": "I'll check that now. Running a port check on 'es-cluster-node-1' for port 9200.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you do a reverse DNS lookup on 172.21.50.100?",
+			"Answer": "Certainly. I am querying for the PTR record of 172.21.50.100 to find its hostname.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you ping 'localhost' for me?",
+			"Answer": "I can ping the standard loopback address, 127.0.0.1, to test the local TCP/IP stack.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The server name 'bi-dashboard' isn't working. Can you check its DNS record?",
+			"Answer": "I will look up 'bi-dashboard' in DNS to see if it's resolving to a valid IP address.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Test connectivity to the load balancer's VIP at 10.80.1.10.",
+			"Answer": "I will ping the virtual IP 10.80.1.10 to ensure the load balancer is responding.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the RDP port 3389 open on the server 'win-jump-box'?",
+			"Answer": "I'll check that remote desktop port now. Running a port check on 'win-jump-box' for 3389.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the IP address for 'sharepoint.ourcompany.com'?",
+			"Answer": "I can find that for you. I am performing a DNS lookup for 'sharepoint.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm getting a 'DNS name does not exist' error for 'new-project-server'. Can you verify?",
+			"Answer": "I will query DNS for 'new-project-server' to confirm if the record exists or not.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you ping the ESXi host 'esx-05a.lab.local'?",
+			"Answer": "Yes, I can. I am now pinging 'esx-05a.lab.local' to check its network connection.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What are the mail servers for 'gmail.com'?",
+			"Answer": "I can check that. I will query the public MX records for the domain 'gmail.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the server at 10.15.25.35 alive?",
+			"Answer": "I'll check that IP for you. Sending a ping to 10.15.25.35 now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the SSH port open on the server 'linux-bastion'?",
+			"Answer": "I will check the standard SSH port. Running a port check on 'linux-bastion' for port 22.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you resolve the hostname 'cctv-recorder-01' to an IP address?",
+			"Answer": "I will query our DNS to find the IP address for 'cctv-recorder-01'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I need to know if the network drop in my office is live. Can you ping the switch it connects to?",
+			"Answer": "I can ping the switch, 'SW-FLOOR-07-B', to ensure it's online, which would confirm it has power and a network connection.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What's the reverse lookup for 10.0.0.1?",
+			"Answer": "I can query that for you. Performing a PTR record lookup for 10.0.0.1.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you ping the server 'ansible-tower' to see if it's on the network?",
+			"Answer": "Of course. I am now sending a ping to 'ansible-tower' to check its status.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the WebEx server 'meetings.ourcompany.com' reachable?",
+			"Answer": "Let me test the connectivity to 'meetings.ourcompany.com' with a quick ping.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check if 'teams-gateway.ourcompany.com' is listening on port 443?",
+			"Answer": "I'm checking the port now. Running a port check for 443 on 'teams-gateway.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The DNS A record for 'app-a' seems wrong. Can you tell me what it is?",
+			"Answer": "I can check the current record. I am querying DNS for the A record of 'app-a.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the RADIUS server 'radius-01' at 192.168.12.10 online?",
+			"Answer": "I will check that. Pinging the RADIUS server at 192.168.12.10 now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the NTP server listening on port 123 at 'time.nist.gov'?",
+			"Answer": "I can check that for you. Performing a port check on 'time.nist.gov' for port 123.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I can't resolve 'internal-docs'. What is its IP?",
+			"Answer": "Let me look that up in our DNS. Querying for 'internal-docs.ourcompany.local' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Ping the asset 'LT-ADEV-01' to check its connection.",
+			"Answer": "I will ping the hostname 'LT-ADEV-01' to verify if it is connected and responding on the network.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you see if 'splunk-hf-01' is accepting data on port 9997?",
+			"Answer": "I will check that port for you. Running a port check on 'splunk-hf-01' for port 9997.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the IP for the DNS name 'azure-gateway.ourcompany.com'?",
+			"Answer": "I'll get that IP for you. Performing a DNS lookup for 'azure-gateway.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the server '10.55.1.5' up?",
+			"Answer": "I'll check its status. Sending a ping to the IP address 10.55.1.5 now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Check if the WinRM port 5985 is open on 'win-server-2019'.",
+			"Answer": "I can do that. Performing a port check on 'win-server-2019' for port 5985.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Does the hostname 'printer-exec-suite' resolve in DNS?",
+			"Answer": "I'll check the DNS record. Querying for 'printer-exec-suite' to find its IP address.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you ping the iDRAC interface for server 'poweredge-r740'?",
+			"Answer": "I can do that if you provide the iDRAC hostname, for example 'poweredge-r740-idrac'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the reverse DNS for 172.18.100.2 set up correctly?",
+			"Answer": "I can check that for you by querying the PTR record for 172.18.100.2.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I need to know if 'gitlab-runner-03' is online.",
+			"Answer": "I'll check its connectivity now. Pinging 'gitlab-runner-03' for you.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the VNC port 5900 open on 'dev-linux-box'?",
+			"Answer": "I'll check that now. Running a port check on 'dev-linux-box' for port 5900.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What's the IP address for the hostname 'web-cluster-vip'?",
+			"Answer": "I can look that up. I am querying DNS for 'web-cluster-vip.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The server at 10.70.70.1 is not responding to my application. Can you ping it?",
+			"Answer": "I will check the basic network connectivity to 10.70.70.1 with a ping.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Please check the DNS MX record for 'ourcompany.co.uk'.",
+			"Answer": "I'll query that now. Looking up the Mail Exchange records for the 'ourcompany.co.uk' domain.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Ping the switch 'SW-IDF-04-A' to see if it's up.",
+			"Answer": "Of course. Pinging 'SW-IDF-04-A' to check its network status.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the PostGreSQL port 5432 open on 'pg-db-primary'?",
+			"Answer": "I can check that database port. Performing a port check on 'pg-db-primary' for port 5432.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I forgot the IP for 'hr-fileserver'. Can you look it up?",
+			"Answer": "No problem. I am querying DNS now for the IP address of 'hr-fileserver'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "There seems to be a routing issue. Can you ping the next hop router at 10.254.1.2?",
+			"Answer": "I will ping the router at 10.254.1.2 to verify Layer 3 connectivity.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Check the DNS record for 'www.ourcompany.net'.",
+			"Answer": "I'll look up the A record for 'www.ourcompany.net' to find its IP address.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you see if 'app-server-33' is listening on port 80?",
+			"Answer": "I will check the standard HTTP port. Running a port check on 'app-server-33' for port 80.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the hostname for the IP address 192.168.1.1?",
+			"Answer": "I will perform a reverse DNS lookup on 192.168.1.1 to find its registered hostname.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the network device 'UPS-MDF-01' online? Please ping it.",
+			"Answer": "I'll check the status of the UPS. Pinging 'UPS-MDF-01' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check the SRV record for our LDAP service?",
+			"Answer": "I can do that. I will query DNS for the record '_ldap._tcp.ourcompany.local'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the server '10.30.2.10' on the network?",
+			"Answer": "I will send a ping to 10.30.2.10 to check for a response.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Please check if 'localhost' is listening on port 3000.",
+			"Answer": "I cannot check ports on your local machine, but I can check a remote host. Please provide a hostname or IP address.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I need the IP for 'vcenter.lab.local'. Can you find it in DNS?",
+			"Answer": "Certainly. I'm querying DNS for the IP address of 'vcenter.lab.local'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My latency to 'csgo-server-1' is high. Can you check the ping time?",
+			"Answer": "I'll check it for you. Pinging 'csgo-server-1' to see the current round-trip time.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Verify connectivity to the Active Directory server 'ad-01'.",
+			"Answer": "I will ping 'ad-01.ourcompany.local' now to test its network connectivity.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check if the Telnet port 23 is open on the legacy device 'ancient-device'?",
+			"Answer": "I can check that. Running a port check on 'ancient-device' for port 23.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the DNS CNAME 'intranet' correctly pointing to 'sharepoint-vm'?",
+			"Answer": "I will check the DNS record. Querying the CNAME for 'intranet.ourcompany.com' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Ping the security camera 'cam-parking-04' to see if it's alive.",
+			"Answer": "I'm on it. Sending a ping to 'cam-parking-04' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the public IP for 'remote.ourcompany.com'?",
+			"Answer": "I can find that out. Performing a DNS lookup for 'remote.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Check if port 80 is open on '10.128.50.6'.",
+			"Answer": "Understood. Performing a port check on the IP address 10.128.50.6 for port 80.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you do a reverse DNS check on the IP 10.254.254.10?",
+			"Answer": "Yes, I can. I am querying for the PTR record of 10.254.254.10.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The application server 'ecom-app-01' is slow. Can you ping it?",
+			"Answer": "I'll check the latency for you. Pinging 'ecom-app-01' to measure the response time.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Are there any DNS TXT records associated with 'ourcompany.com'?",
+			"Answer": "I can check that. I am querying for all TXT records on the 'ourcompany.com' domain.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the QA testing server 'qa-server-02' online?",
+			"Answer": "I will check its status now. Sending a ping to 'qa-server-02'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the Cassandra port 9042 open on 'db-cass-node-3'?",
+			"Answer": "I can check that. I'm running a port check on 'db-cass-node-3' for port 9042.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What's the IP for 'cisco-ise-01'?",
+			"Answer": "I'll look that up in DNS for you. Querying for 'cisco-ise-01.ourcompany.local'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you ping the backup domain controller 'dc02.ourcompany.local'?",
+			"Answer": "Certainly. I'm pinging 'dc02.ourcompany.local' to check for a network response.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the HTTP port open on '192.168.14.3'?",
+			"Answer": "I will check the standard HTTP port 80 on the IP address 192.168.14.3.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I need the IP for the hostname 'sap-hana-db'.",
+			"Answer": "I can retrieve that from DNS. I'm querying for 'sap-hana-db.ourcompany.local'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm having trouble connecting to '172.16.8.8'. Can you ping it?",
+			"Answer": "I will test the connection to 172.16.8.8 now with a ping.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the result of a DNS lookup for 'a-random-nonexistent-domain.com'?",
+			"Answer": "I can check that. I will perform a DNS lookup for 'a-random-nonexistent-domain.com' which should result in an NXDOMAIN error.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you check the connectivity to the router 'branch-office-router-1'?",
+			"Answer": "I will ping 'branch-office-router-1' to see if it's reachable on the network.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is the RabbitMQ management port 15672 open on 'mq-server-1'?",
+			"Answer": "I can check that specific port. I am running a port check on 'mq-server-1' for port 15672.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the reverse DNS for 8.8.8.8?",
+			"Answer": "I can check that. I am querying for the PTR record of 8.8.8.8, which should resolve to 'dns.google'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Please ping the server 'timecard-app.ourcompany.com'.",
+			"Answer": "Understood. Sending a ping to 'timecard-app.ourcompany.com' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Is our SharePoint server listening on port 443?",
+			"Answer": "I will check that for you. I'm running a port check on 'sharepoint.ourcompany.com' for the standard HTTPS port.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you resolve 'dns-test.ourcompany.com' for me?",
+			"Answer": "Yes, I will perform a DNS lookup for 'dns-test.ourcompany.com' to get its IP address.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The build failed because it couldn't reach 'artifactory.ourcompany.com'. Is it down?",
+			"Answer": "Let's check its network status. I will ping 'artifactory.ourcompany.com' to see if it is online.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you do a port check on 'firewall-dmz-1' for port 22?",
+			"Answer": "I will check if SSH is open on that device. Running a port check on 'firewall-dmz-1' for port 22.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I need to know if the PLC 'plc-factory-floor-2' is on the network. Can you ping it?",
+			"Answer": "I can check the connectivity to that industrial device. Pinging 'plc-factory-floor-2' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Can you reboot the access point in the main conference room?",
+			"Answer": "I will now connect to 'AP-CONF-MAIN' and issue a reboot command. It should be back online in a few minutes.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need you to assign VLAN 50 to port 24 on the switch 'SW-FLOOR-03-A'.",
+			"Answer": "Understood. I am now accessing 'SW-FLOOR-03-A' to configure port GigabitEthernet1/0/24 as an access port on VLAN 50.",
+			"intent": "device"
+		},
+		{
+			"Question": "We have a new server. Can you enable port 12 on switch 'SW-DATA-RACK-2'?",
+			"Answer": "Certainly. I will connect to 'SW-DATA-RACK-2' and execute the 'no shutdown' command on interface GigabitEthernet1/0/12.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please apply the 'Standard-Web-Access' ACL to the guest VLAN interface on 'ROUTER-CORE-1'.",
+			"Answer": "I am now connecting to 'ROUTER-CORE-1' to apply the specified access-list to the SVI for the guest network.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the current configuration of port 7 on switch 'SW-DESK-WING-B'?",
+			"Answer": "I will retrieve that for you. I'm connecting to 'SW-DESK-WING-B' and will display the running configuration for interface Fa0/7.",
+			"intent": "device"
+		},
+		{
+			"Question": "The user in cube 7B needs their port disabled temporarily. Can you shut down port 15 on 'SW-FLOOR-07-C'?",
+			"Answer": "I'm on it. I will now connect to 'SW-FLOOR-07-C' and issue the 'shutdown' command on interface Gi1/0/15.",
+			"intent": "device"
+		},
+		{
+			"Question": "We need to change the description on port 3 of 'SW-IDF-02'. Please label it 'New Printer Connection'.",
+			"Answer": "Understood. I am connecting to 'SW-IDF-02' and setting the description on interface Gi1/0/3 to 'New Printer Connection'.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the firmware version on the firewall 'FW-MAIN-A'?",
+			"Answer": "I will connect to 'FW-MAIN-A' and execute a command to display the current system firmware version.",
+			"intent": "device"
+		},
+		{
+			"Question": "The VoIP phone on desk 44 isn't working. Can you bounce the port? It's port 21 on switch 'SW-FLOOR-04-A'.",
+			"Answer": "I can do that. I will now perform a 'shutdown' followed by a 'no shutdown' command on interface Gi1/0/21 of 'SW-FLOOR-04-A' to reset the port.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to set up a new access point. Please configure port 48 on 'SW-CORE-2' as a trunk port allowing all VLANs.",
+			"Answer": "I am connecting to 'SW-CORE-2' now to configure interface Gi1/0/48 as a dot1q trunk.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the CPU utilization on 'ROUTER-EDGE-1'?",
+			"Answer": "Certainly. I am connecting to 'ROUTER-EDGE-1' to check the current CPU load.",
+			"intent": "device"
+		},
+		{
+			"Question": "We are replacing a PC. Can you remove the port security configuration from port 11 on 'SW-FLOOR-01-B'?",
+			"Answer": "Understood. I am accessing 'SW-FLOOR-01-B' to remove all port security settings from interface Fa0/11.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please add VLAN 120 to the allowed list on the trunk port connecting to 'AP-LOBBY-02'.",
+			"Answer": "I will find the corresponding switch port for 'AP-LOBBY-02' and add VLAN 120 to the allowed trunk list.",
+			"intent": "device"
+		},
+		{
+			"Question": "What MAC addresses are learned on port 33 of switch 'SW-DIST-A'?",
+			"Answer": "I am connecting to 'SW-DIST-A' to view the MAC address table for interface Gi1/0/33.",
+			"intent": "device"
+		},
+		{
+			"Question": "We need to set up a network tap. Can you configure port 10 on 'SW-TESTLAB-1' to mirror traffic from port 5?",
+			"Answer": "I can set up a SPAN session. I am configuring 'SW-TESTLAB-1' to mirror the traffic from Gi1/0/5 to Gi1/0/10.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the PoE status for port 25 on 'SW-IDF-05-C'? I need to know the power draw.",
+			"Answer": "I am connecting to 'SW-IDF-05-C' now to check the Power-over-Ethernet status and power allocation for interface Gi1/0/25.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to block a rogue device. Can you create a static MAC address entry to block all traffic from 'aabb.ccdd.eeff' on VLAN 20?",
+			"Answer": "Yes, I will add a static MAC address entry to the core switch to deny traffic from that MAC address on VLAN 20.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please save the running configuration to the startup configuration on 'ROUTER-BRANCH-3'.",
+			"Answer": "Understood. I am connecting to 'ROUTER-BRANCH-3' and will issue the command to copy the running-config to the startup-config.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you set the speed and duplex to 100/full on port 4 of 'SW-OLD-A'?",
+			"Answer": "Yes, I am connecting to 'SW-OLD-A' to manually set the speed and duplex settings on interface Fa0/4.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the uptime of the core switch 'SW-CORE-1'?",
+			"Answer": "I will connect to 'SW-CORE-1' now and retrieve the system uptime information.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please disable CDP on the public-facing interface of 'ROUTER-EDGE-2'.",
+			"Answer": "Good security practice. I am connecting to 'ROUTER-EDGE-2' to disable the Cisco Discovery Protocol on the external interface.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you show me the ARP table from 'ROUTER-CORE-1'?",
+			"Answer": "I am connecting to 'ROUTER-CORE-1' and will display the current Address Resolution Protocol table.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to add a new voice VLAN. Please configure VLAN 150 for voice on port 18 of 'SW-FLOOR-02-B'.",
+			"Answer": "I am connecting to 'SW-FLOOR-02-B' to configure interface Gi1/0/18 with VLAN 150 as the voice VLAN.",
+			"intent": "device"
+		},
+		{
+			"Question": "We are decommissioning a server. Please shut down and erase the configuration for port 2 on 'SW-DATA-RACK-1'.",
+			"Answer": "Understood. I will connect to 'SW-DATA-RACK-1', shut down interface Gi1/0/2, and revert it to the default configuration.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the interface statistics for port 9 on 'SW-DIST-B'? I'm looking for errors.",
+			"Answer": "I am connecting to 'SW-DIST-B' now to display the detailed interface counters for Gi1/0/9, including any input or output errors.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need you to enable BPDU guard on all access ports on switch 'SW-NEW-A'.",
+			"Answer": "I will connect to 'SW-NEW-A' and globally enable BPDU guard to protect the Spanning Tree integrity.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please clear the ARP cache on the router 'ROUTER-BRANCH-5'.",
+			"Answer": "I am connecting to 'ROUTER-BRANCH-5' and will issue the command to clear the ARP cache.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the routing table on 'ROUTER-CORE-2'?",
+			"Answer": "I am connecting to 'ROUTER-CORE-2' now to display the current IP routing table.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to isolate a machine for forensics. Can you move port 22 on 'SW-FLOOR-06-A' to our quarantine VLAN, 999?",
+			"Answer": "This is a critical security action. I am now connecting to 'SW-FLOOR-06-A' to change the access VLAN for interface Gi1/0/22 to VLAN 999.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the temperature sensors on switch 'SW-MDF-1'?",
+			"Answer": "I am connecting to 'SW-MDF-1' to check the environmental monitoring status, including system temperature.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please configure port 16 on 'SW-FLOOR-08-C' with 'portfast' to speed up device connection.",
+			"Answer": "I am connecting to 'SW-FLOOR-08-C' to enable the Spanning Tree PortFast feature on interface Gi1/0/16.",
+			"intent": "device"
+		},
+		{
+			"Question": "We need to set a static IP for a new printer. Can you reserve 192.168.10.254 in the DHCP scope on 'ROUTER-BRANCH-1'?",
+			"Answer": "I am connecting to 'ROUTER-BRANCH-1' to configure a DHCP reservation for the printer's MAC address with the IP 192.168.10.254.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please remove the 'DENY-GUEST-ACCESS' ACL from the sales VLAN on 'ROUTER-CORE-1'.",
+			"Answer": "I am connecting to 'ROUTER-CORE-1' to remove the specified access-group from the sales SVI.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the DHCP lease information for the IP 192.168.10.55 on 'ROUTER-BRANCH-2'?",
+			"Answer": "I will connect to 'ROUTER-BRANCH-2' and check the DHCP binding table for the specified IP address.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you enable jumbo frames on the iSCSI ports, 45 and 46, on 'SW-SAN-A'?",
+			"Answer": "I am connecting to 'SW-SAN-A' to set the MTU size to 9000 on interfaces Gi1/0/45 and Gi1/0/46.",
+			"intent": "device"
+		},
+		{
+			"Question": "The access point 'AP-WAREHOUSE-3' seems to be offline. Can you reboot it from the switch?",
+			"Answer": "Yes, I will find which port it is connected to and cycle the PoE power on that port to force a reboot of the access point.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please set the native VLAN to 99 on the trunk port 24 of 'SW-IDF-4'.",
+			"Answer": "I am connecting to 'SW-IDF-4' to configure the native VLAN on the trunk interface Gi1/0/24 to VLAN 99.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the log buffer on firewall 'FW-EDGE-B' for any critical errors?",
+			"Answer": "I will connect to 'FW-EDGE-B' and display the system log to check for recent error messages.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to enable port security on port 10 of 'SW-FLOOR-09-A', allowing only two MAC addresses.",
+			"Answer": "I am connecting to 'SW-FLOOR-09-A' to configure port security on interface Gi1/0/10 with a maximum of 2 allowed MAC addresses.",
+			"intent": "device"
+		},
+		{
+			"Question": "The connection to 'SERVER-ALPHA' is flapping. Can you check the port status on the switch?",
+			"Answer": "I will find the switch port connected to 'SERVER-ALPHA' and check the interface logs for any flaps or error-disable states.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please reload the router 'ROUTER-TESTLAB-5' in 10 minutes.",
+			"Answer": "I am connecting to 'ROUTER-TESTLAB-5' to schedule a system reload in 10 minutes.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you show me the NAT translations on 'ROUTER-EDGE-1'?",
+			"Answer": "I will connect to 'ROUTER-EDGE-1' and display the current Network Address Translation table.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to add a static route on 'ROUTER-BRANCH-4' for the network 10.88.0.0/16 via 192.168.4.254.",
+			"Answer": "I am connecting to 'ROUTER-BRANCH-4' to add a static IP route for 10.88.0.0/16 pointing to the next hop 192.168.4.254.",
+			"intent": "device"
+		},
+		{
+			"Question": "The port for the new intern is not active. Can you 'no shut' port 14 on switch 'SW-HR-DEPT'?",
+			"Answer": "I am connecting to 'SW-HR-DEPT' now to enable interface Gi1/0/14.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the status of the EtherChannel group 'Port-channel10' on 'SW-DIST-A'?",
+			"Answer": "I will connect to 'SW-DIST-A' and check the summary status of 'Port-channel10' to ensure all member ports are active.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need you to configure port 30 on 'SW-FLOOR-11-B' for the new IP camera, placing it in VLAN 70.",
+			"Answer": "Understood. I'm connecting to 'SW-FLOOR-11-B' to set interface Gi1/0/30 as an access port in VLAN 70.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please remove the static route for 172.20.0.0/16 from 'ROUTER-CORE-2'.",
+			"Answer": "I am connecting to 'ROUTER-CORE-2' to remove the specified static IP route from the configuration.",
+			"intent": "device"
+		},
+		{
+			"Question": "What version of IOS is running on 'SW-IDF-1'?",
+			"Answer": "I am connecting to 'SW-IDF-1' now to display the system version information.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to temporarily disable security on a port for testing. Can you remove port security from Fa0/24 on 'SW-TESTLAB-2'?",
+			"Answer": "Yes, I am connecting to 'SW-TESTLAB-2' and will remove the port security configuration from interface FastEthernet0/24.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the CDP neighbor details for switch 'SW-MDF-2'?",
+			"Answer": "I will connect to 'SW-MDF-2' and display the detailed output of its Cisco Discovery Protocol neighbors.",
+			"intent": "device"
+		},
+		{
+			"Question": "The port connected to the CEO's printer needs to be on VLAN 10. Can you configure port 1 on 'SW-EXEC-A'?",
+			"Answer": "I will handle that now. Connecting to 'SW-EXEC-A' to set the access VLAN for interface Gi1/0/1 to VLAN 10.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please clear the interface counters for port 13 on 'SW-DIST-B'.",
+			"Answer": "I am connecting to 'SW-DIST-B' and will issue the command to clear the statistics for interface Gi1/0/13.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you verify that Quality of Service is enabled on the WAN interface of 'ROUTER-EDGE-1'?",
+			"Answer": "I will connect to 'ROUTER-EDGE-1' and check the configuration of the external interface to see if a QoS service policy is applied.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to set up a new connection. Please configure port 20 on 'SW-FLOOR-05-A' as a trunk and only allow VLANs 10, 20, and 30.",
+			"Answer": "I am connecting to 'SW-FLOOR-05-A' to set interface Gi1/0/20 as a trunk and prune the allowed VLAN list to 10, 20, and 30.",
+			"intent": "device"
+		},
+		{
+			"Question": "What are the current firewall rules applied to the 'inside' interface of 'FW-MAIN-B'?",
+			"Answer": "I will connect to 'FW-MAIN-B' and display the access-list that is bound to the 'inside' interface.",
+			"intent": "device"
+		},
+		{
+			"Question": "We have an IP conflict. Can you find what device is using 192.168.10.15 by checking the ARP table on the core router?",
+			"Answer": "I will connect to 'ROUTER-CORE-1' and check the ARP table for the MAC address associated with 192.168.10.15.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please enable DHCP snooping on VLAN 100 on switch 'SW-CORE-1'.",
+			"Answer": "I am connecting to 'SW-CORE-1' to enable DHCP snooping for VLAN 100 as a security measure.",
+			"intent": "device"
+		},
+		{
+			"Question": "The printer in marketing is acting up. Can you power cycle port 19 on 'SW-FLOOR-03-C'?",
+			"Answer": "I can do that by cycling the PoE power. I will now connect to 'SW-FLOOR-03-C' and reset the power on interface Gi1/0/19.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the HSRP status on 'ROUTER-CORE-2' to ensure it's the standby router?",
+			"Answer": "I will connect to 'ROUTER-CORE-2' and display the Hot Standby Router Protocol status to verify its role.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please configure a new loopback interface, Loopback10, with IP 10.255.255.1 on 'ROUTER-CORE-1'.",
+			"Answer": "I am connecting to 'ROUTER-CORE-1' to create Loopback10 and assign it the specified IP address.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the IP address of the 'Vlan20' interface on switch 'SW-DIST-A'?",
+			"Answer": "I will connect to 'SW-DIST-A' and display the configuration of the Switched Virtual Interface (SVI) for Vlan20 to find its IP.",
+			"intent": "device"
+		},
+		{
+			"Question": "The new wireless access point needs power. Can you enable PoE on port 35 of 'SW-IDF-2B'?",
+			"Answer": "I am connecting to 'SW-IDF-2B' to enable Power-over-Ethernet on interface Gi1/0/35.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the BGP neighbor status on 'ROUTER-EDGE-2'?",
+			"Answer": "I will connect to 'ROUTER-EDGE-2' and display the summary of all Border Gateway Protocol neighbor adjacencies.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to move a user to the voice VLAN. Please set port 11 on 'SW-FLOOR-01-A' to use VLAN 150 for voice.",
+			"Answer": "I am connecting to 'SW-FLOOR-01-A' to add the voice VLAN 150 configuration to interface Gi1/0/11.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please add a description to port 4 on 'SW-DATA-RACK-3': 'Link to ESXi Host 5'.",
+			"Answer": "Understood. I am connecting to 'SW-DATA-RACK-3' to apply that description to interface Gi1/0/4.",
+			"intent": "device"
+		},
+		{
+			"Question": "A port seems to be error-disabled. Can you check port 8 on 'SW-IDF-6'?",
+			"Answer": "I will connect to 'SW-IDF-6' and check the status of interface Gi1/0/8 to see if it is in an error-disabled state and why.",
+			"intent": "device"
+		},
+		{
+			"Question": "We need to schedule a firmware upgrade. Can you check the current running firmware on 'AP-LOBBY-01'?",
+			"Answer": "I will connect to 'AP-LOBBY-01' and retrieve its current software version information.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you shut down all unused ports on switch 'SW-FLOOR-10-A' for security?",
+			"Answer": "I can do that. I will connect to 'SW-FLOOR-10-A', identify all interfaces that are not currently connected, and place them in a shutdown state.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please show me the running configuration of the router 'ROUTER-BRANCH-2'.",
+			"Answer": "I am connecting to 'ROUTER-BRANCH-2' now to display its entire running configuration.",
+			"intent": "device"
+		},
+		{
+			"Question": "We need to block BitTorrent traffic. Can you apply the 'BLOCK-P2P' ACL to the outbound WAN interface on 'FW-MAIN-A'?",
+			"Answer": "I am connecting to 'FW-MAIN-A' to apply the 'BLOCK-P2P' access-list to the external interface in the outbound direction.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you clear the MAC address table on switch 'SW-TESTLAB-1'?",
+			"Answer": "Yes, I am connecting to 'SW-TESTLAB-1' and will issue the command to clear the dynamic MAC address entries.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need port 25 on 'SW-CORE-1' to be a trunk port.",
+			"Answer": "I am connecting to 'SW-CORE-1' to configure interface Gi1/0/25 with the 'switchport mode trunk' command.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the spanning-tree root bridge for VLAN 10?",
+			"Answer": "I will connect to the core switch and check the spanning-tree details for VLAN 10 to identify the root bridge.",
+			"intent": "device"
+		},
+		{
+			"Question": "The server team is doing maintenance. Please shut down ports 21 through 24 on 'SW-DATA-RACK-2'.",
+			"Answer": "Understood. I am connecting to 'SW-DATA-RACK-2' to apply the 'shutdown' command to the interface range Gi1/0/21-24.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the current state of OSPF neighbors on 'ROUTER-DIST-A'?",
+			"Answer": "I will connect to 'ROUTER-DIST-A' now and display the state of all OSPF adjacencies.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to set a static MAC address on port 17 of 'SW-SECURE-A' to lock it to a specific device.",
+			"Answer": "I will connect to 'SW-SECURE-A' to configure port security with a static MAC address entry on interface Gi1/0/17.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please configure a banner message on 'ROUTER-EDGE-1' that says 'Authorized Access Only'.",
+			"Answer": "I am connecting to 'ROUTER-EDGE-1' to set the MOTD (Message of the Day) banner.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you show me the flash memory contents of 'SW-IDF-3'?",
+			"Answer": "I am connecting to 'SW-IDF-3' to display a directory listing of its flash memory.",
+			"intent": "device"
+		},
+		{
+			"Question": "We're setting up a new IP phone. Please enable PoE and set the voice VLAN to 150 on port 12 of 'SW-FLOOR-09-B'.",
+			"Answer": "I am connecting to 'SW-FLOOR-09-B' now to configure interface Gi1/0/12 with the required voice VLAN and ensure PoE is active.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you verify the NTP servers configured on 'ROUTER-CORE-1'?",
+			"Answer": "I will connect to 'ROUTER-CORE-1' and check its running configuration for the configured Network Time Protocol servers.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please remove VLAN 40 from the allowed list on the trunk port 48 of 'SW-CORE-2'.",
+			"Answer": "I am connecting to 'SW-CORE-2' to remove VLAN 40 from the allowed list on trunk interface Gi1/0/48.",
+			"intent": "device"
+		},
+		{
+			"Question": "A port is in error-disabled state due to port security violation. Can you reset port 14 on 'SW-FLOOR-06-B'?",
+			"Answer": "Yes, I will connect to 'SW-FLOOR-06-B' and bounce the port by issuing a 'shutdown' and then a 'no shutdown' command on interface Gi1/0/14.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the license status on the firewall 'FW-MAIN-B'?",
+			"Answer": "I am connecting to 'FW-MAIN-B' now to display the current license features and status.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to block access from a specific IP. Please add a rule to the 'inside' ACL on 'FW-MAIN-A' to deny traffic from 192.168.10.99.",
+			"Answer": "I will connect to 'FW-MAIN-A' and add a deny statement for the source IP 192.168.10.99 to the 'inside' access-list.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please disable LLDP on port 1 on 'SW-DMZ-A'.",
+			"Answer": "I am connecting to 'SW-DMZ-A' to disable the Link Layer Discovery Protocol on interface Gi1/0/1.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the DHCP snooping binding table on 'SW-CORE-1'?",
+			"Answer": "I will connect to 'SW-CORE-1' now and display the DHCP snooping database.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to set up a mirrored port for troubleshooting. Can you mirror port 3 on 'SW-FLOOR-01-A' to port 48?",
+			"Answer": "I am connecting to 'SW-FLOOR-01-A' to configure a SPAN session with port Gi1/0/3 as the source and port Gi1/0/48 as the destination.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please reload the wireless access point 'AP-CAFETERIA-1' gracefully.",
+			"Answer": "I am connecting to 'AP-CAFETERIA-1' to issue a scheduled reboot command.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you show me the current access-lists configured on 'ROUTER-BRANCH-3'?",
+			"Answer": "I will connect to 'ROUTER-BRANCH-3' and display all configured IP access-lists.",
+			"intent": "device"
+		},
+		{
+			"Question": "We need to trust CoS on an uplink. Can you enable QoS trust on port 24 of 'SW-VOIP-A'?",
+			"Answer": "I am connecting to 'SW-VOIP-A' to configure interface Gi1/0/24 to trust the Class of Service markings on incoming packets.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the serial number of the chassis for 'SW-DIST-B'?",
+			"Answer": "I am connecting to 'SW-DIST-B' to retrieve the hardware inventory and find the chassis serial number.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to change a user's VLAN. Please move port 18 on 'SW-FLOOR-07-C' from VLAN 20 to VLAN 30.",
+			"Answer": "Understood. I am connecting to 'SW-FLOOR-07-C' to change the access VLAN on interface Gi1/0/18 to 30.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you save the current configuration on 'FW-EDGE-A' before I make changes?",
+			"Answer": "Yes, I will connect to 'FW-EDGE-A' and copy the running-configuration to the startup-configuration to save the current state.",
+			"intent": "device"
+		}
+	]
+}
