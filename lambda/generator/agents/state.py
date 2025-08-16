@@ -8,7 +8,7 @@ class AgentState(TypedDict):
     user_question: str
     final_answer: str
     user_language: str
-    knowledge_score: float
+    knowledge_score: int
     knowledge_action: str
     triage_message: str
 

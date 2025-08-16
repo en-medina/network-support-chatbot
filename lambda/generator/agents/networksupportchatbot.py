@@ -12,7 +12,7 @@ from langchain.callbacks.tracers import ConsoleCallbackHandler
 
 # App specific imports
 from agents.state import AgentState
-from agents import ConnectivityAgent, TriageAgent, KnowledgeAgent
+from agents import ConnectivityAgent, TriageAgent, KnowledgeAgent, EscalationAgent
 from tools.language import detect_language
 
 
@@ -26,6 +26,7 @@ class NetworkSupportChatbot:
         )
         self.connectivity_agent = ConnectivityAgent()
         self.knowledge_agent = KnowledgeAgent()
+        self.escalation_agent = EscalationAgent()
 
         # Create workflow
         self.workflow = self._create_workflow()
@@ -43,6 +44,8 @@ class NetworkSupportChatbot:
         workflow.add_node(self.connectivity_agent.tool_node.name, self.connectivity_agent.tool_node)
         workflow.add_node(self.triage_agent.name, self.triage_agent)
         workflow.add_node(self.knowledge_agent.name, self.knowledge_agent)
+        workflow.add_node(self.escalation_agent.name, self.escalation_agent)
+        workflow.add_node(self.escalation_agent.tool_node.name, self.escalation_agent.tool_node)
         
         # Add Triage Edges
         workflow.add_edge(START, self.triage_agent.name)
@@ -64,6 +67,15 @@ class NetworkSupportChatbot:
         workflow.add_conditional_edges(
             self.knowledge_agent.name,
             self.knowledge_agent.route_condition,
+        )
+
+        # Add Connectivity Edges
+        workflow.add_conditional_edges(
+            self.escalation_agent.name,
+            self.escalation_agent.route_condition,
+        )
+        workflow.add_edge(
+            self.escalation_agent.tool_node.name, self.escalation_agent.name
         )
 
         # Add Initial and Final Edges

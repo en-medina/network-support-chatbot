@@ -20,7 +20,7 @@ def detect_language(text: str) -> str:
     try:
         detected_lang = detect(text)
         return supported_languages.get(
-            detected_lang, "es"
+            detected_lang, "Spanish"
         )  # Default to Spanish if not supported
     except Exception:
         return supported_languages.get("es", "Spanish")  # Default to Spanish on error

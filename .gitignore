@@ -3,8 +3,22 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# drawio backups
+*.drawio.bkp
+
 # C extensions
 *.so
+
+# Custom zip distribution python packages
+.packages
+.tmpcode
+layers.zip
+
+# Opentofu state
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+
 
 # Distribution / packaging
 .Python

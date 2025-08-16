@@ -41,7 +41,7 @@ class KnowledgeAgent:
 
         if score == -1:
             return self.name
-        elif score < 0.5:
+        elif score < 5:
             return AgentNames.ESCALATION.value
 
         # If there is no action or final answer, we can continue with the knowledge agent
@@ -66,41 +66,51 @@ class KnowledgeAgent:
             parser = PydanticOutputParser(pydantic_object=KnowledgeRankParser)
             system_message = SystemMessage(
                 content=f"""
-                You are a teacher grading a quiz. 
+            You are a teacher grading a quiz. 
 
-                You will be given a QUESTION and a set of FACTS provided by the student. 
+            You will be given a QUESTION and a block of FACTS retrieved from a knowledge source. These FACTS may be unstructured, containing incomplete sentences, lists, bullet points, or unrelated fragments.
 
-                Here is the grade criteria to follow:
-                (1) You goal is to identify FACTS that are completely unrelated to the QUESTION
-                (2) If the facts contain ANY keywords or semantic meaning related to the question, consider them relevant
-                (3) It is OK if the facts have SOME information that is unrelated to the question (2) is met 
+            # Your job:
 
-                Score:
-                A score of 1 means that the FACT contain ANY keywords or semantic meaning related to the QUESTION and are therefore relevant. This is the highest (best) score. 
-                A score of 0 means that the FACTS are completely unrelated to the QUESTION. This is the lowest possible score you can give.
+            - Evaluate all the FACTS as a whole to determine whether any part of them contains keywords or semantic meaning related to the QUESTION.
+            - If any relevant content exists anywhere in the FACTS, they are considered relevant.
 
-                Explain your reasoning in a step-by-step manner to ensure your reasoning and conclusion are correct.
+            # Scoring rules (required output):
 
-                your response must be in the following format:
+            Produce a single int score S in the range [0, 10], returned as the only required output (first line).
+            - 10 — Direct, accurate, and comprehensive coverage of the QUESTION (facts fully address the question).
+            - 8–9 — Highly relevant: most aspects addressed, minor gaps or small omissions.
+            - 6–7 — Moderately relevant: useful information present but important parts missing or incomplete.
+            - 3–5 — Low relevance: mentions some related keywords or concepts but lacks meaningful substance.
+            - 0–2 — Minimal relevance: token or ambiguous mentions that give almost no useful signal.
+            - 0 — Completely irrelevant: no overlap with the QUESTION (no keywords, topics, or semantic relation).
 
-                Question: the input question you must answer
-                Thought: Explain your reasoning in a step-by-step manner to ensure your reasoning and conclusion are correct. 
-                Score: Only return a score from 0 to 1. Do not provide any additional explanation or context.
+            # Reasoning Requirement:
 
-                FACTS: {"\n\n\n -ENTRY: ".join(docs)}
+            Explain your reasoning **step-by-step** to show how you evaluated the **entire FACTS block** for relevance.
+
+            # Output Format:
+
+            Your response MUST follow the format below:
+            {parser.get_format_instructions()}
+
+            # FACTS:               
+            {"\n\n\n -ENTRY: ".join(docs)}
             """
             )
             knowledge_message.append(system_message)
             user_message = HumanMessage(content=f"QUESTION: {user_question}")
             knowledge_message.append(user_message)
             response = self.llm.invoke(knowledge_message)
-            score = parser.invoke(response).score
+            score = int(parser.invoke(response).score)
             state["knowledge_score"] = score
         else:
             parser = PydanticOutputParser(pydantic_object=KnowledgeQAParser)
             system_message = SystemMessage(
                 content=f"""
-            You are a knowledge agent. Your role is to answer the user QUESTION using only the information provided in the CONTEXT. Do not use any external knowledge or make assumptions beyond the CONTEXT.
+            You are a knowledge agent. Your role is to answer the user QUESTION using only the information provided in the CONTEXT.
+            
+            Do not use any external knowledge or make assumptions beyond the CONTEXT.
 
             # Instructions
             1. Identify: the key scientific concepts, data points, and relevant information in the CONTEXT that pertain directly to the QUESTION.
@@ -108,6 +118,12 @@ class KnowledgeAgent:
             3. Synthesize: your findings into a clear, concise, and informative answer.
 
             If the CONTEXT does not contain sufficient information to answer the QUESTION, you must escalate the issue.
+
+            # Important Notes:
+
+            - "action" must be "respond" if the CONTEXT contains enough relevant details to answer the QUESTION, otherwise "escalate".
+            - "final_answer" must be fully based on the CONTEXT, with no outside knowledge.
+            - Do not output anything other than the JSON object.
 
             {language_prompt(user_language)}
 

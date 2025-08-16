@@ -4,7 +4,7 @@ from typing import Optional
 class KnowledgeRankParser(BaseModel):
     question: str = Field(description="The input question you must answer")
     thought: str = Field(default=None, description="Thought process behind the answer.Explain your reasoning in a step-by-step manner to ensure your reasoning and conclusion are correct.")
-    score: str = Field(description="Only return a score from 0 to 1. Do not provide any additional explanation or context.")
+    score: int = Field(description="Return an integer from 0 to 10. Do not provide any additional explanation or context.")
 
     @model_validator(mode="before")
     @classmethod
@@ -13,11 +13,11 @@ class KnowledgeRankParser(BaseModel):
         if score is None:
             raise ValueError("Score is required.")
         try:
-            score = float(score)
+            score = int(score)
         except ValueError:
             raise ValueError("Invalid score. Must be a number.")
-        if not (0 <= score <= 1):
-            raise ValueError("Invalid score. Must be between 0 and 1.")
+        if not (0 <= score <= 10):
+            raise ValueError("Invalid score. Must be between 0 and 10.")
         return values
 
 class KnowledgeQAParser(BaseModel):

@@ -82,6 +82,9 @@ def main():
     for i in range(len(docs)):
         docs[i].metadata["source"] = Path(docs[i].metadata["source"]).name
 
+    # Remove entries that contain less than 10 words
+    docs = [doc for doc in docs if len(doc.page_content.split()) >= 10]
+
     # Print the number of documents loaded
     print(f"Number of documents loaded: {len(docs)}")
     embeddings = OllamaEmbeddings(model="qllama/multilingual-e5-base:q4_k_m")
