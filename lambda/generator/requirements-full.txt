@@ -1,0 +1,34 @@
+langchain
+langchain-openai
+langchain-ollama
+langchain-pinecone
+python-dotenv
+langchainhub
+langchain-community
+langgraph
+pymupdf
+sentence-transformers
+langchain-huggingface
+
+# lint
+black
+
+# network related package
+dnspython
+
+
+# Jupyter notebook support on VSCODE
+ipykernel
+
+# Language detection
+langdetect
+
+# For training the triage model
+transformers
+accelerate
+bitsandbytes
+peft
+datasets
+trl
+pandas
+pyarrow
