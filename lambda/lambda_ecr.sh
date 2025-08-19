@@ -6,7 +6,13 @@ SOURCE_FOLDER=$1
 export AWS_PROFILE=en-medina-personal
 export AWS_ACCOUNT_ID=783111403365
 export AWS_REGION=us-east-1
+export AWS_REGION=us-east-1
 
+# Retrieve AWS account ID from environment or AWS CLI
+if [ -z "${AWS_ACCOUNT_ID:-}" ]; then
+  AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+  export AWS_ACCOUNT_ID
+fi
 cd "$SOURCE_FOLDER"
 
 aws ecr get-login-password --region $AWS_REGION | podman login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
