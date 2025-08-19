@@ -2,6 +2,7 @@
 langgraph
 # langchain-openai
 langchain-ollama
+langchain-aws
 langchain-pinecone
 python-dotenv
 # langchainhub

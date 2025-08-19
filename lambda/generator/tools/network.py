@@ -1,7 +1,7 @@
 import platform
 import subprocess
 from datetime import datetime
-from typing import Annotated, List
+from typing import Annotated, List, Optional
 import socket
 
 from langchain_core.tools import tool
@@ -132,10 +132,10 @@ class WhoisRecord(BaseModel):
     updated_date: List[datetime] = Field(
         description="List of timestamps when the domain record was last updated"
     )
-    creation_date: datetime = Field(
+    creation_date: Optional[datetime] = Field(
         description="The original date and time the domain was registered"
     )
-    expiration_date: datetime = Field(
+    expiration_date: Optional[datetime] = Field(
         description="The date and time the domain registration is set to expire"
     )
     name_servers: List[str] = Field(
@@ -167,18 +167,63 @@ def get_domain_metadata(
     Useful for retrieving general information about a domain name, such as its registrar, creation date, expiration date, and more.
     This function uses the `whois` library to fetch the WHOIS record for the specified domain.
     """
-    w = whois(domain)
-    emails = w.emails if isinstance(w.emails, list) else [w.emails] if w.emails else []
+    try:
+        w = whois(domain)
+    except Exception as e:
+        # WHOIS lookup failed completely
+        return WhoisRecord(
+            domain_name=domain,
+            registrar="",
+            whois_server="",
+            updated_date=[],
+            creation_date=None,
+            expiration_date=None,
+            name_servers=[],
+            status=[],
+            emails=[],
+            dnssec="",
+            name="",
+            org="",
+            country="",
+        )
+
+    # If all attributes are None, treat as non-existent domain
+    if not any([
+        w.domain_name, w.registrar, w.creation_date,
+        w.expiration_date, w.name_servers
+    ]):
+        return WhoisRecord(
+            domain_name=domain,
+            registrar="",
+            whois_server="",
+            updated_date=[],
+            creation_date=None,
+            expiration_date=None,
+            name_servers=[],
+            status=[],
+            emails=[],
+            dnssec="",
+            name="",
+            org="",
+            country="",
+        )
+
+    # Normalize emails
+    emails = (
+        w.emails if isinstance(w.emails, list)
+        else [w.emails] if w.emails
+        else []
+    )
 
     return WhoisRecord(
-        domain_name=w.domain_name or "",
+        domain_name=w.domain_name or domain,
         registrar=w.registrar or "",
         whois_server=w.whois_server or "",
-        updated_date=w.updated_date,
-        creation_date=w.creation_date,
-        expiration_date=w.expiration_date,
-        name_servers=w.name_servers,
-        status=w.status,
+        updated_date=w.updated_date if isinstance(w.updated_date, list) else [w.updated_date] if w.updated_date else [],
+        creation_date=w.creation_date if isinstance(w.creation_date, datetime) or w.creation_date is None else None,
+        expiration_date=w.expiration_date if isinstance(w.expiration_date, datetime) or w.expiration_date is None else None,
+        name_servers=w.name_servers or [],
+        status=w.status or [],
         emails=emails,
         dnssec=w.dnssec or "",
         name=w.name or "",

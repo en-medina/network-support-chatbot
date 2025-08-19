@@ -2,22 +2,17 @@ import re
 
 # LangChain imports
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_ollama import ChatOllama
-from langchain_core.language_models import BaseChatModel
 
 # App specific imports
-from agents.state import AgentState, AgentNames
+from agents.state import AgentState, AgentNames, model_selection
 
 
 class TriageAgent:
     """Decides which agent to route the user question to based on the content of the question"""
 
-    def __init__(self, llm: BaseChatModel = None):
+    def __init__(self, model_name: str = ""):
         self.name = AgentNames.TRIAGE.value
-        if llm is None:
-            self.llm = ChatOllama(model="llama3.2:3b", temperature=0)
-        else:
-            self.llm = llm
+        self.llm = model_selection(model_name)
 
     def route_condition(self, state: AgentState) -> str:
         """

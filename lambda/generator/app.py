@@ -1,14 +1,11 @@
 from agents.networksupportchatbot import NetworkSupportChatbot
 from tools.telegram import send_message
-from os import getenv
-from dotenv import load_dotenv
 import json
-
-load_dotenv(override=False)
+import settings
 
 def local_handler():
     chatbot = NetworkSupportChatbot()
-    debug_mode = getenv("DEBUG", "False").lower() == "true"
+    debug_mode = settings.DEBUG_MODE
     while True:
         user_input = input("You: ")
         if user_input.lower() in ["exit", "quit"]:
@@ -16,29 +13,28 @@ def local_handler():
         response = chatbot.process_question(user_input, debug=debug_mode)
         print(f"Bot: {response}")
 
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# SPDX-License-Identifier: Apache-2.0
 def lambda_handler(event, context):
-    for message in event['Records']:
-        process_message(message)
-    print("done")
+    chatbot = NetworkSupportChatbot()
+    debug_mode = settings.DEBUG_MODE
+    token = settings.TELEGRAM_KEY
+    for message in event['Records']:        
+        try:
+            print(f"Processed message {message['body']}")
+            income_message = json.loads(message['body'])
+            if income_message.get("type") == "telegram":
+                chat_id = income_message["message"]["message"]["chat"]["id"]
+                msg_text = income_message["message"]["message"].get("text", " ")
+                try:
+                    response = chatbot.process_question(msg_text, debug=debug_mode)
+                    send_message(token, chat_id, response)
+                except Exception as e:
+                    print(f"Error processing message: {msg_text}")
+                    print(e)
+                    send_message(token, chat_id, "Un error a ocurrido al procesar tu mensaje. Por favor, inténtalo de nuevo más tarde.")
+        except Exception as err:
+            print("An error occurred")
+            print(err)
 
-def process_message(message):
-    try:
-        print(f"Processed message {message['body']}")
-        income_message = json.loads(message['body'])
-        if income_message.get("type") == "telegram":
-            chat_id = income_message["message"]["message"]["chat"]["id"]
-            msg_text = income_message["message"]["message"].get("text", " ")
-            text = "The following message was received:\n" + msg_text
-            print(f"Replying to chat_id {chat_id} with text: {text}")
-            token = getenv("TELEGRAM_KEY")
-            send_message(token, chat_id, text)
 
-    except Exception as err:
-        print("An error occurred")
-        raise err
-
-
-# if __name__ == "__main__":
-#     local_handler()
+if __name__ == "__main__":
+    local_handler()

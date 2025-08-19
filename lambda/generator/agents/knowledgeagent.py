@@ -1,33 +1,26 @@
-import asyncio
-import json
+# import asyncio
 
 # LangGraph imports
 from langgraph.graph import END
 
 # LangChain imports
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
-from langchain_ollama import ChatOllama
-from langchain_core.language_models import BaseChatModel
 from langchain_core.output_parsers import PydanticOutputParser
 
 # App specific imports
 from tools.vectordb import knowledge_base
 from parser.knowledge import KnowledgeRankParser, KnowledgeQAParser
-from agents.state import AgentState, AgentNames
+from agents.state import AgentState, AgentNames, model_selection
 from tools.language import language_prompt
-import re
-from langchain_core.output_parsers import PydanticOutputParser
+from langchain_core.output_parsers import PydanticOutputParser, JsonOutputParser
 
 
 class KnowledgeAgent:
     """Performs network diagnostics like ping, nslookup, whois"""
 
-    def __init__(self, llm: BaseChatModel = None):
+    def __init__(self, model_name: str = ""):
         self.name = AgentNames.KNOWLEDGE.value
-        if llm is None:
-            self.llm = ChatOllama(model="llama3.2:3b", temperature=0)
-        else:
-            self.llm = llm
+        self.llm = model_selection(model_name)
 
     def route_condition(self, state: AgentState) -> str:
         """Checks if the tools can be used in the current state"""
@@ -105,7 +98,7 @@ class KnowledgeAgent:
             score = int(parser.invoke(response).score)
             state["knowledge_score"] = score
         else:
-            parser = PydanticOutputParser(pydantic_object=KnowledgeQAParser)
+            parser = JsonOutputParser(pydantic_object=KnowledgeQAParser)
             system_message = SystemMessage(
                 content=f"""
             You are a knowledge agent. Your role is to answer the user QUESTION using only the information provided in the CONTEXT.
@@ -142,7 +135,7 @@ class KnowledgeAgent:
 
             response = self.llm.invoke(state["messages"])
             values = parser.invoke(response)
-            state["final_answer"] = values.final_answer
-            state["knowledge_action"] = values.action
+            state["final_answer"] = values["final_answer"]
+            state["knowledge_action"] = values["action"]
             state["messages"].append(response)
         return state

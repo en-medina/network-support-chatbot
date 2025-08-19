@@ -1,20 +1,17 @@
 from pinecone import Pinecone, ServerlessSpec
-from langchain_ollama.embeddings import OllamaEmbeddings
+from agents.state import select_embedding_model
 from langchain_pinecone import PineconeVectorStore
 from typing import Annotated, List
 
-from os import getenv
-from dotenv import load_dotenv
-
-load_dotenv()
+import settings
 
 def init_vector_db() -> PineconeVectorStore:
     # Initialize Pinecone
     print("Initializing Pinecone...")
     pc = Pinecone(
-        api_key=getenv("PINECONE_API_KEY"),
+        api_key=settings.PINECONE_API_KEY,
     )
-    index_name = getenv("PINECONE_INDEX_NAME", "network-support-chatbot")
+    index_name = settings.PINECONE_INDEX_NAME
     if not pc.has_index(index_name):
         print(f"Creating Pinecone index: {index_name}")
         pc.create_index(
@@ -25,8 +22,8 @@ def init_vector_db() -> PineconeVectorStore:
         )
     print(f"Using Pinecone index: {index_name}")
     index = pc.Index(index_name)
-    print("Initializing embeddings...")
-    embeddings = OllamaEmbeddings(model="qllama/multilingual-e5-base:q4_k_m")
+    print("Initializing embedding...")
+    embeddings = select_embedding_model()
     print("Creating Pinecone vector store...")
     vector_store = PineconeVectorStore(
         index=index,

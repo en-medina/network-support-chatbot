@@ -1,4 +1,4 @@
-import asyncio
+# import asyncio
 
 # LangGraph imports
 from langgraph.prebuilt import ToolNode
@@ -6,25 +6,19 @@ from langgraph.graph import END
 
 # LangChain imports
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
-from langchain_ollama import ChatOllama
-from langchain_core.language_models import BaseChatModel
-
 
 # App specific imports
 from tools.escalation import get_escalation_tools, get_escalation_tool_names
-from agents.state import AgentState, AgentNames
+from agents.state import AgentState, AgentNames, model_selection
 from tools.language import language_prompt
 from parser.connectivity import react_parse
 
 class EscalationAgent:
     """Performs network diagnostics like ping, nslookup, whois"""
 
-    def __init__(self, llm: BaseChatModel = None):
+    def __init__(self, model_name: str = ""):
         self.name = AgentNames.ESCALATION.value
-        if llm is None:
-            self.llm = ChatOllama(model="llama3.2:3b", temperature=0)
-        else:
-            self.llm = llm
+        self.llm = model_selection(model_name)
         self.tools = get_escalation_tools()
         self.llm_with_tools = self.llm.bind_tools(self.tools)
         self.tool_node = ToolNode(tools=self.tools, name="escalation_tools", messages_key="tool_messages")
@@ -70,7 +64,7 @@ class EscalationAgent:
     2. The user intentionally request that you escalate the question.
     3. The question was received from the knowledge , device or connectivity agent and the question hasn't be addressed.
 
-    If you create a ticket, you MUST include the ticket ID in your final answer. You can go directly to the final response if that's the case.
+    you should always think about what to do, do not create a ticket if it is not needed. If you create a ticket, you MUST include the ticket ID in your final answer. You can go directly to the final response if that's the case.
 
     If above condition are not met, answer the user request as best you can.
 

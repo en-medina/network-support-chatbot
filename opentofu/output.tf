@@ -21,3 +21,7 @@ output "ecr_repository_url" {
     receiver  = aws_ecr_repository.receiver.repository_url
   }
 }
+
+output "bedrock_role_arn" {
+  value = module.bedrock_role.arn
+}

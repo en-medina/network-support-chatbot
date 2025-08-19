@@ -1,5 +1,4 @@
-import asyncio
-import json
+# import asyncio
 import re
 
 # LangGraph imports
@@ -7,23 +6,26 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.checkpoint.memory import MemorySaver
 
 # LangChain imports
-from langchain_ollama import ChatOllama
 from langchain.callbacks.tracers import ConsoleCallbackHandler
 
 # App specific imports
 from agents.state import AgentState
 from agents import ConnectivityAgent, TriageAgent, KnowledgeAgent, EscalationAgent
 from tools.language import detect_language
-
+import settings
 
 class NetworkSupportChatbot:
     """Main chatbot class that orchestrates the multi-agent system"""
 
     def __init__(self):
         # Initialize agents
-        self.triage_agent = TriageAgent(
-            llm=ChatOllama(model="hf.co/sungun19961/Network-Route-Agent:Q4_K_M", temperature=0)
-        )
+        ENVIRONMENT = settings.ENVIRONMENT
+
+        triage_model_name = "hf.co/sungun19961/Network-Route-Agent:Q4_K_M"
+        if ENVIRONMENT == "production":
+            triage_model_name = "arn:aws:bedrock:us-east-1:783111403365:imported-model/k2dmo31xmct9"
+
+        self.triage_agent = TriageAgent(model_name=triage_model_name)
         self.connectivity_agent = ConnectivityAgent()
         self.knowledge_agent = KnowledgeAgent()
         self.escalation_agent = EscalationAgent()

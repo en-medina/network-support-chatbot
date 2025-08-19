@@ -1,4 +1,4 @@
-import asyncio
+# import asyncio
 
 # LangGraph imports
 from langgraph.prebuilt import ToolNode
@@ -6,25 +6,19 @@ from langgraph.graph import END
 
 # LangChain imports
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
-from langchain_ollama import ChatOllama
-from langchain_core.language_models import BaseChatModel
-
 
 # App specific imports
 from tools.network import get_network_tools, get_network_tool_names
-from agents.state import AgentState, AgentNames
+from agents.state import AgentState, AgentNames, model_selection
 from tools.language import language_prompt
 from parser.connectivity import react_parse
 
 class ConnectivityAgent:
     """Performs network diagnostics like ping, nslookup, whois"""
 
-    def __init__(self, llm: BaseChatModel = None):
+    def __init__(self, model_name: str = ""):
         self.name = AgentNames.CONNECTIVITY.value
-        if llm is None:
-            self.llm = ChatOllama(model="llama3.2:3b", temperature=0)
-        else:
-            self.llm = llm
+        self.llm = model_selection(model_name)
         self.tools = get_network_tools()
         self.llm_with_tools = self.llm.bind_tools(self.tools)
         self.tool_node = ToolNode(tools=self.tools, name="connectivity_tools", messages_key="tool_messages")

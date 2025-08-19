@@ -41,7 +41,7 @@ module "generator_function" {
   inline_iam_policy = data.aws_iam_policy_document.generator.json
 
   timeout     = 5 * 60 # Timeout in seconds
-  memory_size = 256    # Memory size in MB
+  memory_size = 2048    # Memory size in MB
 
   lambda_environment = {
     variables = {
