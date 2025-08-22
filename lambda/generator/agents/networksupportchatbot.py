@@ -19,16 +19,10 @@ class NetworkSupportChatbot:
 
     def __init__(self):
         # Initialize agents
-        ENVIRONMENT = settings.ENVIRONMENT
-
-        triage_model_name = "hf.co/sungun19961/Network-Route-Agent:Q4_K_M"
-        if ENVIRONMENT == "production":
-            triage_model_name = "arn:aws:bedrock:us-east-1:783111403365:imported-model/k2dmo31xmct9"
-
-        self.triage_agent = TriageAgent(model_name=triage_model_name)
-        self.connectivity_agent = ConnectivityAgent()
-        self.knowledge_agent = KnowledgeAgent()
-        self.escalation_agent = EscalationAgent()
+        self.triage_agent = TriageAgent(model_name=settings.TRIAGE_MODEL_ARN)
+        self.connectivity_agent = ConnectivityAgent(model_name=settings.LLAMA31_MODEL_ARN)
+        self.knowledge_agent = KnowledgeAgent(model_name=settings.LLAMA31_MODEL_ARN)
+        self.escalation_agent = EscalationAgent(model_name=settings.LLAMA32_MODEL_ARN)
 
         # Create workflow
         self.workflow = self._create_workflow()
@@ -91,6 +85,7 @@ class NetworkSupportChatbot:
         initial_state = AgentState(
             messages=[],
             tool_messages=[],
+            escalation_messages=[],
             user_question=question,
             knowledge_score=-1,
             knowledge_action="",

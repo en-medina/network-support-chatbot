@@ -11,7 +11,7 @@ langchain-community
 # Push data to Pinecone
 # pymupdf
 # sentence-transformers
-# langchain-huggingface
+langchain-huggingface
 
 # lint
 # black

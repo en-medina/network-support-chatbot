@@ -6,6 +6,7 @@ from langgraph.graph import END
 # LangChain imports
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from langchain_core.output_parsers import PydanticOutputParser
+from langchain.output_parsers import OutputFixingParser
 
 # App specific imports
 from tools.vectordb import knowledge_base
@@ -121,8 +122,11 @@ class KnowledgeAgent:
             {language_prompt(user_language)}
 
             Your response MUST follow the format below:
-            {parser.get_format_instructions()}
-
+            {{
+            "question": "the input question you must answer",
+            "action": "the action to take, either "respond" or "escalate",
+            "final_answer": "the final answer to the question. Provide a clear and concise answer based solely on the CONTEXT."
+            }}
             # CONTEXT:
             {"\n\n\n -ENTRY: ".join(docs)}
             """
@@ -134,8 +138,18 @@ class KnowledgeAgent:
             state["messages"].append(user_message)
 
             response = self.llm.invoke(state["messages"])
-            values = parser.invoke(response)
-            state["final_answer"] = values["final_answer"]
-            state["knowledge_action"] = values["action"]
+            try:
+                values = parser.parse(response.content)
+                state["final_answer"] = values["final_answer"]
+                state["knowledge_action"] = values["action"]
+            except Exception as e:
+                # If the output is not valid JSON, use OutputFixingParser to fix it
+                fixing_parser = OutputFixingParser.from_llm(
+                    self.llm, parser=parser
+                )
+                values = fixing_parser.parse(response.content)
+                state["final_answer"] = values["final_answer"]
+                state["knowledge_action"] = values["action"]
+
             state["messages"].append(response)
         return state

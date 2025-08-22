@@ -45,7 +45,10 @@ module "generator_function" {
 
   lambda_environment = {
     variables = {
-      ENVIRONMENT = "production"
+      ENVIRONMENT       = "production"
+      LLAMA31_MODEL_ARN = "arn:aws:bedrock:us-east-1:783111403365:inference-profile/us.meta.llama3-1-8b-instruct-v1:0"
+      LLAMA32_MODEL_ARN = "arn:aws:bedrock:us-east-1:783111403365:inference-profile/us.meta.llama3-2-3b-instruct-v1:0"
+      TRIAGE_MODEL_ARN  = "arn:aws:bedrock:us-east-1:783111403365:imported-model/k2dmo31xmct9"
     }
   }
 }
