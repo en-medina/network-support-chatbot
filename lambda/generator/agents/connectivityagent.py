@@ -18,7 +18,7 @@ class ConnectivityAgent:
 
     def __init__(self, model_name: str = ""):
         self.name = AgentNames.CONNECTIVITY.value
-        self.llm = model_selection(model_name)
+        self.llm = model_selection(model_name, use_huggingface=True)
         self.tools = get_network_tools()
         self.llm_with_tools = self.llm.bind_tools(self.tools)
         self.tool_node = ToolNode(tools=self.tools, name="connectivity_tools", messages_key="tool_messages")
