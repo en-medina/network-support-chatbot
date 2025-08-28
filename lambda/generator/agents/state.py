@@ -52,7 +52,7 @@ def model_selection(model_name: str = "", use_huggingface: bool = False) -> Base
     elif use_huggingface and settings.ENVIRONMENT == "production":
         llm = HuggingFaceEndpoint(
             repo_id="meta-llama/Llama-3.2-3B-Instruct",
-            task="text-generation",
+            task="conversational",
             max_new_tokens=4096,
             temperature=0,
             provider="novita",

@@ -3,6 +3,9 @@ import subprocess
 from datetime import datetime
 from typing import Annotated, List, Optional
 import socket
+import requests
+from time import sleep
+import settings
 
 from langchain_core.tools import tool
 from pydantic import BaseModel, Field
@@ -38,35 +41,75 @@ def ping_ip(ip_address: Annotated[str, "The IP address to ping."]) -> bool:
     """
     ping_count = PING_COUNT
     timeout_sec = PING_TIMEOUT
-    app_os = platform.system().lower()
 
-    # Determine the correct ping command based on the OS
-    if app_os == "windows":
-        # Windows uses -w in milliseconds
-        command = [
-            "ping",
-            "-n",
-            str(ping_count),
-            "-w",
-            str(timeout_sec * 1000),
-            ip_address,
-        ]
-    else:
-        # Linux/macOS use -W in seconds (and -c for ping_count)
-        command = ["ping", "-c", str(ping_count), "-W", str(timeout_sec), ip_address]
+    def ping_from_check_host():
+        WAIT_TIME = 3 # seconds
+        try:
+            # Use check-host.net API to perform the ping
+            base_url = f"https://check-host.net/check-ping?host={ip_address}&max_nodes=1"
+            headers = {"Accept": "application/json"}
+            response = requests.get(
+                base_url,
+                headers=headers,
+            )
+            response.raise_for_status()
+            data = response.json()
 
-    try:
-        result = subprocess.run(
-            command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
-        )
-        output = result.stdout.lower()
+            # Check the status of the ping
+            request_id = data.get("request_id")
+            sleep(WAIT_TIME)
+            result_url = f"https://check-host.net/check-result/{request_id}"
+            response = requests.get(result_url, headers=headers)
+            response.raise_for_status()
+            result_data = response.json()
+
+            # Analyze the results to determine if the ping was successful
+            for node, checks in result_data.items():
+                if not checks:
+                    continue
+                for attempt_group in checks:
+                    for attempt in attempt_group:
+                        if attempt and attempt[0] == "OK":
+                            return True
+            # If we reach here, it means all pings failed
+            return False
+        except Exception as e:
+            print(f"Error using check-host.net API: {e}")
+            return False
+
+    def ping_from_os():
+        app_os = platform.system().lower()
+
+        # Determine the correct ping command based on the OS
         if app_os == "windows":
-            return "ttl=" in output
-        return "ttl=" in output or "bytes from" in output
-    except Exception as e:
-        print(f"Error executing ping: {e}")
-        return False
+            # Windows uses -w in milliseconds
+            command = [
+                "ping",
+                "-n",
+                str(ping_count),
+                "-w",
+                str(timeout_sec * 1000),
+                ip_address,
+            ]
+        else:
+            # Linux/macOS use -W in seconds (and -c for ping_count)
+            command = ["ping", "-c", str(ping_count), "-W", str(timeout_sec), ip_address]
 
+        try:
+            result = subprocess.run(
+                command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
+            )
+            output = result.stdout.lower()
+            if app_os == "windows":
+                return "ttl=" in output
+            return "ttl=" in output or "bytes from" in output
+        except Exception as e:
+            print(f"Error executing ping: {e}")
+            return False
+    
+    if settings.ENVIRONMENT == "production":
+        return ping_from_check_host()
+    return ping_from_os()
 
 @tool
 def check_port(
