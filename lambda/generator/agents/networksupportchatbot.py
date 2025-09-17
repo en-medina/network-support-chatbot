@@ -41,8 +41,7 @@ class NetworkSupportChatbot:
         workflow.add_node(self.triage_agent.name, self.triage_agent)
         workflow.add_node(self.knowledge_agent.name, self.knowledge_agent)
         workflow.add_node(self.escalation_agent.name, self.escalation_agent)
-        workflow.add_node(self.escalation_agent.tool_node.name, self.escalation_agent.tool_node)
-        
+
         # Add Triage Edges
         workflow.add_edge(START, self.triage_agent.name)
         workflow.add_conditional_edges(
@@ -65,13 +64,10 @@ class NetworkSupportChatbot:
             self.knowledge_agent.route_condition,
         )
 
-        # Add Connectivity Edges
+        # Add Escalation Edges
         workflow.add_conditional_edges(
             self.escalation_agent.name,
             self.escalation_agent.route_condition,
-        )
-        workflow.add_edge(
-            self.escalation_agent.tool_node.name, self.escalation_agent.name
         )
 
         # Add Initial and Final Edges

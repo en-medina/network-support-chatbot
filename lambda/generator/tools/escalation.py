@@ -1,30 +1,8 @@
-import platform
-import subprocess
-from datetime import datetime
 from typing import Annotated, List
-import socket
+import requests
+import settings
+import json
 
-from langchain_core.tools import tool
-from pydantic import BaseModel, Field
-
-import dns.resolver
-from dns import rdatatype
-from whois import whois
-
-def get_escalation_tools() -> List[tool]:
-    """
-    Returns a list of escalation-related tools
-    Each tool is defined with its name, description, and function.
-    """
-    return [escalate_request]
-
-def get_escalation_tool_names() -> str:
-    """
-    Returns a comma-separated string of the names of all available escalation tools.
-    """
-    return ", ".join([tool.name for tool in get_escalation_tools()])
-
-@tool
 def escalate_request(
         title: Annotated[str, "A brief and descriptive name of the issue"],
         description: Annotated[str, "A detailed explanation of the network-related problem or issue"],
@@ -34,7 +12,26 @@ def escalate_request(
     Escalates a user request by creating a new ticket in the ticketing system.
     Returns the ticket ID created in the ticketing system 
     """
-    #TODO: API call to some ticketing system app
-    #print(title, description, question)
-    return "TASK-001"
 
+    # Replace with your actual values
+    list_id = settings.CLICKUP_LIST_ID
+    api_token = settings.CLICKUP_API_KEY
+
+    url = f"https://api.clickup.com/api/v2/list/{list_id}/task"
+
+    headers = {
+        "Authorization": api_token,
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    }
+
+    payload = {
+        "name": title,
+        "description": f"User Question: {question}\n\n{description}",
+        "tags": ["AI-generated"]
+    }
+
+    response = requests.post(url, headers=headers, data=json.dumps(payload))
+    if response.status_code != 200:
+        return f"Error: Unable to create ticket. Status code {response.status_code}, Response: {response.text}"
+    return response.json().get("id", "No ID returned")

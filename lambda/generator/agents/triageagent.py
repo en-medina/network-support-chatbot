@@ -13,6 +13,7 @@ class TriageAgent:
     def __init__(self, model_name: str = ""):
         self.name = AgentNames.TRIAGE.value
         self.llm = model_selection(model_name)
+        self.default_agent = AgentNames.KNOWLEDGE.value
 
     def route_condition(self, state: AgentState) -> str:
         """
@@ -20,24 +21,16 @@ class TriageAgent:
         Expects the last message to contain 'Final Answer: agent_name'.
         Defaults to 'knowledge' if unclear.
         """
-        default_agent = AgentNames.KNOWLEDGE.value
         valid_agents = AgentNames.list()
-        agent_name = None
-
-        triage_message = state.get("triage_message", "")
-
-        # Extract agent name from the last message
-        match = re.search(r"Final Answer:\s*(\w+)", triage_message, re.IGNORECASE)
-        if match:
-            agent_name = match.group(1).upper()
+        agent_name = state.get("triage_message", "")
 
         # if is self agent, return default agent
         if agent_name == self.name:
-            return default_agent
+            return self.default_agent
         # Return the agent name if valid, otherwise return the default agent
         if agent_name in valid_agents:
             return agent_name
-        return default_agent
+        return self.default_agent
 
     def __call__(self, state: AgentState) -> AgentState:
         """Executes the connectivity agent logic"""
@@ -73,6 +66,11 @@ class TriageAgent:
         # Process response
 
         if hasattr(response, "content"):
-            state["triage_message"] = response.content
+            # Extract agent name from the last message
+            match = re.search(r"Final Answer:\s*(\w+)", response.content, re.IGNORECASE)
+            agent_name = self.default_agent
+            if match:
+                agent_name = match.group(1).upper()
+            state["triage_message"] = agent_name
             
         return state

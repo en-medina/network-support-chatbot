@@ -12,3 +12,5 @@ DEBUG_MODE = getenv("DEBUG", "False").lower() == "true"
 LLAMA31_MODEL_ARN = getenv("LLAMA31_MODEL_ARN", "llama3.1:8b")
 LLAMA32_MODEL_ARN = getenv("LLAMA32_MODEL_ARN", "llama3.2:3b")
 TRIAGE_MODEL_ARN = getenv("TRIAGE_MODEL_ARN", "hf.co/sungun19961/Network-Route-Agent:Q4_K_M")
+CLICKUP_API_KEY = getenv("CLICKUP_API_KEY")
+CLICKUP_LIST_ID = getenv("CLICKUP_LIST_ID", "123456")

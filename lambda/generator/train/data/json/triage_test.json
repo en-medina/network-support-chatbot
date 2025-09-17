@@ -1,0 +1,824 @@
+{
+	"DataArray": [
+		{
+			"Question": "Why is my company-provided mobile phone getting so hot?",
+			"Answer": "A phone getting unusually hot can be due to a runaway app consuming a lot of processor power or a battery issue. Let's first try restarting the phone completely. If the problem persists, we should check your battery usage statistics to see if a specific app is the culprit.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What does RAID 10 mean?",
+			"Answer": "RAID 10, also known as RAID 1+0, is a combination of disk mirroring and disk striping. It provides both the redundancy of RAID 1 and the performance improvements of RAID 0. It's a great option for services that require high performance and high availability, like databases.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My laptop's screen is cracked. Can it be fixed?",
+			"Answer": "I'm sorry to hear that. Please bring the laptop to the IT help desk at your earliest convenience. We will need to send it out for repair and can provide you with a loaner laptop to use in the meantime.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please apply the 'Standard-User-Access' ACL to port 15 on switch 'SW-FLOOR-02-A'.",
+			"Answer": "Understood. I am connecting to 'SW-FLOOR-02-A' to apply the 'Standard-User-Access' access-list to interface Gi1/0/15.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check if our external web server 'www.ourcompany.com' is responding to HTTPS requests?",
+			"Answer": "I will check that for you. I am performing a port check on 'www.ourcompany.com' for the standard HTTPS port, 443.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I can't connect to the new color printer on the 3rd floor.",
+			"Answer": "I understand. Let's check the basics first. Have you installed the correct printer driver from the software portal? Also, please ensure you are connected to the corporate network and not the guest Wi-Fi.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'Certificate Authority' or CA?",
+			"Answer": "A Certificate Authority is a trusted entity that issues digital certificates. These certificates are used to verify the identity of websites, individuals, and devices. When your browser trusts a CA, it automatically trusts all certificates issued by that CA.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need a license for Adobe Photoshop for a new project.",
+			"Answer": "I can help with that. Please submit a software request ticket through the IT portal, including the project name for justification. Once approved, we will assign a license to your account.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Show me the current running configuration for the firewall 'FW-DMZ-1'.",
+			"Answer": "Certainly. I am connecting to 'FW-DMZ-1' and will display the entire running configuration.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the IP address for our internal wiki server?",
+			"Answer": "I can find that for you. I will query our DNS for the A record of 'wiki.ourcompany.local'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The audio on my headset keeps cutting out during calls.",
+			"Answer": "That sounds disruptive. If it's a wired headset, let's try a different USB port. If it's wireless, it could be interference or a low battery. Let's start by ensuring it's fully charged and re-pairing it with your computer.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Can you explain what 'ARP poisoning' is?",
+			"Answer": "ARP poisoning is a cyberattack where a malicious actor sends spoofed Address Resolution Protocol (ARP) messages onto a local network. This is done to associate the attacker's MAC address with the IP address of another host, allowing them to intercept, modify, or stop traffic.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My work phone was stolen. What should I do?",
+			"Answer": "Thank you for reporting this immediately. I am initiating a remote wipe of the device to protect company data. Please also report the theft to building security. We will arrange for a replacement device for you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need to configure a new server. Please enable port 17 on switch 'SW-DATA-RACK-B'.",
+			"Answer": "I'm on it. I am connecting to 'SW-DATA-RACK-B' and will issue the 'no shutdown' command on interface Gi1/0/17.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you ping the database server 'DB-FINANCE-01' to see if it is online?",
+			"Answer": "Of course. I am now pinging 'DB-FINANCE-01' to check for network connectivity.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Our team's collaboration software keeps crashing.",
+			"Answer": "That's frustrating. Let's try clearing the application's cache, as that often resolves crashing issues. If that doesn't work, a fresh installation may be necessary. I can guide you through clearing the cache.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'broadcast storm'?",
+			"Answer": "A broadcast storm occurs when a network is flooded with an excessive number of broadcast packets. This can happen if there's a loop in the network topology. The storm can consume all available bandwidth and crash network devices, bringing the entire network down.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I've forgotten the password for my encrypted archive file.",
+			"Answer": "Unfortunately, if the file was encrypted using a password you set yourself, there is no way for IT to recover it. Our policy is to store sensitive data on network drives, which are backed up and centrally managed. I'm very sorry, but the data in that file is likely unrecoverable.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the MAC address table for port 22 on switch 'SW-IDF-04'?",
+			"Answer": "I can retrieve that. I am connecting to 'SW-IDF-04' to display the MAC addresses learned on interface Gi1/0/22.",
+			"intent": "device"
+		},
+		{
+			"Question": "Is the SSH port (22) open on 'linux-dev-server-03'?",
+			"Answer": "Let me check that for you. I am now performing a port check for port 22 on 'linux-dev-server-03'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm connected to the VPN, but I can't access any internal websites.",
+			"Answer": "This can happen if the VPN doesn't establish its routes correctly. A good first step is to disconnect from the VPN, restart your computer, and then try connecting again. This often resolves the issue.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What's the difference between a 'fat' and a 'thin' access point?",
+			"Answer": "A 'fat' or standalone access point contains all the firmware and management capabilities needed to run independently. A 'thin' access point is a lightweight device that is centrally managed by a wireless LAN controller (WLC). We use a thin AP and WLC architecture for easier management.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The projector in conference room 4 is displaying a very dim image.",
+			"Answer": "That sounds like the projector's bulb is nearing the end of its life. I will create a ticket for our AV support team to go and replace the bulb. Thank you for letting us know.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please reboot the access point 'AP-WAREHOUSE-NORTH'.",
+			"Answer": "Understood. I am connecting to 'AP-WAREHOUSE-NORTH' to issue a reboot command. It should be back online within five minutes.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you do a reverse DNS lookup for 10.200.5.25?",
+			"Answer": "Certainly. I am querying for the PTR record of 10.200.5.25 to find its associated hostname.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The web filter is blocking a website I need for a project.",
+			"Answer": "I understand. Sometimes the filter can be too aggressive. Can you please provide the URL of the website? We can check its category and, if it's business-appropriate, create a temporary exception for you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What does SNMP stand for and what is it for?",
+			"Answer": "SNMP stands for Simple Network Management Protocol. It's a standard protocol used for collecting and organizing information about managed devices on IP networks. We use it to monitor the health and performance of our routers, switches, and servers.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My account keeps getting locked out, even though I'm sure I'm using the right password.",
+			"Answer": "This can happen if you have your old password saved on a mobile device or another computer that is trying to log in automatically. I have unlocked your account again. Please check your phone and other devices to ensure they have your updated password.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please configure port 10 on 'SW-FLOOR-07-B' as an access port in VLAN 30.",
+			"Answer": "I'm on it. I am connecting to 'SW-FLOOR-07-B' now to set interface Gi1/0/10 to 'switchport mode access' and assign it to VLAN 30.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check the latency to our cloud provider's main endpoint?",
+			"Answer": "Yes, I will ping 'core.cloudprovider.com' and report back the round-trip time.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My email search isn't finding recent emails.",
+			"Answer": "This is often an issue with the search index on your computer. We can try rebuilding the search index, which will force it to re-catalog all of your emails. The process can take a while but usually fixes the problem.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the CIA triad?",
+			"Answer": "The CIA triad is a foundational model in information security. It stands for Confidentiality, Integrity, and Availability. Confidentiality ensures data is accessible only to authorized users, Integrity ensures data is accurate and trustworthy, and Availability ensures data is accessible when needed.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need access to a specific database for a report I'm running.",
+			"Answer": "Access to production databases is tightly controlled. Please submit a data access request ticket. It will need to be approved by your manager and the database owner before we can grant you read-only access.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the uptime for the core router 'ROUTER-CORE-1'?",
+			"Answer": "I can get that for you. I am connecting to 'ROUTER-CORE-1' to retrieve its system uptime.",
+			"intent": "device"
+		},
+		{
+			"Question": "Is the server 'APP-FINANCE-02' listening on port 8080?",
+			"Answer": "I will check that for you. I am performing a port check on 'APP-FINANCE-02' for port 8080.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "When I try to save a large file to the shared drive, it fails.",
+			"Answer": "This could be due to a file size limit or a temporary network issue. Can you tell me the approximate size of the file and the exact error message you are receiving? Let's also try saving a small text file to the same location to confirm basic connectivity.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a DNS 'AAAA' record?",
+			"Answer": "A 'AAAA' record, also known as a 'quad-A' record, is used in DNS to map a hostname to an IPv6 address. It is the IPv6 equivalent of the 'A' record, which maps a hostname to an IPv4 address.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I've been promoted and need access to the manager's shared folder.",
+			"Answer": "Congratulations on the promotion! Your manager will need to approve your access to that folder. Please have them submit a ticket on your behalf, and we will add you to the correct security group.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please set the description on port 21 of 'SW-IDF-01' to 'AP-Corridor-West'.",
+			"Answer": "Understood. I am connecting to 'SW-IDF-01' to set the description on interface Gi1/0/21 to 'AP-Corridor-West'.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the IP address for 'timeserver.ourcompany.local'?",
+			"Answer": "I can look that up. I am querying DNS for the A record of 'timeserver.ourcompany.local'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My desk phone is showing 'Network Unregistered'.",
+			"Answer": "That error means the phone can't connect to our call management server. First, please check that the network cable is securely plugged into the back of the phone. We can also try rebooting the phone by unplugging it for 30 seconds.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'packet loss'?",
+			"Answer": "Packet loss is a network issue that occurs when one or more packets of data traveling across a computer network fail to reach their destination. It can be caused by network congestion, faulty hardware, or poor signal strength, and it can lead to slow performance and choppy audio or video.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to ship my laptop to another office. What's the process?",
+			"Answer": "Please bring your laptop and power adapter to the IT help desk. We will log the device, package it in an approved shipping container, and coordinate with the mail room to ensure it is shipped securely.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Can you check the CPU load on the firewall 'FW-EDGE-A'?",
+			"Answer": "I am connecting to 'FW-EDGE-A' now to check the current CPU utilization.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you verify that 'portal.ourcompany.com' is resolving to our public IP?",
+			"Answer": "I can check that. I will perform a DNS lookup for 'portal.ourcompany.com' to verify its A record.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is a 'Vishing' attack?",
+			"Answer": "Vishing, or 'voice phishing', is a type of social engineering attack that happens over the phone. An attacker will call and pretend to be someone legitimate, like a bank representative or IT support, to trick the victim into revealing sensitive information.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer is making a loud clicking sound.",
+			"Answer": "A rhythmic clicking sound is a strong indication that the hard drive is failing. Please stop what you are doing and do not reboot the computer. I am on my way to your desk to try and back up your data before the drive fails completely.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please disable port security on port 48 of 'SW-TESTLAB-A'.",
+			"Answer": "Understood. I am connecting to 'SW-TESTLAB-A' and will remove the port security configuration from interface Gi1/0/48.",
+			"intent": "device"
+		},
+		{
+			"Question": "I cannot reach 'server-utility-01'. Can you ping it for me?",
+			"Answer": "I will check its connectivity now. Sending a ping to 'server-utility-01'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My wireless mouse is very choppy and the cursor jumps around.",
+			"Answer": "This is often caused by a weak signal or a poor surface. First, let's try replacing the batteries. If that doesn't help, please try using the mouse on a proper mousepad, as glossy or reflective surfaces can confuse the optical sensor.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What's the purpose of 'root guard' in Spanning Tree?",
+			"Answer": "Root guard is an STP feature that is enabled on switch ports to prevent them from becoming the root bridge. We use it on ports that connect to user devices to protect the integrity of the network topology and ensure our core switches remain the root.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I've been transferred to a new department and need my file access permissions updated.",
+			"Answer": "I can certainly help with that. We'll need your new manager to submit a ticket requesting the permission changes. Once we receive that authorization, we can update your group memberships.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Can you add VLAN 200 to the allowed list on the trunk port Gi1/0/48 of 'SW-CORE-A'?",
+			"Answer": "Yes, I am connecting to 'SW-CORE-A' to add VLAN 200 to the allowed list for trunk interface GigabitEthernet1/0/48.",
+			"intent": "device"
+		},
+		{
+			"Question": "Is the RDP port 3389 open on the server 'WIN-JUMPBOX-01'?",
+			"Answer": "I can check that. I'm performing a port check on 'WIN-JUMPBOX-01' for port 3389.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm trying to open an old document and it says the file is corrupt.",
+			"Answer": "File corruption can happen for many reasons. It's possible we can recover an older version of the file from our backups. Can you please provide me with the full file name and the path to the folder where it was saved?",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is 'spear phishing'?",
+			"Answer": "Spear phishing is a targeted form of phishing where the attacker personalizes the email to a specific individual or organization. They often use information gathered from social media to make the email seem more legitimate, making it a particularly dangerous type of attack.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The universal docking station at my desk isn't detecting my monitors.",
+			"Answer": "I'm sorry you're having trouble. That model of docking station sometimes requires a firmware update to work correctly. I will come to your desk to check the firmware version and apply an update if one is available.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Bounce port 15 on switch 'SW-FLOOR-04-B'. A user's phone is not registering.",
+			"Answer": "I can do that. I will now perform a 'shutdown' followed by a 'no shutdown' on interface Gi1/0/15 of 'SW-FLOOR-04-B' to power cycle the port.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the IP address of our primary domain controller?",
+			"Answer": "I can get that for you. I'm querying DNS for the hostname 'DC01.ourcompany.local'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "The spell check in my word processor is not working.",
+			"Answer": "That's an unusual issue. Let's check the application's settings first to make sure the feature hasn't been accidentally disabled. It's also possible the proofing tool dictionary is corrupt, which can be fixed by running a repair on the office suite installation.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What does a DNS 'MX' record do?",
+			"Answer": "A Mail Exchanger (MX) record is a type of DNS record that specifies the mail server responsible for accepting email messages on behalf of a domain name. When you send an email, your mail server looks up the MX record for the recipient's domain to know where to send it.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need a new toner cartridge for the printer near my desk.",
+			"Answer": "Thank you for the heads-up. Printer supply management is handled by the office administration team. I have forwarded your request to them, and they will replace the toner shortly.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please show me the ARP table for the router 'ROUTER-MAIN-A'.",
+			"Answer": "I'm connecting to 'ROUTER-MAIN-A' now and will display the current Address Resolution Protocol table.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you ping the asset tag 'PC-FIN-JONES-01'?",
+			"Answer": "Yes, I will resolve the hostname 'PC-FIN-JONES-01' to an IP address and then ping it to check for connectivity.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My computer is not detecting my USB headset.",
+			"Answer": "Let's troubleshoot this. Have you tried plugging the headset into a different USB port? It's also a good idea to restart the computer, as this can often resolve USB device recognition issues.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'Zero-Day' attack?",
+			"Answer": "A 'Zero-Day' attack is a cyberattack that occurs on the same day a weakness is discovered in software. At that point, the vulnerability is unknown to the vendor, so no patch exists, making these attacks particularly dangerous.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The application is giving me a 'database connection error'.",
+			"Answer": "Thank you for that specific error message. This indicates the application server can't communicate with the database server. I will check the status of the database server and the network path between the two. Thank you for reporting it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please save the running configuration to startup on switch 'SW-CORE-B'.",
+			"Answer": "Understood. I am connecting to 'SW-CORE-B' and will issue the 'copy running-config startup-config' command.",
+			"intent": "device"
+		},
+		{
+			"Question": "Is our public website 'www.ourcompany.com' currently online?",
+			"Answer": "I can test that. I will attempt to ping the hostname to verify that it is resolving and reachable on the internet.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "Every time I open my web browser, it goes to a strange search page.",
+			"Answer": "That sounds like your browser has been hijacked by adware. This can happen when installing free software. We need to check your browser extensions and run a full malware scan to remove the unwanted program.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the difference between a 'switch' and a 'router'?",
+			"Answer": "A switch operates at Layer 2 (the Data Link Layer) and is used to connect devices on the same local network. A router operates at Layer 3 (the Network Layer) and is used to connect different networks together and direct traffic between them.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to have a new network jack installed at my desk for a test machine.",
+			"Answer": "Certainly. Running new network cables is handled by our facilities and infrastructure team. Please submit a 'New Network Drop' request ticket, and they will schedule a time to come and install the new jack.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need to set up a port mirror. Please mirror port Gi1/0/10 to port Gi1/0/24 on switch 'SW-TROUBLESHOOT-A'.",
+			"Answer": "I can configure a SPAN session for you. I am connecting to 'SW-TROUBLESHOOT-A' to set port Gi1/0/10 as the source and Gi1/0/24 as the destination.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check if the LDAP service is listening on port 389 on 'DC02.ourcompany.local'?",
+			"Answer": "I will check that for you. I'm running a port check on 'DC02.ourcompany.local' for port 389.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I have a new laptop. How do I connect it to the docking station?",
+			"Answer": "Most of our new docking stations connect with a single USB-C or Thunderbolt cable. This one cable should handle power, video, and all your USB devices. Please make sure you are using the specific port on your laptop marked with a Thunderbolt or DisplayPort icon.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is '2FA'?",
+			"Answer": "2FA stands for Two-Factor Authentication. It's a security method that requires you to provide two different types of evidence to prove your identity. This typically includes something you know (like a password) and something you have (like a code from your smartphone app).",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer is running out of disk space.",
+			"Answer": "When you're low on space, the first step is to empty your Recycle Bin and run the Disk Cleanup utility to remove temporary files. I can also help you identify large files that could be moved to your network drive, which is backed up and has much more space.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Can you check the PoE power draw on port 12 of switch 'SW-IDF-C3'?",
+			"Answer": "Yes, I am connecting to 'SW-IDF-C3' to check the detailed Power-over-Ethernet status for interface Gi1/0/12.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to know the IP address for 'scanner-hr-01'.",
+			"Answer": "I will query our DNS now to find the IP address associated with the hostname 'scanner-hr-01'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm receiving an email security warning that 'This message may not be from whom it claims to be'.",
+			"Answer": "Thank you for being cautious. That warning indicates the email failed our security checks for sender verification. It is very likely a phishing attempt. Please do not click any links, and forward the message to our security team.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'firewall ACL'?",
+			"Answer": "An ACL, or Access Control List, is a set of rules applied to a firewall that determines what traffic is allowed or denied. Each rule specifies criteria like source and destination IP address, port numbers, and the protocol, and has an action of 'permit' or 'deny'.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "A new employee is starting tomorrow and needs a computer.",
+			"Answer": "Thank you for the notification. Please ensure your manager has submitted a new hire onboarding ticket. That process tracks the creation of the user account and the provisioning of all necessary hardware, including a laptop.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please change the native VLAN to 99 on trunk port 48 of 'SW-DIST-A'.",
+			"Answer": "Understood. I am connecting to 'SW-DIST-A' to configure the native VLAN for trunk interface Gi1/0/48 to be VLAN 99.",
+			"intent": "device"
+		},
+		{
+			"Question": "Please ping the network time server 'ntp.ourcompany.com'.",
+			"Answer": "I am sending a ping to 'ntp.ourcompany.com' now to check for a response.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "When I plug in my external hard drive, it's not showing up.",
+			"Answer": "Let's figure this out. Sometimes external drives need a moment to power up and be recognized. Have you tried a different USB port on your computer? It's also possible the drive requires more power than a single port can provide.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between 'phishing' and 'whaling'?",
+			"Answer": "Whaling is a specific type of phishing attack that is targeted at high-level executives or other senior members of an organization. The fraudulent emails are crafted to look like urgent business matters, making them more likely to succeed against high-value targets.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The shared calendar for our team is not updating with new appointments.",
+			"Answer": "This can sometimes be a synchronization issue with the mail server. I will need to investigate the server-side settings for the shared calendar. Can you please provide the name of the calendar and confirm a few team members who are having the issue?",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Shut down ports 25 through 48 on switch 'SW-STAGING-LAB' for maintenance.",
+			"Answer": "Understood. I am connecting to 'SW-STAGING-LAB' to apply the 'shutdown' command to the interface range Gi1/0/25-48.",
+			"intent": "device"
+		},
+		{
+			"Question": "Is the MySQL port 3306 open on 'db-dev-mysql-04'?",
+			"Answer": "I'm on it. I am now performing a port check on 'db-dev-mysql-04' for port 3306.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I can't hear any sound from my computer speakers.",
+			"Answer": "Let's check the simple things first. Please make sure the speakers are turned on and that the volume knob isn't turned all the way down. Also, check the sound icon in your system tray to ensure the audio isn't muted.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'PoE'?",
+			"Answer": "PoE stands for Power over Ethernet. It's a technology that allows network cables to carry electrical power along with data. We use it to power devices like IP phones, wireless access points, and security cameras, eliminating the need for a separate power adapter.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The file I need has been deleted from the team share.",
+			"Answer": "I can help with that. Our network drives are backed up nightly. Please provide the full name of the file and the folder it was in. I will check the backups and restore the most recent version for you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Check the interface counters for errors on port Gi1/0/1 of 'ROUTER-EDGE-B'.",
+			"Answer": "I am connecting to 'ROUTER-EDGE-B' to display the detailed interface statistics for GigabitEthernet1/0/1, looking for any crc, input, or output errors.",
+			"intent": "device"
+		},
+		{
+			"Question": "I'm getting a DNS error. Can you check the A record for 'app.ourcompany.com'?",
+			"Answer": "I will check that now. I am querying our DNS server for the A record of 'app.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is the 'principle of least privilege'?",
+			"Answer": "The principle of least privilege is a security concept where a user is given only the minimum levels of access – or permissions – needed to perform their job functions. This minimizes the potential damage from an accident or a compromised account.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm getting a message that says 'Windows is not genuine'.",
+			"Answer": "That error indicates a problem with the license activation for your operating system. I will need to remote into your machine and run a command to reactivate Windows with our central licensing server.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the BGP neighbor status on router 'ROUTER-ISP-A'?",
+			"Answer": "I can check that. I am connecting to 'ROUTER-ISP-A' to display the BGP neighbor summary table.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the hostname for the IP 192.168.1.1?",
+			"Answer": "I will perform a reverse DNS lookup. I am querying for the PTR record of 192.168.1.1.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is a 'disaster recovery plan'?",
+			"Answer": "A disaster recovery plan (DRP) is a documented, structured approach that describes how an organization can resume work after an unplanned incident. It's a critical part of our business continuity strategy to ensure we can recover our IT infrastructure and services.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to record a meeting, but my computer says I don't have permission.",
+			"Answer": "The ability to record meetings is a feature that is restricted by company policy. If you have a business need to record a session, you will need to get approval from your department head. Once approved, we can enable the feature for your account.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please configure port Gi1/0/5 on 'SW-FLOOR-10-A' as a trunk port.",
+			"Answer": "I am connecting to 'SW-FLOOR-10-A' now to set the operational mode of interface GigabitEthernet1/0/5 to 'trunk'.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you ping our public DNS server, 8.8.8.8, to test internet connectivity?",
+			"Answer": "Yes, pinging an external address like 8.8.8.8 is a good way to test our internet connection. Pinging now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is a 'DMZ' network?",
+			"Answer": "A DMZ, or Demilitarized Zone, is a perimeter network that separates our internal LAN from untrusted networks, like the internet. We place public-facing servers, like our web server, in the DMZ. This adds an extra layer of security; if a DMZ server is compromised, the attacker is still firewalled from our internal network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I accidentally clicked a link in a suspicious email. What do I do now?",
+			"Answer": "Thank you for reporting this immediately. Please disconnect your computer from the network right away by unplugging the cable or turning off Wi-Fi. Do not enter any credentials or information. I will come to your desk to run a security scan.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Can you show me the routing table for 'ROUTER-BRANCH-7'?",
+			"Answer": "Certainly. I am connecting to 'ROUTER-BRANCH-7' and will display its current IP routing table.",
+			"intent": "device"
+		},
+		{
+			"Question": "Is the Tomcat port 8080 open on the server 'app-test-01'?",
+			"Answer": "I'll check that now. Performing a port check on 'app-test-01' for port 8080.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What does a DNS 'SRV' record do?",
+			"Answer": "A Service (SRV) record is a type of DNS record that specifies the location, i.e., the hostname and port number, of servers for specific services. It's often used for protocols like SIP for VoIP phones or for locating domain controllers in Active Directory.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I have a new hire starting next week. How do I get them an account and a laptop?",
+			"Answer": "Congratulations on the new team member! The hiring manager needs to complete the 'New Hire Onboarding' form on the HR portal. This single form kicks off all the necessary processes, including account creation by IT and hardware provisioning.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need to add a static route on 'FW-MAIN-A' for network 10.90.90.0/24 via 10.1.1.254.",
+			"Answer": "I am connecting to 'FW-MAIN-A' now to add the specified static route to the routing table.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the IP address for 'gitlab.ourcompany.com'?",
+			"Answer": "I can get that for you. I am performing a DNS lookup for 'gitlab.ourcompany.com' now.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "When I try to print a large PDF, it just fails with no error.",
+			"Answer": "Printing large, complex PDFs can sometimes overwhelm the printer's memory. Let's try printing it again, but this time, in the print dialog, choose the 'Print as Image' option under the advanced settings. This can often help with complex documents.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is a 'honeypot' in cybersecurity?",
+			"Answer": "A honeypot is a decoy computer system set up to attract and trap cyberattackers. It appears to be a legitimate part of the network but is actually isolated and monitored. By studying the attackers' methods on the honeypot, security teams can learn how to better protect the real network.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My laptop fell and now it won't turn on.",
+			"Answer": "I'm sorry to hear that. A drop can cause internal components to become disconnected or damaged. Please do not try to turn it on again. Bring it to the help desk so we can perform a hardware diagnostic and arrange for a repair.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please clear the ARP cache on the core router 'ROUTER-CORE-A'.",
+			"Answer": "Understood. I am connecting to 'ROUTER-CORE-A' and will issue the command to clear the ARP cache.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check if the HTTPS port is open on '10.50.1.15'?",
+			"Answer": "I will check that for you. I'm performing a port check on the IP 10.50.1.15 for port 443.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "What is 'NIC Teaming'?",
+			"Answer": "NIC Teaming, also known as Load Balancing/Failover (LBFO), is the practice of grouping multiple network interface cards (NICs) together to function as a single logical unit. This can increase network throughput and provide redundancy in case one of the NICs or its connection fails.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to block my lost phone's access to company email.",
+			"Answer": "Thank you for reporting this. I am immediately disabling your mobile device's access from our mail server. I will also initiate a remote wipe of the device to ensure all company data is secure. Please let us know if you need a replacement.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Enable BPDU guard on all access ports of switch 'SW-FLOOR-01-A'.",
+			"Answer": "Good security measure. I am connecting to 'SW-FLOOR-01-A' to enable the BPDU guard feature globally to prevent unauthorized switches from being connected.",
+			"intent": "device"
+		},
+		{
+			"Question": "I need to know if 'fileserver-03' is reachable on the network.",
+			"Answer": "I will check its status now. I am sending a ping to 'fileserver-03' to test for a response.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My email signature has disappeared.",
+			"Answer": "Sometimes email clients can have profile glitches. Let's first check the signature settings in your email client to see if it's still there but just not selected as the default. If it's gone completely, we may need to recreate it.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What is the difference between 'authentication' and 'authorization'?",
+			"Answer": "They are related but distinct concepts. Authentication is the process of verifying who a user is (e.g., with a password). Authorization is the process of determining what an authenticated user is allowed to do (e.g., what files they can access).",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The keyboard on my laptop has a key that has popped off.",
+			"Answer": "I'm sorry about that. Please don't try to force the key back on, as this can damage the small plastic clips underneath. Bring the laptop to the help desk, and we will attempt to properly reseat the key or replace the keyboard if necessary.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Check the OSPF neighbor status on router 'ROUTER-DIST-B'.",
+			"Answer": "I'm on it. I am connecting to 'ROUTER-DIST-B' to display the status of its OSPF adjacencies.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the IP address for 'printer-finance-01'?",
+			"Answer": "I can get that for you. I am querying our DNS for the hostname 'printer-finance-01'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My computer is telling me 'There is an IP address conflict with another system on the network'.",
+			"Answer": "That error means another device is using the same IP address as your computer. The quickest way to resolve this is to force your computer to get a new address. Let's open a command prompt and type 'ipconfig /release' followed by 'ipconfig /renew'.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What does a DNS 'TXT' record do?",
+			"Answer": "A TXT (Text) record is a type of DNS record that can hold arbitrary text-based information. It's commonly used for various verification purposes, such as proving domain ownership to a service provider, or for email security policies like SPF and DMARC.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I received an encrypted email but I don't have the key to open it.",
+			"Answer": "Our email encryption system should automatically manage keys for internal users. If the email is from an external party, they may have used a different encryption method. I will need to work with you to determine the type of encryption and help you get the correct key or certificate installed.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "A user has left the company. Please disable their port, Gi1/0/23 on 'SW-FLOOR-08-A'.",
+			"Answer": "Understood. As part of the offboarding process, I am connecting to 'SW-FLOOR-08-A' to issue the 'shutdown' command on interface GigabitEthernet1/0/23.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check if our web proxy at 10.100.1.5 is listening on port 8080?",
+			"Answer": "I will check that now. I am performing a port check on the IP 10.100.1.5 for port 8080.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My laptop won't connect to the Wi-Fi after the latest OS update.",
+			"Answer": "Sometimes major OS updates can cause issues with network drivers. Let's try to update the wireless network card driver for your specific laptop model. If that doesn't work, we can try rolling back the driver to the previous version.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'man-in-the-middle' attack?",
+			"Answer": "A man-in-the-middle (MITM) attack is where an attacker secretly intercepts and relays communications between two parties who believe they are communicating directly. This allows the attacker to eavesdrop on or alter the conversation. Using VPNs on untrusted networks helps prevent this.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm a contractor and my access is expiring today, but my contract was extended.",
+			"Answer": "I'm glad you reached out. To extend your access, we need an updated authorization from your manager or the project lead. Please have them send an email to the help desk approving the extension, and we can update the expiration date on your account.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the firmware version on access point 'AP-LOBBY-A'?",
+			"Answer": "I can find that out. I am connecting to 'AP-LOBBY-A' now to retrieve its current system software version.",
+			"intent": "device"
+		},
+		{
+			"Question": "What is the reverse DNS for 172.16.31.5?",
+			"Answer": "I will check that for you. I am querying for the PTR record associated with the IP address 172.16.31.5.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm trying to add a shared mailbox in my email client, but it's not working.",
+			"Answer": "Let's walk through the process. The method can be tricky depending on your email client version. First, ensure you have been granted the correct 'Full Access' permissions to the mailbox. Then, let's try adding it via the advanced account settings. What is the name of the mailbox you're trying to add?",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is a 'hot site' in disaster recovery?",
+			"Answer": "A hot site is a fully equipped duplicate of an organization's primary data center. It includes all the necessary hardware, software, and network connectivity, ready to take over operations with minimal downtime in the event of a disaster at the primary site.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to have a piece of custom software installed that is not in the company portal.",
+			"Answer": "For any software not in our standard catalog, we have a security review process. Please submit a 'New Software Request' ticket with the name of the software and its vendor. Our security team will need to vet the application before it can be approved for installation.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please reboot the switch 'SW-TESTLAB-B'.",
+			"Answer": "I will now issue the 'reload' command to the switch 'SW-TESTLAB-B'. It will be offline for a few minutes while it restarts.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you ping the VMware vCenter server at 'vcenter.ourcompany.local'?",
+			"Answer": "I will check the connectivity to the vCenter server now by pinging 'vcenter.ourcompany.local'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My computer is showing a blue screen with an error code.",
+			"Answer": "A 'Blue Screen of Death' indicates a critical system error, often related to hardware or a driver. Can you please provide me with the error code displayed on the screen, something like 'IRQL_NOT_LESS_OR_EQUAL'? That will help us diagnose the problem.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'NetFlow' used for?",
+			"Answer": "NetFlow is a network protocol used to collect IP traffic information. Our routers and switches use it to gather statistics about data flows, like source/destination IPs and the volume of traffic. This data is sent to a collector, which allows us to analyze network traffic patterns.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My laptop battery is swelling and has pushed the case apart.",
+			"Answer": "That is a critical safety issue. Please power down the laptop immediately and unplug it from the power adapter. Do not continue to use it. I am bringing a replacement laptop and a special fire-retardant bag to safely transport the damaged one.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need to set up a new VoIP phone. Please configure port 19 on 'SW-FLOOR-03-A' for data VLAN 10 and voice VLAN 110.",
+			"Answer": "I'm on it. I am connecting to 'SW-FLOOR-03-A' to configure interface Gi1/0/19 with access VLAN 10 and voice VLAN 110.",
+			"intent": "device"
+		},
+		{
+			"Question": "Check if our spam filter appliance 'spam-filter-01' is online.",
+			"Answer": "I can check that. I am sending a ping to 'spam-filter-01' to verify its network connectivity.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I received a security alert about a login from an unrecognized location.",
+			"Answer": "Thank you for being vigilant. If you do not recognize that login attempt, your account may be compromised. Let's immediately reset your password and review your recent account activity. I will also enable multi-factor authentication if it is not already.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'end-to-end encryption'?",
+			"Answer": "End-to-end encryption is a secure communication method that prevents third-parties from accessing data while it's transferred from one end system or device to another. The data is encrypted on the sender's device and can only be decrypted by the intended recipient.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The automated report from our BI tool failed to run last night.",
+			"Answer": "I will need to investigate the server logs for the BI tool to see what caused the failure. It could be a database connection issue or a problem with the service itself. I am escalating this to our application support team to investigate.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What are the current NAT translations on the firewall 'FW-MAIN-A'?",
+			"Answer": "I can get that information. I am connecting to 'FW-MAIN-A' to display the current Network Address Translation table.",
+			"intent": "device"
+		},
+		{
+			"Question": "Is the SMTP port 25 open on 'mail.ourcompany.com'?",
+			"Answer": "I will check that for you. I'm performing a port check on 'mail.ourcompany.com' for port 25.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "My computer's webcam is not working in my video call.",
+			"Answer": "Let's check a few things. First, some laptops have a physical privacy shutter; please make sure it's not covering the lens. Also, let's check the application's settings to ensure it has permission to use the camera and that the correct camera is selected.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "What's the difference between a 'cold site' and a 'warm site'?",
+			"Answer": "Both are types of disaster recovery sites. A 'cold site' is just a space with power and cooling; all equipment must be brought in after a disaster. A 'warm site' has some pre-installed hardware and network connectivity, but may require software and data to be restored, making for a faster recovery than a cold site.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I need to get a new security certificate for our internal web server.",
+			"Answer": "Certainly. Our PKI team handles all certificate requests. Please submit a certificate signing request (CSR) via the IT portal, and they will process it and provide you with the new signed certificate.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Show me the access-list named 'GUEST-WIFI-RULES' on router 'ROUTER-CORE-A'.",
+			"Answer": "I am connecting to 'ROUTER-CORE-A' now to display the contents of the access-list 'GUEST-WIFI-RULES'.",
+			"intent": "device"
+		},
+		{
+			"Question": "I'm having intermittent packet loss to '10.25.5.10'. Can you ping it?",
+			"Answer": "I will ping the IP address 10.25.5.10 and report back on the round-trip time and any packet loss I detect.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I'm trying to install a printer, but it's asking for an administrator password.",
+			"Answer": "That's expected. For security, standard users can't install drivers. However, you can use our self-service Software Center portal to install approved printers. It will handle the installation with elevated privileges without you needing a password. Let me guide you to it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is 'WPA3'?",
+			"Answer": "WPA3 is the latest security protocol for Wi-Fi networks. It provides enhanced security over the older WPA2 standard by using stronger encryption and offering better protection against brute-force attacks, even on networks that use simple passwords.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm working remotely and my home internet is down. Is there an alternative?",
+			"Answer": "I understand the urgency. We can enable the personal hotspot feature on your company-provided mobile phone. This will allow you to connect your laptop to the internet using the cellular data connection. I will need to enable this feature on your account.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Please configure a DHCP reservation for MAC address aabb.cc00.1234 with IP 192.168.10.100 on 'ROUTER-BRANCH-A'.",
+			"Answer": "I am connecting to 'ROUTER-BRANCH-A' to configure a static DHCP binding for that MAC and IP address pair.",
+			"intent": "device"
+		},
+		{
+			"Question": "What IP address does 'vpn.ourcompany.com' resolve to?",
+			"Answer": "I can check that for you. I am querying our DNS for the A record of 'vpn.ourcompany.com'.",
+			"intent": "connectivity"
+		},
+		{
+			"Question": "I am trying to run a report and it's taking forever to load.",
+			"Answer": "Slow report generation can be caused by a complex query or high load on the database server. Is this a new report or one that usually runs quickly? Let's try running it again, but this time with a smaller date range to see if that improves performance.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What's the difference between a 'penetration test' and a 'vulnerability scan'?",
+			"Answer": "A vulnerability scan is an automated process that scans systems for known weaknesses and reports on them. A penetration test is a much more active and manual process where a security professional simulates an attack to actively exploit vulnerabilities and see how far they can get.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm traveling internationally next week. What do I need to do for my phone and laptop?",
+			"Answer": "That's an excellent question. We will need to add an international roaming plan to your mobile phone account. For your laptop, please ensure you have the latest VPN client and antivirus updates before you travel. It is critical to use the VPN at all times when on hotel or public Wi-Fi.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "What is the serial number of the chassis for switch 'SW-MDF-A'?",
+			"Answer": "I can get that hardware detail. I am connecting to 'SW-MDF-A' to retrieve the chassis serial number from its inventory.",
+			"intent": "device"
+		},
+		{
+			"Question": "Can you check if the secure LDAP port 636 is open on 'DC01.ourcompany.local'?",
+			"Answer": "I can do that. I am now performing a port check for port 636 on 'DC01.ourcompany.local'.",
+			"intent": "connectivity"
+		}
+	]
+}

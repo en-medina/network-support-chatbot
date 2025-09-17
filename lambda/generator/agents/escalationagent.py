@@ -6,9 +6,11 @@ from langgraph.graph import END
 
 # LangChain imports
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+from langchain_core.output_parsers import JsonOutputParser
 
 # App specific imports
-from tools.escalation import get_escalation_tools, get_escalation_tool_names
+from tools.escalation import escalate_request
+from parser.escalation import TaskParser
 from agents.state import AgentState, AgentNames, model_selection
 from tools.language import language_prompt
 from parser.connectivity import react_parse
@@ -18,10 +20,7 @@ class EscalationAgent:
 
     def __init__(self, model_name: str = ""):
         self.name = AgentNames.ESCALATION.value
-        self.llm = model_selection(model_name, use_huggingface=True)
-        self.tools = get_escalation_tools()
-        self.llm_with_tools = self.llm.bind_tools(self.tools)
-        self.tool_node = ToolNode(tools=self.tools, name="escalation_tools", messages_key="tool_messages")
+        self.llm = model_selection(model_name)
 
     def route_condition(self, state: AgentState) -> str:
         """Checks if the tools can be used in the current state"""
@@ -29,18 +28,12 @@ class EscalationAgent:
         Use in the conditional_edge to route to the ToolNode if the last message
         has tool calls. Otherwise, route to the end.
         """
-        messages = state.get("escalation_messages", [])
-        # If there are no messages, we cannot route
-        if not messages:
-            raise ValueError("No messages found in state to route_condition")
-
-        last_message = messages[-1]
-
-        if hasattr(last_message, "tool_calls") and len(last_message.tool_calls) > 0:
-            return self.tool_node.name
-        # If the final answer is already set, we can end the conversation
-        if state.get("final_answer", ""):
+        triage_message = state.get("triage_message", "")
+        if triage_message == "FINAL" or state.get("final_answer", ""):
             return END
+
+        if triage_message in [self.name, "ANALYZE"]:
+            return self.name
 
         return self.name
 
@@ -48,76 +41,96 @@ class EscalationAgent:
         """Executes the connectivity agent logic"""
         user_question = state.get("user_question", "")
         user_language = state.get("user_language", "Spanish")
+        triage_message = state.get("triage_message", "")
+        user_question = HumanMessage(content=user_question)
+        parser = JsonOutputParser(pydantic_object=TaskParser)
 
-        tool_names = get_escalation_tool_names()
-        tools_desc = "\n".join(
-            [f"{tool.name}: {tool.description}" for tool in self.tools]
-        )
+        if triage_message == 'ANALYZE':
+            system_message = SystemMessage(
+                content=f"""Answer the following questions as best you can.
+            {language_prompt(user_language)}
+            """
+            )
+            state["escalation_messages"].append(user_question)
+            response = self.llm.invoke(state["escalation_messages"])
+            state["escalation_messages"].append(response)
+            state["final_answer"] = response.content
+            state["triage_message"] = "FINAL"
 
-        if not state.get("tool_messages", []):
+        elif triage_message != self.name:
             system_message = SystemMessage(
                 content=f"""
-    You are an escalation agent. Your role is to understand the user request and determine if it requires escalation to a higher support level.
+        You are an escalation agent. Your role is to understand the user request and determine if it requires escalation to a higher support level.
 
-    To escalate a request, the user question must pass one of the following conditions:
-    1. The question is related to a network issue that requires an external action to solve.  
-    2. The user explicitly requests that you escalate the question.  
-    3. The question was received from the knowledge, device, or connectivity agent and the question hasn't been addressed.  
-    
-    You should always think about what to do, and do NOT create a ticket if it is not needed.
-    If you create a ticket, you MUST include the ticket ID in your final answer.
-    You can go directly to the final response if no escalation is needed.
+        To escalate a request, the user question must pass one of the following conditions:
+        1. The question is related to a network issue that requires an external action to solve.
+        2. The request involves a **network issue** that cannot be solved without external action.
+        3. The user explicitly asks for escalation.
 
-    If the above conditions are not met, answer the user request as best you can.
+        # Output Rules:
+        - If escalation is required, output exactly: ${self.name}
+        - If escalation is not required, output exactly: ANALYZE
 
-    If after reasoning and trying possible steps you still cannot resolve the issue, stop and provide a summary of your findings as the final answer. Do not keep using tools indefinitely. 
+        # Important:
+        - Do not explain your decision.
+        - Output must be a single word: either ${self.name} or ANALYZE.
+            """
+            )
+            analyze_message = list()
+            analyze_message.append(system_message)
+            analyze_message.append(user_question)
+            response = self.llm.invoke(analyze_message)
+            state["triage_message"] = "ANALYZE"
+            if response.content in ["ANALYZE", self.name]:
+                state["triage_message"] = response.content
 
-    You have access to the following tools:
+        elif triage_message == self.name:
+            system_message = SystemMessage(
+                content=f"""
+            You are a Product Manager. Your goal is to create product requirements documentation efficiently.
+            Follow these rules:
+            - Provide a short, concise title that summarizes the task.
+            - Provide a detailed description that captures the full context, meaning, and instructions behind the requirement.
 
-    {tools_desc}
+            Make sure you fully understand the meaning of each word in the requirements before writing.
 
-    Only use the tool when absolutely necessary. If you have all the information you need to answer the question based on previous messages, skip the tool and go straight to the final answer.
+            Respond in {user_language}, using the same language as the user requirements to ensure seamless communication.
 
-    You MUST use the following format when tools are needed:
+            Your response MUST follow the format below:
+            {{
+            "title": "the title of the task",
+            "description": "the detailed description of the task"
+            }}
+            Do not include any explanations or additional text outside the JSON object.
+            """
+            )
+            ticket_list = [system_message]
+            ticket_list.append(user_question)
+            response = self.llm.invoke(ticket_list)
+            values = parser.invoke(response.content)
+            from pprint import pprint
+            pprint(values)
+            ticket_id = escalate_request(
+                title=values.get("title", "No title provided."),
+                description=values.get("description", "No description provided."),
+                question=user_question.content
+            )
+            system_message = AIMessage(
+                content=f"""
+            Translate the following ticket information into {user_language}:
 
-    Question: the input question you must answer
-    Thought: you should always think about what to do, do not use any tool if it is not needed. 
-    Action: the action to take, should be one of [{tool_names}]
-    Action Input: the input to the action
-    Observation: the result of the action
-    If the observation does not help you make further progress, consider stopping and providing the final answer with your current best reasoning.
-    ... (this Thought/Action/Action Input/Observation can repeat N times)
-    Thought: I now know the final answer
-    Final Answer: the final answer to the original input question. If you had created a ticket, provide the ticket ID on your answer.
+            Ticket Details:
+            - Ticket ID: {ticket_id}
+            - Title: {values.get("title", user_question.content)}
+            - Description: {values.get("description", "No description provided.")}
+            - User Question: {user_question.content}
 
-    If no tools are needed, use this simpler format: 
-
-    Question: the input question you must answer  
-    Thought: I already know the answer based on the information provided  
-    Final Answer: the final answer to the original input question. If you had created a ticket, provide the ticket ID on your answer.
-
-    IMPORTANT: You must eventually reach a final answer.  
-    If no clear solution exists, stop and provide the best possible summary.
-
-    {language_prompt(user_language)}
-
-    Begin!
+            Make sure the translation is clear, professional, and preserves all the original information and format.
             """
             )
             state["escalation_messages"].append(system_message)
+            response = self.llm.invoke(state["escalation_messages"])
+            state["final_answer"] = response.content
+            state["triage_message"] = "FINAL"
 
-            # Add user question
-            user_message = HumanMessage(content=f"Question: {user_question}")
-            state["escalation_messages"].append(user_message)
-        else:
-            state["escalation_messages"].extend(state["tool_messages"])
-            state["tool_messages"] = []
-
-        response = self.llm_with_tools.invoke(state["escalation_messages"])
-        parsed_response = react_parse(response)
-
-        # Process response
-        state["escalation_messages"].append(response)
-        state["final_answer"] = parsed_response.get("final_answer", "")
-        state["tool_messages"].append(response)
         return state

@@ -2829,6 +2829,806 @@
 			"Question": "Can you save the current configuration on 'FW-EDGE-A' before I make changes?",
 			"Answer": "Yes, I will connect to 'FW-EDGE-A' and copy the running-configuration to the startup-configuration to save the current state.",
 			"intent": "device"
+		},
+		{
+			"Question": "I can't connect to the company VPN. It keeps giving me an error.",
+			"Answer": "I'm sorry to hear you're having trouble with the VPN. Please first try restarting your computer and your home router to clear any connection issues. Also, ensure you are selecting the correct server from the dropdown list. If it still doesn't work, please let me know the specific error message you are seeing.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My Outlook search isn't working properly. It's not finding emails I know are there.",
+			"Answer": "That issue is often caused by a problem with the search index. We can try to rebuild the Outlook search index, which usually resolves this. The process can take a while to run in the background. If that doesn't fix it, we may need to investigate further.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My laptop's fingerprint reader has stopped working.",
+			"Answer": "Let's try to fix that. First, please try cleaning the sensor with a soft, dry cloth. If that doesn't help, the driver may need to be updated or reinstalled. You can also try removing and re-adding your fingerprint in the 'Sign-in options' settings.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I think my laptop has a virus. It's acting very slow and showing strange pop-ups.",
+			"Answer": "Thank you for bringing this to our attention. Please disconnect your laptop from the network to prevent any potential spread of the virus. We recommend running a full antivirus scan as soon as possible.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I spilled a little water on my laptop. It seems to be working, but what should I do?",
+			"Answer": "Thank you for reporting this immediately. Please power down the laptop completely and unplug it from the wall right away. Do not turn it back on, even if it seems to be working. Please bring it to the IT department so we can open it up and check for internal moisture to prevent long-term damage.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The shared network drive is very slow for me today.",
+			"Answer": "Network slowness can be caused by many factors. Are you connected to the network via a cable or Wi-Fi? A wired connection is always faster and more stable. It could also be a temporary issue with the server. A simple computer restart can sometimes help establish a better connection.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My desk phone is not working. There's no dial tone.",
+			"Answer": "Let's check the connection. Please ensure the network cable is securely plugged into the back of the phone and into the wall port. You can also try unplugging the phone's power adapter for 30 seconds and plugging it back in to reboot it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I have a new headset, but people say my audio is muffled in meetings.",
+			"Answer": "Let's check your audio settings. In your meeting software (like Teams or Zoom), go to the audio device settings and make sure the microphone input is set to your new headset and not the laptop's built-in mic. Also, check if there's a physical mute button on the headset's cable that might be partially engaged.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My password expired and I'm locked out. How can I reset it?",
+			"Answer": "I can help you with that. I will need to verify your identity first. Once verified, I can trigger a temporary password for you, which you will be required to change upon your next login.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm getting a 'Your connection is not private' error on a website I need for work.",
+			"Answer": "That error often indicates an issue with the website's security certificate or your computer's system time. Please first check that the date and time on your computer are correct. If they are, it could be a temporary issue with the site itself. Please let me know the website address so I can investigate.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The scanner on the multifunction printer is not working. It won't scan my document.",
+			"Answer": "I'm sorry for the trouble. Please try power-cycling the printer by turning it off, waiting a minute, and then turning it back on. This often resolves scanner communication issues. Also, ensure the document is placed correctly on the glass or in the document feeder.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer seems to have a corrupted user profile. It logged me into a temporary profile.",
+			"Answer": "Logging into a temporary profile is a serious issue that indicates your main user profile is corrupted. Please do not save any files, as they will be deleted when you log out. A restart can sometimes fix this, but we will likely need to create a new user profile for you and migrate your data over.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My USB ports on the front of my computer are not working.",
+			"Answer": "Let's see what's going on. It's possible the front USB panel has become disconnected internally. Have you tried the USB ports on the back of the computer? If those work, it's likely a hardware issue with the front ports. I will need to come and take a look inside the case.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need to request access to a shared mailbox for my team.",
+			"Answer": "Certainly. To request access to a shared mailbox, please submit a ticket that includes the name of the mailbox and an approval email from the mailbox owner or your manager. We will then process the permission change for you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The text on my screen looks blurry and hard to read.",
+			"Answer": "Blurry text is often a sign that the screen resolution is set incorrectly. Please right-click on your desktop, go to 'Display settings,' and ensure the 'Display resolution' is set to the one that is marked '(Recommended)'. This matches the native resolution of your monitor.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm trying to print a large document, but it's not coming out.",
+			"Answer": "Large documents can sometimes get stuck in the print queue. Let's try clearing it. You can do this by going to 'Printers & Scanners' in your settings, selecting the printer, and choosing 'Open queue.' From there, you can cancel the stuck document. A printer restart might also be necessary.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I am not receiving my two-factor authentication (2FA) codes via text.",
+			"Answer": "That can be frustrating. Please first check your phone's signal strength and try restarting your phone. Sometimes there can be a delay with the carrier. If you're still not receiving them after a few minutes, let me know, and we can try to reset your 2FA method.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is not recognizing a USB device I plugged in.",
+			"Answer": "When a USB device isn't recognized, please try plugging it into a different USB port on your computer. Also, if possible, test the device on another computer to see if the issue is with the device itself or your computer. Sometimes a simple restart can solve these detection issues.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The auto-rotate feature on my convertible laptop isn't working.",
+			"Answer": "The auto-rotate function can sometimes be disabled. Please check the Action Center in Windows for a 'Rotation lock' button and make sure it is turned off. If that doesn't solve it, we may need to reinstall the sensor drivers for your device.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need to get an ergonomic mouse. How do I request one?",
+			"Answer": "You can request new hardware, including ergonomic equipment, by submitting a ticket to the IT department. Please include a brief justification for the request. It will then be sent to your manager for approval before being fulfilled.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My laptop is getting very hot to the touch.",
+			"Answer": "If your laptop is overheating, please ensure that the ventilation ports are not blocked by any objects or dust. It's important to use it on a hard, flat surface. If it continues to get excessively hot, please shut it down. The internal fan may be failing, and I'll need to inspect it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I can't open a PDF file. It says the file is corrupted.",
+			"Answer": "A corrupted file error can mean the file was damaged during download or the PDF reader software has an issue. Please try downloading the file again. You can also try opening it with a different PDF viewer, such as the one built into your web browser, to see if the problem is with the file or the software.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "A software I use needs to be updated, but I don't have administrator rights.",
+			"Answer": "That's correct, our security policy prevents users from performing software updates themselves. Please submit a ticket with the name of the software that needs updating, and a member of our team will assist you with the update process.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The docking station is not charging my laptop.",
+			"Answer": "Let's check the power. Please ensure the docking station's own power adapter is securely plugged into the wall and the dock itself. Also, check the connection between the dock and your laptop. If the charging light on your laptop doesn't come on, there may be an issue with the dock's power delivery.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm trying to use a formula in Excel, but it's giving me an error.",
+			"Answer": "While we are not experts in specific application usage like Excel formulas, I can offer some general advice. Please double-check the syntax of your formula and ensure all the cells it references contain the correct type of data. The application's help files are also a great resource for specific formula errors.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My laptop is controlling itself. The cursor is moving on its own.",
+			"Answer": "This could be a sign of a hardware issue or malware. First, try rebooting your laptop. If the problem persists, please disconnect any external devices like mice or trackpads to see if that resolves the issue. Running a full antivirus scan is also recommended.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My webcam video is flickering during calls.",
+			"Answer": "Webcam flickering can be caused by lighting or a driver issue. Please try adjusting the lighting in your room to be more consistent. If that doesn't help, we can try updating the webcam driver through the Device Manager, which often resolves this kind of problem.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm leaving the company. What do I do with my laptop?",
+			"Answer": "All company-owned equipment, including your laptop, power adapter, and any peripherals, must be returned to the IT department on your last day. Please ensure you have transferred all personal files from the device before then.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I accidentally deleted an important email. Can I get it back?",
+			"Answer": "Yes, it's very likely. First, please check your 'Deleted Items' folder in Outlook. If you don't see it there, look for a folder called 'Recoverable Items'. If you still can't find it, let me know, and I can check our email backups.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The taskbar on my screen has moved to the side.",
+			"Answer": "That can happen if the taskbar is unlocked. To fix it, you can simply click and drag the taskbar back to the bottom of the screen. Once it's in place, you can right-click on it and select 'Lock the taskbar' to prevent it from moving again.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My Bluetooth mouse keeps disconnecting.",
+			"Answer": "Bluetooth connectivity issues are often related to power or drivers. Please try replacing the batteries in the mouse first. If that doesn't solve it, let's try updating your computer's Bluetooth driver. You can also try 'un-pairing' and then 're-pairing' the mouse in your Bluetooth settings.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I can't connect my phone to the WiFi even thought it was possible yesterday.",
+			"Answer": "Let's try to troubleshoot the issue. First, please forget the Wi-Fi network on your phone and then reconnect by entering the password again. If that doesn't work, please check if there are any updates available for your phone's operating system.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is not detecting my microphone.",
+			"Answer": "Let's check your privacy settings. In Windows, go to 'Privacy & security' and then 'Microphone'. Ensure that 'Microphone access' is turned on and that apps are allowed to access your microphone. If the settings are correct, we may need to check the hardware connection or drivers.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My screen suddenly turned sideways. How do I turn it back?",
+			"Answer": "You have likely pressed a key combination that rotates the screen. You can usually fix this by pressing 'Ctrl + Alt + Up Arrow'. This should return your screen to the normal landscape orientation.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My laptop is not turning on, and there are no lights at all.",
+			"Answer": "If there are no lights, it indicates a power issue. Please try a different wall outlet. Also, examine the power cord for any damage. If possible, try a different, known-good power adapter to see if the issue is with the adapter or the laptop itself. If it still doesn't work, I'll need to inspect it for a hardware failure.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need to share a very large file with a client. It's too big for email.",
+			"Answer": "You're right, email is not suitable for large files. We have a secure file-sharing service for that purpose. I can help you upload the file and generate a secure, expiring link that you can send to your client.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The shift key on my keyboard is not working.",
+			"Answer": "Let's try to determine if it's a hardware or software issue. First, please try restarting your computer. If the problem persists, we can check if the 'Sticky Keys' accessibility feature was accidentally enabled in settings. If it's still not working, the keyboard itself may be faulty.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The color on my monitor looks yellow.",
+			"Answer": "A yellow tint is often caused by the 'Night Light' feature in Windows, which reduces blue light. Please check your display settings to see if 'Night Light' is turned on. It could also be a loose video cable, so please ensure it's securely connected.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My laptop's fan is extremely loud, even when I'm not doing much.",
+			"Answer": "A constantly loud fan could indicate that a process is stuck and using a lot of CPU resources, or that the fan's vents are clogged with dust. Please check your Task Manager for any application with high CPU usage. If you don't see anything obvious, it may need a physical cleaning, which I can help with.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I have to travel internationally for work. Is there anything I need to do for my laptop?",
+			"Answer": "Yes, thank you for checking. We recommend you ensure your data is backed up before you travel. Also, be aware of our security policies regarding connecting to public Wi-Fi networks. We will also provide you with a travel power adapter if needed.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The time on my computer is off by an hour.",
+			"Answer": "This is often a daylight saving time issue. You can fix it by right-clicking the clock, selecting 'Adjust date/time,' and ensuring that the 'Adjust for daylight saving time automatically' option is turned on.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My laptop's camera quality is very grainy.",
+			"Answer": "Grainy video quality is often due to poor lighting. Please try to be in a well-lit area when on video calls. It can also be caused by a dirty camera lens, so please try gently wiping the lens with a soft cloth. If the quality is still poor, we can investigate for a hardware issue.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I can't eject my USB drive. It says it's in use.",
+			"Answer": "This happens when a program or process is still accessing a file on the drive. Please close all open files and applications that might be using the drive. If you still can't eject it, you can shut down your computer completely, which will safely release the drive.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I received a security certificate warning in my browser. What should I do?",
+			"Answer": "A certificate warning should be taken seriously. It can mean the website is not secure or someone is trying to intercept your connection. Please do not proceed to the website or enter any credentials. Let me know the address of the site, and I will verify if it's safe.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is making a series of short beeps on startup.",
+			"Answer": "Beep codes at startup indicate a hardware failure. The pattern of the beeps tells us what's wrong. For example, a series of short beeps often points to a problem with the motherboard or memory. Please power it down, and I will come to diagnose the specific beep code.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The network cable won't click into my laptop's port.",
+			"Answer": "Please inspect both the cable's connector and the port on your laptop. The small plastic clip on the network cable might be broken, which would prevent it from locking in place. Or, there could be a small obstruction in the laptop's port. I can provide you with a new cable to test with.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My monitor's settings menu keeps popping up on its own.",
+			"Answer": "That sounds like one of the physical buttons on the monitor is stuck or failing. Please try gently pressing each of the buttons on the monitor's bezel to see if you can free the stuck button. If the problem continues, the monitor's control board may be faulty.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer shut down because of a power outage, and now it won't start.",
+			"Answer": "A sudden power outage can sometimes cause issues. First, please unplug the computer from the wall for a full minute to dissipate any residual charge, then plug it back in and try to power it on. If that doesn't work, the power surge may have damaged the power supply unit, which I will need to test.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm having trouble connecting to the office printer from my laptop.",
+			"Answer": "Let's re-establish the connection. Please go to your 'Printers & Scanners' settings and try removing the printer completely. Then, use the 'Add a printer' function to search for it on the network again. This often resolves connectivity issues.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The sound is only coming out of one side of my headphones.",
+			"Answer": "This is usually a connection issue. Please make sure your headphone jack is plugged in all the way. You can also check the audio balance settings on your computer. Right-click the speaker icon, go to 'Sound settings,' and check the balance for your output device.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The number pad on my keyboard is typing letters instead of numbers.",
+			"Answer": "That is likely because 'Num Lock' is turned off. Please look for a 'Num Lock' or 'Num Lk' key on your keyboard, usually near the number pad itself. Pressing it should toggle the number pad back to its primary function.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I am working remotely and my applications are running extremely slow.",
+			"Answer": "When working remotely, application performance is highly dependent on your home internet connection speed, especially when accessing files on our network. Please try running an internet speed test. A restart of your home router can also sometimes improve connection quality.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The copy and paste function is not working.",
+			"Answer": "That's a strange issue that can sometimes be caused by a misbehaving application. A full restart of your computer is the most common and effective way to resolve this problem by clearing the system's memory.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need admin rights to install a program for my work.",
+			"Answer": "Our security policy requires that all software is vetted and installed by the IT department. Please submit a software request ticket with the name of the program and a business justification, and we will review the request and install it for you if approved.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My laptop's battery life is very short.",
+			"Answer": "Poor battery life can be caused by demanding applications or simply an aging battery. Please check your Task Manager to see if any programs are using an unusual amount of CPU power. Also, dimming your screen brightness can help conserve power. If the battery is old, it may need to be replaced.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "A pop-up on a website locked my browser and is telling me to call a number. What do I do?",
+			"Answer": "This is a scam. Please do not call the number. This is a scare tactic to get you to pay for fake tech support. You should be able to close the browser using the Task Manager (Ctrl+Alt+Delete). I will then help you clear your browser's cache and run a malware scan to be safe.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I can't save changes to a document on a shared drive. It says it's 'read-only'.",
+			"Answer": "A 'read-only' message can mean two things. It might be that another user currently has the file open, in which case you should wait and try again later. It could also mean you only have permission to read files in that folder, but not to save changes. I can check your permissions for that folder.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Why is my computer asking me to 'Activate Windows'?",
+			"Answer": "An 'Activate Windows' notification usually appears if there's been a significant hardware change or a problem communicating with our activation server. I can connect your computer to the network and run a command to reactivate it with our corporate license.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My monitor has a thin vertical line running down the screen.",
+			"Answer": "A vertical line on an LCD screen is almost always a sign of a hardware failure in the display panel itself. To confirm, we can try connecting the monitor to a different computer. If the line persists, the monitor will need to be replaced.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The printer is jamming every time I try to print.",
+			"Answer": "Frequent paper jams can be caused by using the wrong type of paper or by a small, torn piece of paper stuck inside the printer's mechanism. Please carefully open the printer's access panels and check for any obstructions. The paper rollers may also need to be cleaned.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm trying to schedule a meeting in Outlook, but I can't see my coworker's availability.",
+			"Answer": "To see someone's free/busy information, you can use the 'Scheduling Assistant' when creating a meeting invitation. If their calendar appears as unavailable, it could be a permissions issue. I can help you check if you have the correct permissions to view their calendar.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The scroll wheel on my mouse is not working.",
+			"Answer": "Let's see if it's a software or hardware issue. Please try restarting your computer first. If that doesn't help, try the mouse on a different computer. If the scroll wheel still doesn't work, the mouse is likely faulty and will need to be replaced.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need to block emails from a specific sender.",
+			"Answer": "You can block senders in Outlook by right-clicking on one of their emails, going to 'Junk,' and then selecting 'Block Sender.' This will automatically move all future emails from them to your Junk Email folder.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My laptop isn't detecting the Wi-Fi network.",
+			"Answer": "Let's check the basics first. Please ensure the Wi-Fi is enabled on your laptop; sometimes there's a physical switch or a function key for this. A simple restart of the computer can also often resolve driver issues and allow it to see the available networks again.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm running out of space in my email mailbox.",
+			"Answer": "When your mailbox is nearing its limit, you can archive older emails. This moves them to a separate file, freeing up space in your main mailbox while keeping them accessible. You should also delete any unnecessary large emails, especially from your 'Sent Items' folder.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The volume on my computer is too low, even at 100%.",
+			"Answer": "If the main system volume is at maximum, check the volume control within the specific application you're using (like a YouTube video or music player). Also, if you're using external speakers or a headset, they may have their own physical volume knob that needs to be turned up.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is stuck on the 'Welcome' screen.",
+			"Answer": "Getting stuck on the Welcome screen can sometimes happen if the computer is having trouble loading your user profile. Please try performing a hard shutdown by holding the power button down. If it gets stuck again on the next startup, we may need to investigate for corrupted system files.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Why can't I access the Task Manager? It says it's disabled.",
+			"Answer": "If Task Manager is disabled, it is a very strong indicator of a malware infection, as some malicious software will block it to prevent you from stopping their processes. Please disconnect your computer from the network immediately, and I will come to run a security scan.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The font in one of my applications looks weird and unreadable.",
+			"Answer": "This can happen if a font file used by the application becomes corrupted or is missing. Often, a repair installation of the application will fix this by restoring the necessary font files. We can also try clearing the system's font cache.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My monitor has a dead pixel. It's a small black dot.",
+			"Answer": "A dead pixel is a defect in the LCD panel where the pixel is permanently off. Unfortunately, this is a hardware fault that cannot be fixed with software. Whether the monitor can be replaced under warranty depends on the manufacturer's policy regarding the number and location of dead pixels.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need to use a special character that's not on my keyboard.",
+			"Answer": "You can use the 'Character Map' utility in Windows to find and insert special characters, symbols, and letters from different languages. You can search for 'Character Map' in the Start Menu to open the tool.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I have my display extended to a second monitor, but my desktop background is black.",
+			"Answer": "When you extend your display, you can set a separate background for each monitor. Right-click on your desktop, go to 'Personalize,' and then 'Background.' When you choose a picture, you should have the option to set it for Monitor 1 or Monitor 2.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The printer is printing pages with streaks and lines on them.",
+			"Answer": "Streaks on printed pages usually indicate an issue with the toner cartridge or the printer's drum unit. It could be that the toner is running low, or the drum unit may be dirty or damaged. We can try replacing the toner cartridge first to see if that resolves the issue.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Why did my computer restart on its own overnight?",
+			"Answer": "Your computer most likely restarted to install system updates. By default, Windows is set to download and install updates automatically during off-hours to ensure the system remains secure and stable. You can check your update history to confirm if this was the case.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The right-click menu on my mouse is not working.",
+			"Answer": "This could be a hardware or software issue. Please try a different mouse to see if the problem persists. If another mouse works correctly, the original mouse is likely faulty. If the problem continues with a different mouse, we may need to investigate for a system or driver issue.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My webcam is showing a black screen, but the light is on.",
+			"Answer": "If the indicator light is on but the video is black, it means the camera is active but not transmitting an image. This is often a driver issue. Please try restarting your computer. We can also try uninstalling and reinstalling the camera's driver in the Device Manager.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I have to do a video conference but the background in my room is messy.",
+			"Answer": "Most video conferencing applications like Teams and Zoom have a feature to blur your background or use a virtual background. You can find this in the video settings before or during a call. This is a great way to maintain privacy and a professional appearance.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I think my computer has a virus. What should I do first?",
+			"Answer": "If you suspect a virus infection, the first and most important step is to disconnect your computer from the network. Unplug the network cable or turn off the Wi-Fi. This will prevent the virus from spreading or communicating with its source. Then, please do not use the computer and contact me immediately.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm working from home and can't access our company's internal websites.",
+			"Answer": "To access internal company websites and resources from outside the office, you must be connected to the company VPN. The VPN creates a secure, encrypted connection that makes your computer act as if it is on the office network. Please ensure your VPN is connected.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The function keys (F1, F2, etc.) on my laptop are not working as expected.",
+			"Answer": "On many laptops, the function keys have dual purposes (like changing brightness or volume). There is often an 'Fn Lock' key (sometimes on the Esc key) that toggles their behavior. Try pressing 'Fn + Esc' to see if that switches them back to their standard function.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I am trying to log into a website and it says 'Invalid Credentials' but I know my password is right.",
+			"Answer": "Please try typing your password into a text document to ensure the correct characters are being typed and that Caps Lock is not on. If you are certain the password is correct, you can try using the 'Forgot Password' link on the website to reset it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I received an email with a zip file that is password protected. Is it safe?",
+			"Answer": "You should be very cautious. This is a common tactic used in phishing attacks. Unless you were specifically expecting to receive a password-protected file from this sender and they have sent you the password separately, do not attempt to open it. Please forward the email to our security team for analysis.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The screen on my laptop is flickering between bright and dim.",
+			"Answer": "This could be related to the 'adaptive brightness' feature, which adjusts brightness based on ambient light. You can try disabling this in your power plan's advanced settings. If the flickering is more random, it could also be a sign of a failing screen backlight or a loose internal connection.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is running out of memory, but I don't have many programs open.",
+			"Answer": "It's possible that a background process or a memory leak in an application is consuming your RAM. Please open the Task Manager and sort the processes by memory usage. This will show us if a specific application is using an unusually high amount of memory. A restart will also temporarily solve this.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My laptop's audio is crackling through the built-in speakers.",
+			"Answer": "Crackling audio can be a software or hardware issue. First, let's try updating your audio drivers, as this can often fix software-related problems. If the crackling persists, especially at high volumes, it could be a sign that the physical speakers in the laptop are damaged or have failed.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The network icon in my system tray has a yellow triangle on it.",
+			"Answer": "A yellow triangle on the network icon usually means your computer is connected to the network, but it cannot access the internet. This is often called 'Limited Connectivity.' A restart of your computer or the network router can often resolve this communication issue.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I have sensitive information on my screen. How can I prevent people from seeing it?",
+			"Answer": "If you are concerned about visual privacy, we can provide you with a privacy screen filter. This is a physical filter that you place over your monitor, which greatly narrows the viewing angle so that only the person directly in front of the screen can see the content clearly.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need to access a file I deleted last week.",
+			"Answer": "It's possible we can recover it from our backups. Please provide the exact name of the file and the folder location where it was saved. I will check the backup server for the date you specified to see if we can restore it for you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is stuck in an automatic repair loop.",
+			"Answer": "An automatic repair loop indicates a significant problem with your Windows startup files. Please power off the computer. I will need to boot it from a recovery drive to access advanced startup options and attempt to repair the boot records or restore the system.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My new mouse has extra buttons on the side. How do I use them?",
+			"Answer": "The extra buttons on a mouse can often be customized for specific functions, like 'Back' and 'Forward' in a web browser. This usually requires installing special driver software from the mouse manufacturer. I can help you find and install the correct software.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "The printer is asking for a code to release my print job.",
+			"Answer": "Yes, we use a secure print release system to protect confidential documents. You will need to walk up to the printer and enter your personal identification number (PIN) or swipe your employee badge to release your documents from the queue.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm having trouble connecting my laptop to the hotel Wi-Fi.",
+			"Answer": "Hotel Wi-Fi often uses a 'captive portal,' which is a web page you must go through to sign in or agree to terms. Try opening a web browser and navigating to a simple, non-secure website. This should trigger the hotel's login page to appear.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "Why do some websites look broken or not load correctly?",
+			"Answer": "This can often be caused by an issue with your browser's cached data or an incompatible browser extension. Please try clearing your browser's cache and cookies. If that doesn't work, try viewing the website in an incognito or private browsing window, which disables extensions.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer's date is showing the year as 2099.",
+			"Answer": "A drastically incorrect system date, especially after the computer has been off, is a primary symptom of a dead CMOS battery on the motherboard. This small battery maintains system settings like the date and time. I will need to replace it for you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I saved a file, but now I can't find it.",
+			"Answer": "When you save a file, it's important to pay attention to the location it's being saved to. I would suggest checking your 'Downloads' folder and your 'Documents' folder first. You can also use the search bar in the Windows File Explorer to search for the file by name.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "My computer is not shutting down properly. It gets stuck on the 'Shutting down' screen.",
+			"Answer": "This can be caused by a service or process that is refusing to close properly. If this happens, you can perform a hard shutdown by holding down the physical power button. If the problem happens frequently, we should investigate what service is causing the issue.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I'm getting an 'unlicensed product' error in Microsoft Office.",
+			"Answer": "This error means that your Office applications are having trouble verifying their license with our activation server. Please make sure you are connected to the company network (or VPN if you're remote). I can also run a script to force a license check, which usually resolves this.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I want to clean my keyboard. What is the safe way to do it?",
+			"Answer": "To safely clean your keyboard, first make sure your computer is turned off. You can use a can of compressed air to blow out dust and crumbs from between the keys. For the surface of the keys, you can use a lightly dampened cloth with a mild cleaning solution like isopropyl alcohol.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I can't hear anyone in my video call.",
+			"Answer": "Let's check your audio output. Please make sure you have the correct speakers or headset selected in the audio settings of the video conferencing application. Also, check that the system volume and the application's volume are not muted or turned down low.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I received an email about an invoice for a product I didn't buy.",
+			"Answer": "This is a very common phishing scam. The attackers want you to click the link or open the attachment out of curiosity or concern. Please do not click anything in the email. You should forward the suspicious email to our security team and then delete it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I need to share my screen during a presentation. How do I do that?",
+			"Answer": "In most video conferencing tools like Teams or Zoom, there will be a 'Share' or 'Present' button, usually with an icon of a screen with an arrow. Clicking this will give you the option to share your entire desktop, a specific window, or an application.",
+			"intent": "knowledge"
+		},
+		{
+			"Question": "I am unable to install a new printer driver.",
+			"Answer": "Installing drivers requires administrator privileges, which is restricted on company computers for security. If you need to install a specific printer, please submit a ticket with the printer model, and we will install the correct, approved driver for you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My monitor has a purple tint.",
+			"Answer": "A color tint, like purple or blue, is most often caused by a poor connection in the video cable. Please check that the cable is securely fastened at both the monitor and computer ends. If you're using a VGA cable, a bent pin can also cause this problem.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My work phone's battery is dying very quickly.",
+			"Answer": "Rapid battery drain can be caused by software or hardware. In your phone's settings, you can check the 'Battery' section to see which applications are using the most power. It is also possible that the battery itself is aging and needs to be replaced.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm trying to open a file, but it says I don't have permission.",
+			"Answer": "An 'access denied' error means your user account does not have the necessary security permissions to view that specific file or folder. Please verify that you are trying to open the correct file. If you believe you should have access, I will need an approval from your manager or the data owner to grant you the permissions.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is not recognizing my second monitor after an update.",
+			"Answer": "Sometimes a Windows update can cause issues with graphics drivers. Please try pressing the 'Windows key + P' to bring up the project menu and select 'Extend.' If that doesn't work, we should try reinstalling your computer's graphics driver.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I got an email from IT asking for my password. Is this legitimate?",
+			"Answer": "No, that is not legitimate. The IT department will NEVER ask you for your password via email, phone, or any other method. This is a phishing attempt. Please do not reply and forward the email to our security team immediately.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm trying to format a USB drive, but it's not working.",
+			"Answer": "Formatting issues can occur if the drive is corrupted or write-protected. Some USB drives have a small physical switch on the side that enables write protection. Please check for this switch. If there is no switch, we can try using the 'Disk Management' tool to format it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is displaying a 'Boot Device Not Found' error.",
+			"Answer": "This is a critical error message that means the computer cannot find the hard drive with the operating system on it. This could be due to a disconnected cable or, more seriously, a failed hard drive. Please power it off, and I will need to inspect the hardware internally.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The network printer is showing an 'Error' state.",
+			"Answer": "An error state on the printer can be caused by many things, like a paper jam, an open door, or a low toner level. Please check the printer's own display screen, as it will usually provide a more specific message about what is wrong.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I accidentally clicked 'unsubscribe' on a spam email.",
+			"Answer": "Unfortunately, clicking 'unsubscribe' on a spam or phishing email often just confirms to the sender that your email address is active, which can lead to even more spam. Please be more cautious in the future. We can set up some inbox rules to help filter these messages.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "The screen of my laptop won't turn on, but I can hear the fan running.",
+			"Answer": "If you can hear the computer running but the screen is black, the issue could be with the display itself or the graphics output. Please try connecting your laptop to an external monitor. If the external monitor works, it indicates a problem with the laptop's built-in screen.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My antivirus software says it found a threat called 'Trojan.Generic'. What does that mean?",
+			"Answer": "That alert means your antivirus has detected a program that appears malicious. A 'Trojan' disguises itself as a legitimate program to infect your computer. Please do not dismiss the alert. I will connect to your machine remotely to ensure the threat is properly quarantined and removed, and then run a full system scan to check for any other issues.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I clicked on a link in an email and a bunch of pop-ups appeared. Did I get a virus?",
+			"Answer": "It is possible. Clicking on malicious links can trigger adware or malware installations. Please disconnect your computer from the network immediately to prevent any potential spread. Do not enter any personal information into the pop-ups. I will come to your desk to perform a thorough scan and clean the system.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "All of my files have a new, strange extension and I can't open them. There's a note on my desktop asking for money.",
+			"Answer": "This sounds like a ransomware attack. Please do not attempt to pay the ransom. The most critical step is to disconnect your computer from the network right away by unplugging the cable or turning off Wi-Fi. Do not turn off the computer. I am on my way to your desk to isolate the machine and begin our response procedure.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My web browser's homepage has changed on its own and I can't change it back.",
+			"Answer": "That is a classic sign of a browser hijacker, which is a form of malware. It can track your browsing and redirect you to malicious websites. Please refrain from using your web browser for any sensitive tasks like banking. I will assist you in running specialized tools to remove the hijacker and reset your browser settings.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I received an email from our CEO asking me to buy gift cards. It seems strange. Is it real?",
+			"Answer": "You are right to be suspicious. This is a very common phishing scam. The email is not actually from the CEO; the sender's address has been forged. Please do not reply to the email or purchase any gift cards. Forward the email to the security team, and then delete it. Thank you for reporting it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is running extremely slow and my mouse cursor is moving on its own.",
+			"Answer": "Unexplained cursor movement is a serious sign that your computer may have been compromised and is being controlled remotely. Please disconnect from the network immediately. I need to run a full rootkit and malware scan to identify and remove the unauthorized access tool.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "A pop-up appeared that says my computer is infected and I need to call a phone number to fix it.",
+			"Answer": "This is a tech support scam. Please do not call that number. It is not a real virus warning; it's a fraudulent message designed to scare you into giving them money or remote access to your PC. You can close the pop-up by ending the browser process in your Task Manager (Ctrl+Alt+Delete).",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I found a USB drive in the parking lot. Is it okay to plug it in to see who it belongs to?",
+			"Answer": "Please do not plug that USB drive into your computer or any other company device. Malicious actors sometimes leave infected drives in public places, hoping someone will plug them in. This is a known method for spreading malware. Please bring the drive to the IT department, and we will analyze it in a secure environment.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My webcam light is on, but I don't have any applications open that use the camera.",
+			"Answer": "An unexpected webcam activation is a major security concern. It could indicate that your computer is compromised with spyware. Please physically cover your webcam immediately with a piece of tape or a shutter. I will come to your desk to run a security scan to find and remove the malicious software.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I downloaded a free program and now I have a new toolbar in my browser that I can't remove.",
+			"Answer": "This is common with free software, which often bundles Potentially Unwanted Programs (PUPs) like toolbars or adware. These can be difficult to remove manually. I will help you run an adware cleaner and then check your browser's extensions and your computer's installed programs list to fully remove it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My antivirus scan is stuck at a certain file and won't finish. What should I do?",
+			"Answer": "When an antivirus scan gets stuck on a specific file, it can sometimes indicate that the file is heavily encrypted, corrupted, or is a particularly complex piece of malware that the scanner is struggling with. Please note the file path if you can. We may need to restart the computer in Safe Mode to run a more thorough scan.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I keep getting security warnings from my browser about the site I'm on. Is it safe to proceed?",
+			"Answer": "You should take those browser warnings seriously. They often indicate that the website's security certificate is expired or invalid, meaning your connection to the site is not secure. Please do not enter any sensitive information, like your password or personal details, on that site. Let me know the URL, and I can check its reputation.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Files have started disappearing from my desktop. Are they gone forever?",
+			"Answer": "Disappearing files can be a symptom of a virus that hides or deletes files. Please do not save any new files to the computer. I will need to check for malware first. Once the system is clean, we can check to see if the files were hidden or if we need to restore them from our backup server.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Can a virus from an email infect my computer even if I don't open the attachment?",
+			"Answer": "In most modern email clients, simply viewing an email is safe. The primary danger comes from opening malicious attachments or clicking on unsafe links. However, it's always best to be cautious. If an email looks suspicious, even if you haven't interacted with it, it's safest to just delete it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is making a lot of network activity noise, but I'm not doing anything online.",
+			"Answer": "Excessive, unexplained network activity could be a sign that malware on your computer is communicating with an external server, sending out spam, or participating in a botnet. Please disconnect from the network. We can use a tool to monitor the network traffic and identify the process that is causing it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "A friend sent me a link on social media, but when I clicked it, it asked for my login again.",
+			"Answer": "That could be a phishing attack designed to steal your social media credentials. The link may have taken you to a fake login page. Please do not enter your password. You should immediately go to the official social media site and change your password, and enable two-factor authentication if you haven't already.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm getting a lot of spam emails from my own email address. Am I hacked?",
+			"Answer": "Not necessarily. It's very easy for spammers to 'spoof' the sender's address, making it look like the email is coming from you. This is a tactic to bypass spam filters. While it's alarming, it doesn't automatically mean your account is compromised. However, it is always a good idea to change your password just in case.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Is it safe to use public Wi-Fi at a coffee shop for work?",
+			"Answer": "Using public Wi-Fi can be risky as the connections are often unencrypted. To work safely, you must be connected to our company VPN at all times. The VPN encrypts all of your internet traffic, creating a secure tunnel that protects company data from anyone who might be monitoring the public network.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer says 'Windows Firewall has blocked some features of this app'. What should I do?",
+			"Answer": "This message appears when a new program tries to access the network. If it's a program you intentionally installed and trust, you can allow access. However, if you do not recognize the program, it could be malware trying to connect to the internet. In that case, you should 'Keep blocking' and let me investigate the unknown program.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I accidentally enabled macros in a Word document I got from an email. What should I do?",
+			"Answer": "Enabling macros in a document from an unknown source is very dangerous, as this is a primary method for spreading viruses. Please close Word immediately and disconnect your computer from the network. I need to run a full antivirus scan to check if any malicious code was executed.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Can my work phone get a virus?",
+			"Answer": "Yes, mobile phones can get malware, though it's less common than on computers. The biggest risks come from installing apps from untrusted, third-party sources or by falling for phishing scams in text messages or emails. Only install apps from the official Apple App Store or Google Play Store.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I keep getting pop-ups saying my computer's drivers are out of date.",
+			"Answer": "These are almost always fake warnings. They are a form of scareware designed to trick you into downloading their 'driver update' tool, which is often malware or a potentially unwanted program. Your system updates its critical drivers through the official Windows Update process. Please ignore these pop-ups.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My internet search results are being redirected to weird websites.",
+			"Answer": "This is a sign of a malware infection called a 'search redirector'. It intercepts your search queries and sends you to pages the attacker wants you to visit, which can be dangerous. We will need to run a full malware scan and reset all of your web browser settings to remove it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "How can I tell if an email attachment is safe to open?",
+			"Answer": "You should be suspicious of any unexpected attachment, especially if it's from someone you don't know. Be particularly wary of file types like .exe, .zip, .scr, and Office documents that ask you to enable macros. If you are ever unsure, do not open it. You can forward it to the IT security team, and we can check it for you.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My antivirus says a threat was removed, but my computer is still acting weird.",
+			"Answer": "Sometimes, an antivirus can remove the main part of a virus but leave behind remnants or system changes. It's also possible another piece of malware is still present. We should run a second-opinion scan with a different tool and check system settings to ensure everything is back to normal.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I got a text message with a link about a package delivery. Is it safe?",
+			"Answer": "That is likely a phishing scam known as 'smishing' (SMS phishing). They want you to click the link and enter personal information or credentials on a fake website. Unless you are specifically expecting a package and recognize the sender, you should delete the message without clicking the link.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is talking to me. A voice said my system is infected.",
+			"Answer": "This is a browser-based scam. A malicious ad or script on a webpage can use your computer's text-to-speech function to play an alarming audio message. It's a scare tactic. Your computer is not actually talking. You can stop it by closing your web browser, using Task Manager if necessary.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "A program I've never seen before called 'PC Optimizer Pro' is on my computer.",
+			"Answer": "These 'PC Optimizer' or 'Registry Cleaner' programs are usually Potentially Unwanted Programs (PUPs). They often provide false warnings about problems with your computer to scare you into paying for the full version. I will help you uninstall it properly and scan for any other bundled software it may have installed.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "If my computer gets a virus, can it spread to other computers on the office network?",
+			"Answer": "Yes, some types of malware, like worms, are specifically designed to spread across a network to infect other computers. This is why it is absolutely critical to disconnect your computer from the network immediately if you suspect you have a virus. This helps contain the threat.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My saved passwords in my browser are gone. What could have happened?",
+			"Answer": "This could be a sign of malware that specifically targets stored credentials. Some viruses attempt to steal saved passwords from browsers. You should immediately change the passwords for all of your critical accounts (especially email and banking) from a different, trusted computer.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm trying to visit a website, but our company's web filter is blocking it as malicious.",
+			"Answer": "Our web filter automatically blocks websites that are known to host malware, phishing scams, or other malicious content. It is blocking the site to protect you and our network. If you believe this is a mistake and you have a business need to access the site, I can review the block and the site's reputation.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I see a process in my Task Manager called 'svchost.exe' using a lot of memory. Is that a virus?",
+			"Answer": "'svchost.exe' is a legitimate and critical Windows process. However, some malware will disguise itself by using the same name. The key is to check its location and properties. I can help you verify if the process running on your machine is the legitimate Windows file or a malicious imposter.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is trying to access the internet every few seconds, my firewall says.",
+			"Answer": "Constant, repetitive network requests can be a sign of malware trying to 'call home' to a command-and-control server. Please note the name of the application that the firewall is blocking. We need to identify that program and run a full security scan to remove it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I received an email that says they have a recording of me from my webcam. Is this real?",
+			"Answer": "This is a widespread extortion scam. The email is a bluff. The sender does not have a recording of you. They are sending out millions of these emails hoping to scare a few people into paying them. You can safely delete the email. It is a good reminder to keep your system software updated and your webcam covered when not in use.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My system restore points are all gone. I can't restore my computer.",
+			"Answer": "Some advanced forms of malware will intentionally delete system restore points to prevent you from easily recovering your system after it has been infected. This is a serious indicator that a malicious program is or was on your computer. We will need to proceed with a full malware scan and may need to repair the operating system.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I got an alert that someone tried to log into my account from another country.",
+			"Answer": "This is a valid security alert that you should take seriously. It means someone has your password. You must change your password immediately. You should also enable multi-factor authentication (MFA) on your account right away. This adds a crucial layer of security, even if someone steals your password.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I found a file on my computer named 'virus.exe'. Should I delete it?",
+			"Answer": "While it may seem obvious, please do not try to delete it manually. Interacting with the file in any way, including trying to delete it, could accidentally execute it. The best course of action is to leave the file alone and run a full scan with your antivirus software, which is designed to handle and quarantine malicious files safely.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My keyboard is typing random characters or opening programs on its own.",
+			"Answer": "This could be a sign of a malware infection or remote access Trojan (RAT), where an attacker is controlling your machine. It could also, less commonly, be a hardware failure. Please disconnect your computer from the network immediately. I will come to your desk to diagnose the issue.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "A fake anti-virus program has taken over my screen and is running a scan.",
+			"Answer": "This is a type of malware known as 'rogue security software' or 'scareware'. It's designed to look like a real antivirus program, but it's malicious. Do not click on anything it displays or provide any payment information. I will need to help you reboot into Safe Mode to remove this fake program.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My bank's website looks different today. Is it safe to log in?",
+			"Answer": "You are right to be cautious. If the website looks different, it could be a sophisticated phishing attempt where you have been redirected to a fake site. Do not log in. Please close your browser and try typing the bank's web address directly into the address bar. I can also help verify the authenticity of the site.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "Can a virus hide in an image or a PDF file?",
+			"Answer": "Yes, it is possible. Malicious code can be embedded in many types of files, including images, PDFs, and documents. Attackers exploit vulnerabilities in the software that opens these files. This is why it is critical to keep all of your software, like your PDF reader and operating system, fully updated.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm seeing ads and pop-ups even when my web browser is closed.",
+			"Answer": "If you are seeing ads on your desktop, it means you have an adware program installed on your system itself, not just in your browser. This is more invasive than a simple browser extension. We will need to check your list of installed programs and run a specialized adware removal tool.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "After a power outage, my antivirus software is gone.",
+			"Answer": "This is highly unusual. It's possible the outage caused file system corruption. However, it's also possible that malware was on the system and took advantage of the unexpected shutdown to remove the security software. We must assume the worst. I will reinstall the antivirus and run a comprehensive scan immediately.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm being blocked from visiting antivirus and security websites.",
+			"Answer": "This is a common tactic of advanced malware. It will modify your system to prevent you from accessing websites where you could download security tools or get help. This is a strong indication of an active infection. I will need to use a special bootable rescue disk to scan and clean your computer.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I received an email with an invoice from a company I don't do business with.",
+			"Answer": "This is a very common phishing tactic. The attached 'invoice' is almost certainly a malicious file, such as a script or a document with a virus-laden macro. Please do not open the attachment under any circumstances. Forward the email to the security team, and then delete it.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "My computer is trying to connect to a suspicious-looking web address.",
+			"Answer": "If your firewall or antivirus is flagging outbound connections to a strange URL, it is likely malware attempting to communicate with its control server. Please do not allow the connection. If you can, please provide me with the address it's trying to connect to so I can block it at our network firewall and investigate the source on your machine.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I'm getting messages that my version of Java or Flash is out of date and needs to be updated.",
+			"Answer": "Be very careful with these messages. While keeping software updated is important, many fake update pop-ups are used to distribute malware. You should only update software from the official source, not from a pop-up on a random website. I can verify if your software needs an update and help you do it safely.",
+			"intent": "escalation"
+		},
+		{
+			"Question": "I got an email that seems to be from a colleague, but the language is a bit strange and it just has a link.",
+			"Answer": "You are right to be suspicious. This could be a case where your colleague's email account has been compromised and is being used to send out phishing links. Do not click the link. You should try to contact your colleague through a different method, like a phone call or instant message, to verify if they actually sent it.",
+			"intent": "escalation"
 		}
 	]
 }
