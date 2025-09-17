@@ -20,6 +20,8 @@ langchain-huggingface
 python-whois
 dnspython
 
+# ticket system integration
+
 # Jupyter notebook support on VSCODE
 # ipykernel
 

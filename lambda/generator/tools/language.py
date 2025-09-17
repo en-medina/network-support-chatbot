@@ -1,4 +1,8 @@
-from langdetect import detect
+from langdetect import detect, DetectorFactory
+from agents.state import model_selection
+import settings
+
+DetectorFactory.seed = 0  # For consistent results across runs
 
 
 def detect_language(text: str) -> str:
@@ -25,6 +29,35 @@ def detect_language(text: str) -> str:
     except Exception:
         return supported_languages.get("es", "Spanish")  # Default to Spanish on error
 
+def llm_language_prompt(text: str) -> str:
+    supported_languages = {
+        "en": "English",
+        "es": "Spanish",
+        "fr": "French",
+        "de": "German",
+        "it": "Italian",
+        "pt": "Portuguese",
+        "hi": "Hindi",
+        "th": "Thai",
+    }
+    prompt = f"""
+    You are a language detection agent.
+    Your task is to detect the language of the MESSAGE and reply with the ISO 639-1 language code.
+    Reply only with the language code.
+    If you cannot detect a language of the MESSAGE reply with 'UNKNOWN' with uppercase
+
+    Some examples:
+    SAMPLE: "Hello, how are you?": "en"
+    SAMPLE: "Hola, ¿cómo estás?": "es"
+    SAMPLE: "Bonjour, comment ça va?": "fr"
+    SAMPLE: "Hallo, wie geht's?": "de"
+
+    below is the MESSAGE you need to detect the language for:
+    MESSAGE: "{text}"
+    """
+    llm = model_selection(llm=settings.LLAMA32_MODEL_ARN)
+    response = llm.invoke(prompt)
+    return supported_languages.get(response.strip().lower(), "Spanish")  # Default to Spanish if not supported
 
 def language_prompt(user_language: str) -> str:
     """Returns a prompt to ensure the response matches the user's language."""
