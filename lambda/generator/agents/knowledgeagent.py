@@ -10,8 +10,9 @@ from langchain.output_parsers import OutputFixingParser
 
 # App specific imports
 from tools.vectordb import knowledge_base
+from tools.model import model_selection
 from parser.knowledge import KnowledgeRankParser, KnowledgeQAParser
-from agents.state import AgentState, AgentNames, model_selection
+from agents.state import AgentState, AgentNames
 from tools.language import language_prompt
 from langchain_core.output_parsers import PydanticOutputParser, JsonOutputParser
 

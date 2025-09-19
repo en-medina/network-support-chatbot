@@ -5,12 +5,13 @@ from langgraph.prebuilt import ToolNode
 from langgraph.graph import END
 
 # LangChain imports
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage, ToolMessage
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 
 # App specific imports
 from tools.network import get_network_tools, get_network_tool_names
-from agents.state import AgentState, AgentNames, model_selection
+from tools.model import model_selection
 from tools.language import language_prompt
+from agents.state import AgentState, AgentNames
 from parser.connectivity import react_parse
 
 class ConnectivityAgent:
