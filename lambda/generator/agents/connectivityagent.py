@@ -5,7 +5,7 @@ from langgraph.prebuilt import ToolNode
 from langgraph.graph import END
 
 # LangChain imports
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage, ToolMessage
 
 # App specific imports
 from tools.network import get_network_tools, get_network_tool_names
@@ -54,7 +54,7 @@ class ConnectivityAgent:
             [f"{tool.name}: {tool.description}" for tool in self.tools]
         )
 
-        if not state.get("tool_messages", []):
+        if not state.get("messages", []):
             system_message = SystemMessage(
                 content=f"""
             You are a network connectivity agent. Your role is to help users diagnose and resolve networking issues by using the tools provided. 
@@ -67,7 +67,7 @@ class ConnectivityAgent:
             Only use tools when absolutely necessary. If you have all the information you need to answer the question based on previous messages, 
             you may skip the tools and go straight to the final answer.
 
-            Use the following format:
+            Use MUST use the following format:
 
             Question: the input question you must answer
             Thought: you should always think about what to do, do not use any tool if it is not needed. 
@@ -88,18 +88,25 @@ class ConnectivityAgent:
             Important: You must eventually reach a final answer. Do not continue using tools indefinitely. 
             If after several steps you still cannot resolve the issue, summarize your findings and provide the best answer possible.
 
-            {language_prompt(user_language)}
+            To stop iteration you MUST write Final Answer: and provide the answer.
 
             Begin!
             """
             )
             state["messages"].append(system_message)
-
             # Add user question
-            user_message = HumanMessage(content=f"Question: {user_question}\nThought:")
+            user_message = HumanMessage(content=f"Question: {user_question}")
             state["messages"].append(user_message)
-        else:
-            state["messages"].extend(state["tool_messages"])
+
+        if state.get("tool_messages", []):
+            print(state['messages'][-1])
+            tool_message = AIMessage(
+                content=f"""**** Tool Response *******
+                Action: {state['messages'][-1].tool_calls[0]['name']}
+                Action Input: {state['messages'][-1].tool_calls[0]['args']}
+                Observation: {state['tool_messages'][-1].content}"""
+            )
+            state["messages"].append(tool_message)
             state["tool_messages"] = []
 
         response = self.llm_with_tools.invoke(state["messages"])
@@ -108,5 +115,14 @@ class ConnectivityAgent:
         # Process response
         state["messages"].append(response)
         state["final_answer"] = parsed_response.get("final_answer", "")
-        state["tool_messages"].append(response)
+        if state["final_answer"]:
+            state["final_answer"] = self.llm.invoke([
+                SystemMessage(
+                    content=f"""Translate the following text into {user_language}, just give the translation without any additional text:
+                    {state["final_answer"]}
+                    """
+                )
+            ]).content
+        if hasattr(response, "tool_calls") and len(response.tool_calls) > 0:
+            state["tool_messages"].append(response)
         return state
