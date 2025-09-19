@@ -117,15 +117,13 @@ class EscalationAgent:
             )
             system_message = AIMessage(
                 content=f"""
-            Translate the following ticket information into {user_language}:
+            Translate the following ticket information into {user_language}, just give the translation without any additional text:
 
-            Ticket Details:
+            New Support Ticket Created:
             - Ticket ID: {ticket_id}
             - Title: {values.get("title", user_question.content)}
             - Description: {values.get("description", "No description provided.")}
             - User Question: {user_question.content}
-
-            Make sure the translation is clear, professional, and preserves all the original information and format.
             """
             )
             state["escalation_messages"].append(system_message)
