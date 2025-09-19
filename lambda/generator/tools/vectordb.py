@@ -1,5 +1,5 @@
 from pinecone import Pinecone, ServerlessSpec
-from agents.state import select_embedding_model
+from tools.model import select_embedding_model
 from langchain_pinecone import PineconeVectorStore
 from typing import Annotated, List
 

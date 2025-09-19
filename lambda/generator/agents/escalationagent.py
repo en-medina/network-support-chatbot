@@ -10,10 +10,10 @@ from langchain_core.output_parsers import JsonOutputParser
 
 # App specific imports
 from tools.escalation import escalate_request
+from tools.model import model_selection
 from parser.escalation import TaskParser
-from agents.state import AgentState, AgentNames, model_selection
+from agents.state import AgentState, AgentNames
 from tools.language import language_prompt
-from parser.connectivity import react_parse
 
 class EscalationAgent:
     """Performs network diagnostics like ping, nslookup, whois"""

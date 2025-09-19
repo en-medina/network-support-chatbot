@@ -4,7 +4,8 @@ import re
 from langchain_core.messages import HumanMessage, SystemMessage
 
 # App specific imports
-from agents.state import AgentState, AgentNames, model_selection
+from agents.state import AgentState, AgentNames
+from tools.model import model_selection
 
 
 class TriageAgent:
