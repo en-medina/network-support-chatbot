@@ -1,5 +1,7 @@
 # network-support-chatbot
 
-https://medium.com/@codersama/fine-tuning-mistral-7b-in-google-colab-with-qlora-complete-guide-60e12d437cca
-https://medium.com/@adergunov/maximal-marginal-relevance-144c23b42be5
-https://www.promptingguide.ai/techniques/react
+This Master’s Thesis addresses the design, implementation, and evaluation of a chatbot using a multi-agent architecture to provide specialized technical support for local area networks (LAN). The project stems from the student’s interest in applying generative artificial intelligence to solve complex problems in technological environments.
+
+The main objective is to develop an intelligent support system that leverages generative AI models and a multi-agent architecture to deliver accurate and contextualized responses. The proposed solution is composed of four specialized agents: a classification agent to route queries, a knowledge agent that uses the Retrieval-Augmented Generation (RAG) technique to consult internal documentation, a connectivity agent to perform real-time network diagnostics, and an escalation agent to handle requests requiring human intervention.
+
+Among the technical requirements, special emphasis is placed on optimizing a language model using the Low-Rank Adaptation (LoRA) technique to improve the accuracy of request classification. In addition, the project considers the development of a vector database with multilingual embeddings to ensure the system’s knowledge remains relevant and up to date. User interaction will be enabled through the Telegram messaging platform, supported by a serverless architecture. Finally, the chatbot’s performance will be evaluated in real-world scenarios, measuring both its accuracy and user satisfaction.
