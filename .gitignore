@@ -18,6 +18,7 @@ layers.zip
 terraform.tfstate
 terraform.tfstate.backup
 .terraform/
+*.tfvars
 
 
 # Distribution / packaging

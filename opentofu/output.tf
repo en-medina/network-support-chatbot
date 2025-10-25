@@ -25,3 +25,7 @@ output "ecr_repository_url" {
 output "bedrock_role_arn" {
   value = module.bedrock_role.arn
 }
+
+output "gns3_server_public_ip" {
+  value = aws_instance.gns3_server.public_ip
+}

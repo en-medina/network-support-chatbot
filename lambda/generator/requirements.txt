@@ -1,4 +1,4 @@
-# langchain
+langchain
 langgraph
 # langchain-openai
 langchain-ollama
@@ -27,6 +27,9 @@ dnspython
 
 # Language detection
 langdetect
+
+# Connect to network devices
+netmiko
 
 # For training the triage model
 # transformers

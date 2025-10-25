@@ -5,9 +5,10 @@ RUN dnf install -y \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir \
-    -r requirements.txt
+COPY Pipfile Pipfile.lock ./
+RUN pip install --no-cache-dir pipenv \
+    && pipenv install --deploy --system --ignore-pipfile \
+    && rm -rf /root/.cache/pip /root/.cache/pipenv
 
 COPY . .
 

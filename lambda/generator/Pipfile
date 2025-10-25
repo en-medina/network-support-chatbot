@@ -1,0 +1,42 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[requires]
+python_version = "3.12"
+
+[packages]
+# Core LangChain ecosystem
+langchain = "==0.3.27"
+langgraph = "==1.0.1"
+langchain-ollama = "==0.3.10"
+langchain-aws = "==0.2.35"
+langchain-pinecone = "==0.2.12"
+langchain-community = "==0.3.31"
+langchain-huggingface = "==0.3.1"
+python-dotenv = "*"
+
+# Networking / integrations
+python-whois = "*"
+dnspython = "*"
+netmiko = "*"
+langdetect = "*"
+
+[dev-packages]
+# Uncomment if needed
+# black = "*"
+# ipykernel = "*"
+# pymupdf = "*"
+# sentence-transformers = "*"
+# transformers = "*"
+# accelerate = "*"
+# bitsandbytes = "*"
+# peft = "*"
+# datasets = "*"
+# trl = "*"
+# pandas = "*"
+# pyarrow = "*"
+
+[scripts]
+start = "python main.py"

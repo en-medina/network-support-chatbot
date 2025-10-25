@@ -12,7 +12,7 @@ module "receiver_function" {
 
   function_name = "message-receiver"
   description   = "Lambda function to receive messages from API Gateway and send to SQS"
-  package_type	 = "Image"
+  package_type  = "Image"
   image_uri     = "${aws_ecr_repository.receiver.repository_url}:latest"
 
   inline_iam_policy = data.aws_iam_policy_document.receiver.json
@@ -35,13 +35,13 @@ module "generator_function" {
 
   function_name = "message-generator"
   description   = "Lambda function to receive messages from API Gateway and send to SQS"
-  package_type	 = "Image"
+  package_type  = "Image"
   image_uri     = "${aws_ecr_repository.generator.repository_url}:latest"
 
   inline_iam_policy = data.aws_iam_policy_document.generator.json
 
   timeout     = 5 * 60 # Timeout in seconds
-  memory_size = 2048    # Memory size in MB
+  memory_size = 2048   # Memory size in MB
 
   lambda_environment = {
     variables = {
