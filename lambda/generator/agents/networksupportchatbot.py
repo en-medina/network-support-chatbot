@@ -10,7 +10,7 @@ from langchain.callbacks.tracers import ConsoleCallbackHandler
 
 # App specific imports
 from agents.state import AgentState
-from agents import ConnectivityAgent, TriageAgent, KnowledgeAgent, EscalationAgent
+from agents import ConnectivityAgent, TriageAgent, KnowledgeAgent, EscalationAgent, DeviceAgent
 from tools.language import detect_language
 import settings
 
@@ -23,6 +23,7 @@ class NetworkSupportChatbot:
         self.connectivity_agent = ConnectivityAgent(model_name=settings.LLAMA31_MODEL_ARN)
         self.knowledge_agent = KnowledgeAgent(model_name=settings.LLAMA31_MODEL_ARN)
         self.escalation_agent = EscalationAgent(model_name=settings.LLAMA32_MODEL_ARN)
+        self.devices_agent = DeviceAgent(model_name=settings.LLAMA32_MODEL_ARN)
 
         # Create workflow
         self.workflow = self._create_workflow()
@@ -41,6 +42,7 @@ class NetworkSupportChatbot:
         workflow.add_node(self.triage_agent.name, self.triage_agent)
         workflow.add_node(self.knowledge_agent.name, self.knowledge_agent)
         workflow.add_node(self.escalation_agent.name, self.escalation_agent)
+        workflow.add_node(self.devices_agent.name, self.devices_agent)
 
         # Add Triage Edges
         workflow.add_edge(START, self.triage_agent.name)
@@ -70,6 +72,12 @@ class NetworkSupportChatbot:
             self.escalation_agent.route_condition,
         )
 
+        # Add Device Edges
+        workflow.add_conditional_edges(
+            self.devices_agent.name,
+            self.devices_agent.route_condition,
+        )
+
         # Add Initial and Final Edges
         # workflow.add_edge(END, self.connectivity_agent.name)
         return workflow
@@ -88,6 +96,10 @@ class NetworkSupportChatbot:
             final_answer="",
             user_language=detect_language(question),
             triage_message="",
+            device_plan=[],
+            device_past_steps=[],
+            device_action="",
+            device_iteration=0,
         )
 
         # Configure thread

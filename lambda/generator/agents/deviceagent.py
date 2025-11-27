@@ -9,7 +9,7 @@ from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import PydanticOutputParser, JsonOutputParser
-
+from tools.language import language_prompt
 
 # App specific imports
 from tools.connection import get_connection_tools, get_connection_tool_names
@@ -33,6 +33,7 @@ class DeviceAgent:
         self.llm_tools = model_selection(model_name, use_huggingface=True)
         self.planner = self._planner_prompt() | self.llm
         self.replanner = self._replan_prompt() | self.llm
+        self.summarize = self._summarize_prompt() | self.llm
         self.executor = create_react_agent(
             self.llm_tools, self.tools, prompt=self._executor_prompt()
         )
@@ -57,6 +58,27 @@ class DeviceAgent:
             ),
             ("human", "{input}"),
         ])
+
+
+    def _summarize_prompt(self) -> ChatPromptTemplate:
+        return ChatPromptTemplate.from_messages([("""
+You are to summarize the following network diagnostic steps and their results into a concise final answer for the user.
+Your summary should include:
+1. A brief overview of the original objective.
+2. A summary of each diagnostic step taken and its outcome.
+3. The final conclusion or answer based on the diagnostics performed.
+Follow these rules carefully:
+- Keep the summary clear and to the point.
+- Do not include unnecessary technical details; focus on what was done and what was found.
+- Ensure the final answer directly addresses the user's original question.
+- Don't exceed 300 words in total.
+
+**Original Objective**: {user_question}
+
+**Completed Steps**:
+{completed_steps}
+"""
+            )])
 
     def _replan_prompt(self) -> str:
         return ChatPromptTemplate.from_messages([("""
@@ -166,30 +188,45 @@ Your JSON **must** follow this exact structure:
 #        state["final_answer"] = res.content
         return state
 
-    def __call__(self, message):
-        state = AgentState(
-            messages=[],
-            escalation_messages=[],
-            tool_messages=[],
-            user_question=message,
-            final_answer="",
-            user_language="",
-            knowledge_score=0,
-            knowledge_action="",
-            triage_message="",
-            device_plan=[],
-            device_past_steps=[],
-            device_action=""
-        )
-        state = self.planner_step(state)
-        state = self.executor_step(state)
+    def summarize_step(self, state: AgentState) -> AgentState:
+        completed_steps = "\n".join("previous step: " + step + " result: " + res for step, res in state["device_past_steps"])
+        res = self.summarize.invoke({
+            "user_question": state["user_question"], 
+            "completed_steps": completed_steps
+        })
+        state["final_answer"] = res.content
+        state["device_action"] = "respond"
+        return state
+
+    def route_condition(self, state: AgentState) -> str:
+        """Determine if this agent should be invoked based on the state"""
         
-        state = self.replan_step(state)
-        for _ in range(5):
-            if state["device_action"] != "replan":
-                break
+        # if it has not yet started need to run planner
+        if state.get("device_iteration", 0) == 0:
+            return AgentNames.DEVICE.value
+        
+        # if action is replan need to re-invoke
+        if state.get("device_action", "") == "replan":
+            return AgentNames.DEVICE.value
+        
+        # if action is respond and final answer is set, we can end
+        if state.get("device_action", "respond") == "respond" and state.get("final_answer", ""):
+            return END
+
+        # otherwise continue with device agent
+        return AgentNames.DEVICE.value        
+
+    def __call__(self, state) -> AgentState:
+        # First iteration: plan
+        if state["device_iteration"] == 0:
+            state = self.planner_step(state)
+
+        if state["device_iteration"] < 5:
+            # Subsequent iterations: execute and replan
             state = self.executor_step(state)
             state = self.replan_step(state)
-    # state = self.executor_step(state)
-        # state = self.replan_step(state)
+        else:
+            # Final iteration: summarize
+            state = self.summarize_step(state)
+        state["device_iteration"] += 1
         return state
