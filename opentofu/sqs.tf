@@ -1,7 +1,7 @@
 resource "aws_sqs_queue" "main" {
   name                       = "network-support-queue"
   visibility_timeout_seconds = 10 * 60 # 10 minutes
-  message_retention_seconds  = 86400 # 1 day
+  message_retention_seconds  = 86400   # 1 day
 
   tags = {
     Name = "network-support-chatbot"

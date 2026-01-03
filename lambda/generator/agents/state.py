@@ -11,6 +11,10 @@ class AgentState(TypedDict):
     knowledge_score: int
     knowledge_action: str
     triage_message: str
+    device_plan: List[str]
+    device_past_steps: List[List[str]]
+    device_action: str
+    device_iteration: int
 
 class AgentNames(Enum):
     CONNECTIVITY = "CONNECTIVITY"

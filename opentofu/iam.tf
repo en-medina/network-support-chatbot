@@ -73,3 +73,21 @@ module "bedrock_role" {
     data.aws_iam_policy_document.bedrock.json
   ]
 }
+
+module "ec2_role" {
+  source  = "cloudposse/iam-role/aws"
+  version = "0.22.0"
+
+  name = "gns3-ec2-role"
+
+  role_description         = "Role for GNS3 to allow SSM access"
+  policy_document_count    = 0
+  instance_profile_enabled = true
+
+  principals = {
+    Service = ["ec2.amazonaws.com"]
+  }
+  managed_policy_arns = [
+    "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+  ]
+}
