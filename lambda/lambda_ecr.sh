@@ -4,8 +4,6 @@ set -euo pipefail
 # Usage: ./zipfile.sh <source_folder>
 SOURCE_FOLDER=$1
 export AWS_PROFILE=en-medina-personal
-export AWS_ACCOUNT_ID=783111403365
-export AWS_REGION=us-east-1
 export AWS_REGION=us-east-1
 
 # Retrieve AWS account ID from environment or AWS CLI

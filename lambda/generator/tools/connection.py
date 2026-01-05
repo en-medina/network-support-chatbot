@@ -8,6 +8,10 @@ from netmiko import (
 import settings
 from typing import Annotated, List
 
+PREVIOUS_CONNECTED_DEVICE = list()
+
+def reset_connected_device():
+    PREVIOUS_CONNECTED_DEVICE.clear()
 
 def get_connection_tools() -> List[tool]:
     """
@@ -62,11 +66,16 @@ def get_device_profile(
     """
     # For demonstration purposes, we use localhost and default Telnet port.
     # In a real implementation, this would look up the device in a database or config.
-    host = "127.0.0.1"
+    host = "-"
     port = 23
     if "main-router" in hostname.lower():
         host = settings.MAIN_ROUTER
         port = settings.MAIN_ROUTER_PORT
+        PREVIOUS_CONNECTED_DEVICE.append({'host': host, 'port': port})
+    elif PREVIOUS_CONNECTED_DEVICE:
+        host = PREVIOUS_CONNECTED_DEVICE[-1]['host']
+        port = PREVIOUS_CONNECTED_DEVICE[-1]['port']
+    print(f"Connecting to device {hostname} at {host}:{port}")
     device = {
         'device_type': 'cisco_ios_telnet',
         'host': host,
@@ -167,6 +176,7 @@ def set_interface_shutdown(
         bool: True if the configuration was applied successfully, otherwise False.
     """
     device = get_device_profile(hostname)
+    print(f"Setting interface {interface} shutdown={shutdown} on device {hostname}")
 
     try:
         with ConnectHandler(**device) as net_connect:

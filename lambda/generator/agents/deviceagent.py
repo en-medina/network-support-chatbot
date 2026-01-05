@@ -12,7 +12,7 @@ from langchain_core.output_parsers import PydanticOutputParser, JsonOutputParser
 from tools.language import language_prompt
 
 # App specific imports
-from tools.connection import get_connection_tools, get_connection_tool_names
+from tools.connection import get_connection_tools, get_connection_tool_names, reset_connected_device
 from tools.model import model_selection
 from tools.language import language_prompt
 from agents.state import AgentState, AgentNames
@@ -24,6 +24,7 @@ class DeviceAgent:
 
     def __init__(self, model_name: str = ""):
         self.name = AgentNames.DEVICE.value
+        reset_connected_device()
         self.tools = get_connection_tools()
         self.tool_desc = "\n".join(
             [f"{tool.name}: {tool.description}" for tool in get_connection_tools()]
@@ -90,6 +91,7 @@ Your task:
 3. Decide what still needs to be done — if anything — to reach the final answer.
 
 Follow these rules carefully:
+- Include the device name or IP on eac step of the plan if applicable.
 - Only include steps that are still needed to complete the objective.
 - Do not repeat steps that have already been completed or observed.
 - Each remaining step must contain all the information needed to execute it (no skipped logic).
@@ -97,7 +99,7 @@ Follow these rules carefully:
 - **If you reach a point where you cannot make further progress (due to missing information, repeated failures, or no remaining actionable steps), summarize all completed steps and provide the best possible final answer.**
 - **In that case, set `"action": "respond"` and include your summary and conclusion in `"response"`.**
 - Do not continue replanning indefinitely — you must always either produce new valid steps or provide a final summarized answer.
-
+                                                  
 Important: You must eventually reach a final answer. 
 If after several completed steps you still cannot resolve the issue, summarize your findings and provide the best answer possible.
 

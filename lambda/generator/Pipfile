@@ -39,4 +39,4 @@ langdetect = "*"
 # pyarrow = "*"
 
 [scripts]
-start = "python main.py"
+start = "python app.py"
