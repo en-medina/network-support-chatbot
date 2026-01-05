@@ -7,11 +7,11 @@ import settings
 
 def init_vector_db() -> PineconeVectorStore:
     # Initialize Pinecone
-    print("Initializing Pinecone...")
+    index_name = settings.PINECONE_INDEX_NAME
+    print(f"Initializing Pinecone with index: {index_name}...")
     pc = Pinecone(
         api_key=settings.PINECONE_API_KEY,
     )
-    index_name = settings.PINECONE_INDEX_NAME
     if not pc.has_index(index_name):
         print(f"Creating Pinecone index: {index_name}")
         pc.create_index(
@@ -20,16 +20,13 @@ def init_vector_db() -> PineconeVectorStore:
             dimension=768,
             spec=ServerlessSpec(cloud="aws", region="us-east-1"),
         )
-    print(f"Using Pinecone index: {index_name}")
     index = pc.Index(index_name)
-    print("Initializing embedding...")
     embeddings = select_embedding_model()
-    print("Creating Pinecone vector store...")
     vector_store = PineconeVectorStore(
         index=index,
         embedding=embeddings,
     )
-    print("Pinecone vector store initialized.")
+    print("Pinecone vector store initialized!")
     return vector_store
 
 

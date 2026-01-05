@@ -102,12 +102,15 @@ class NetworkSupportChatbot:
             device_iteration=0,
         )
 
+        # Configure Callbacks
+        callbacks = [ConsoleCallbackHandler()] if debug else []
+
         # Configure thread
         config = {
             "configurable": {
-                "thread_id": thread_id
+            "thread_id": thread_id
             },
-            "callbacks": [ConsoleCallbackHandler()]
+            "callbacks": callbacks
         }
 
         # Run workflow
