@@ -6,7 +6,7 @@ Mejora el prompt que sera enviado a un LLM:
 ```
 
 ```
-Explain how to choose the following paramters.
+Explain how to choose the following parameters.
 ```
 
 ```
